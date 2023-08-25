@@ -1,14 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="lk.ijse.gdse66.hostel.controller.ManageKeymoneyFormController"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane fx:id="root" prefHeight="600.0" prefWidth="1033.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse66.hostel.controller.ManageKeymoneyFormController">
+    <children>
+        <Label focusTraversable="false" layoutX="452.0" layoutY="32.0" text="Find Key-Money">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </Label>
+        <JFXButton focusTraversable="false" layoutX="18.0" layoutY="15.0" onAction="#backOnAction" text="Back" />
+        <JFXTextField fx:id="txtSearch" focusTraversable="false" layoutX="849.0" layoutY="80.0" onAction="#searchOnAction" promptText="REG-001" />
+        <TableView focusTraversable="false" layoutX="12.0" layoutY="132.0" prefHeight="454.0" prefWidth="1010.0">
+            <columns>
+                <TableColumn editable="false" minWidth="144.0" prefWidth="75.0" resizable="false" text="Reserve ID" />
+                <TableColumn editable="false" minWidth="144.0" prefWidth="75.0" resizable="false" text="Student ID" />
+                <TableColumn editable="false" minWidth="144.0" prefWidth="75.0" resizable="false" text="Room ID" />
+                <TableColumn editable="false" minWidth="144.0" prefWidth="75.0" resizable="false" text="Date" />
+                <TableColumn editable="false" minWidth="144.0" prefWidth="75.0" resizable="false" text="Key Money" />
+                <TableColumn editable="false" minWidth="144.0" prefWidth="75.0" resizable="false" text="Advance" />
+                <TableColumn editable="false" minWidth="144.0" prefWidth="145.0" resizable="false" text="Status" />
+            </columns>
+        </TableView>
+    </children>
 </AnchorPane>
