@@ -24,7 +24,7 @@ public class AppInitializer extends Application {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        primaryStage.setTitle("Login");
+        primaryStage.setTitle("User Login");
         primaryStage.setResizable(false);
         //primaryStage.initStyle(StageStyle.UNDECORATED);
         primaryStage.show();

@@ -18,7 +18,8 @@ import java.io.IOException;
  **/
 public class LoginFormController {
 
-    public AnchorPane root;
+    @FXML
+    private AnchorPane root;
     @FXML
     private JFXTextField txtUserName;
     @FXML
@@ -26,10 +27,10 @@ public class LoginFormController {
 
     @FXML
     private void loginOnAction(ActionEvent actionEvent) {
-        if (txtUserName.getText().equals("user") && txtPassword.getText().equals("1234")) {
+        if (txtUserName.getText().equals("") && txtPassword.getText().equals("")) {
             Stage stage = (Stage) this.root.getScene().getWindow();
             try {
-                stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/lk/ijse/gdse66/hostel/view/user_dashboard_form.fxml"))));
+                stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/lk/ijse/gdse66/hostel/view/dashboard_form.fxml"))));
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }

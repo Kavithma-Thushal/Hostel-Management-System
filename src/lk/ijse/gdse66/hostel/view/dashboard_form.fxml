@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="root" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse66.hostel.controller.DashboardFormController">
+    <children>
+        <Label focusTraversable="false" layoutX="247.0" layoutY="56.0" text="User Dashboard" />
+        <JFXButton focusTraversable="false" layoutX="62.0" layoutY="200.0" onAction="#registrationOnAction" text="Manage&#10;Registration" textAlignment="CENTER" />
+        <JFXButton focusTraversable="false" layoutX="263.0" layoutY="200.0" onAction="#roomsOnAction" text="Manage&#10;Rooms" textAlignment="CENTER" />
+        <JFXButton focusTraversable="false" layoutX="419.0" layoutY="200.0" onAction="#keyMoneyOnAction" text="Find&#10;Key-Money" textAlignment="CENTER" />
+        <JFXButton focusTraversable="false" layoutX="442.0" layoutY="103.0" onAction="#userOnAction" text="Manage User" textAlignment="CENTER" />
+    </children>
+</AnchorPane>
