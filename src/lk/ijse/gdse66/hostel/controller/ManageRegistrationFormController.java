@@ -58,7 +58,13 @@ public class ManageRegistrationFormController {
 
     @FXML
     private void addNewStudentOnAction(ActionEvent actionEvent) {
-
+        Stage stage = (Stage) this.root.getScene().getWindow();
+        try {
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/lk/ijse/gdse66/hostel/view/manage_students_form.fxml"))));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        stage.setTitle("Manage Students");
     }
 
     @FXML

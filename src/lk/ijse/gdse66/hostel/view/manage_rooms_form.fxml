@@ -8,28 +8,36 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="root" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse66.hostel.controller.ManageRoomsFormController">
+<AnchorPane fx:id="root" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="lk.ijse.gdse66.hostel.controller.ManageRoomsFormController">
     <children>
         <Label focusTraversable="false" layoutX="79.0" layoutY="57.0" text="Manage Rooms">
             <font>
-                <Font size="18.0" />
+                <Font size="18.0"/>
             </font>
         </Label>
-        <JFXTextField fx:id="txtRoomId" focusTraversable="false" layoutX="79.0" layoutY="120.0" promptText="Room ID" />
-        <JFXTextField fx:id="txtRoomType" focusTraversable="false" layoutX="352.0" layoutY="120.0" promptText="Room Type" />
-        <JFXTextField fx:id="txtKeyMoney" focusTraversable="false" layoutX="79.0" layoutY="206.0" promptText="Key Money" />
-        <JFXTextField fx:id="txtQty" focusTraversable="false" layoutX="352.0" layoutY="206.0" promptText="Quantity" />
-        <JFXButton fx:id="btnAddNew" focusTraversable="false" layoutX="79.0" layoutY="289.0" onAction="#addNewOnAction" text="+ Add New" />
-        <JFXButton fx:id="btnSave" focusTraversable="false" layoutX="275.0" layoutY="289.0" onAction="#saveOnAction" text="Save" />
-        <JFXButton fx:id="btnDelete" focusTraversable="false" layoutX="458.0" layoutY="289.0" onAction="#deleteOnAction" text="Delete" />
-        <JFXButton focusTraversable="false" layoutX="18.0" layoutY="15.0" onAction="#backOnAction" text="Back" />
-        <JFXTextField fx:id="txtSearch" focusTraversable="false" layoutX="352.0" layoutY="39.0" onAction="#searchOnAction" text="RM-001" />
+        <JFXTextField fx:id="txtRoomId" focusTraversable="false" layoutX="79.0" layoutY="120.0" promptText="Room ID"/>
+        <JFXTextField fx:id="txtRoomType" focusTraversable="false" layoutX="352.0" layoutY="120.0"
+                      promptText="Room Type"/>
+        <JFXTextField fx:id="txtKeyMoney" focusTraversable="false" layoutX="79.0" layoutY="206.0"
+                      promptText="Key Money"/>
+        <JFXTextField fx:id="txtQty" focusTraversable="false" layoutX="352.0" layoutY="206.0" promptText="Quantity"/>
+        <JFXButton fx:id="btnAddNew" focusTraversable="false" layoutX="79.0" layoutY="289.0" onAction="#addNewOnAction"
+                   text="+ Add New"/>
+        <JFXButton fx:id="btnSave" focusTraversable="false" layoutX="275.0" layoutY="289.0" onAction="#saveOnAction"
+                   text="Save"/>
+        <JFXButton fx:id="btnDelete" focusTraversable="false" layoutX="458.0" layoutY="289.0" onAction="#deleteOnAction"
+                   text="Delete"/>
+        <JFXButton focusTraversable="false" layoutX="18.0" layoutY="15.0" onAction="#backOnAction" text="Back"/>
+        <JFXTextField fx:id="txtSearch" focusTraversable="false" layoutX="352.0" layoutY="39.0"
+                      onAction="#searchOnAction" promptText="RM-001"/>
         <TableView focusTraversable="false" layoutX="12.0" layoutY="339.0" prefHeight="247.0" prefWidth="576.0">
             <columns>
-                <TableColumn editable="false" minWidth="144.0" prefWidth="75.0" resizable="false" text="Room ID" />
-                <TableColumn editable="false" minWidth="144.0" prefWidth="75.0" resizable="false" text="Room Type" />
-                <TableColumn editable="false" minWidth="144.0" prefWidth="75.0" resizable="false" text="Key Money" />
-                <TableColumn editable="false" prefWidth="143.0" resizable="false" text="Quantity" />
+                <TableColumn editable="false" minWidth="144.0" prefWidth="75.0" resizable="false" text="Room ID"/>
+                <TableColumn editable="false" minWidth="144.0" prefWidth="75.0" resizable="false" text="Room Type"/>
+                <TableColumn editable="false" minWidth="144.0" prefWidth="75.0" resizable="false" text="Key Money"/>
+                <TableColumn editable="false" minWidth="140.0" prefWidth="143.0" resizable="false" text="Quantity"/>
             </columns>
         </TableView>
     </children>
