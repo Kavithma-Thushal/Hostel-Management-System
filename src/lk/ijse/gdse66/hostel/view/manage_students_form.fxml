@@ -9,33 +9,33 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="root" prefHeight="696.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse66.hostel.controller.ManageStudentsFormController">
+<AnchorPane fx:id="root" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse66.hostel.controller.ManageStudentsFormController">
     <children>
-        <Label focusTraversable="false" layoutX="79.0" layoutY="57.0" text="Manage Students">
+        <Label focusTraversable="false" layoutX="393.0" layoutY="44.0" text="Manage Students">
             <font>
-                <Font size="18.0" />
+                <Font size="25.0" />
             </font>
         </Label>
-        <JFXTextField fx:id="txtStudentId" focusTraversable="false" layoutX="79.0" layoutY="120.0" promptText="Student ID" />
-        <JFXTextField fx:id="txtStudentName" focusTraversable="false" layoutX="352.0" layoutY="120.0" promptText="Student Name" />
-        <JFXTextField fx:id="txtContact" focusTraversable="false" layoutX="79.0" layoutY="206.0" promptText="Contact" />
-        <JFXTextField fx:id="txtAddress" focusTraversable="false" layoutX="352.0" layoutY="206.0" promptText="Address" />
-        <JFXButton fx:id="btnAddNew" focusTraversable="false" layoutX="69.0" layoutY="358.0" onAction="#addNewOnAction" text="+ Add New" />
-        <JFXButton fx:id="btnSave" focusTraversable="false" layoutX="275.0" layoutY="358.0" onAction="#saveOnAction" text="Save" />
-        <JFXButton fx:id="btnDelete" focusTraversable="false" layoutX="458.0" layoutY="358.0" onAction="#deleteOnAction" text="Delete" />
-        <JFXButton focusTraversable="false" layoutX="18.0" layoutY="15.0" onAction="#backOnAction" text="Back" />
-        <JFXTextField fx:id="txtSearch" focusTraversable="false" layoutX="352.0" layoutY="39.0" onAction="#searchOnAction" promptText="ST-001" />
-        <TableView focusTraversable="false" layoutX="12.0" layoutY="411.0" prefHeight="271.0" prefWidth="576.0">
+        <JFXTextField fx:id="txtStudentId" focusTraversable="false" layoutX="58.0" layoutY="136.0" promptText="Student ID" />
+        <JFXTextField fx:id="txtStudentName" focusTraversable="false" layoutX="321.0" layoutY="136.0" promptText="Student Name" />
+        <JFXTextField fx:id="txtContact" focusTraversable="false" layoutX="598.0" layoutY="136.0" promptText="Contact" />
+        <JFXTextField fx:id="txtAddress" focusTraversable="false" layoutX="58.0" layoutY="216.0" promptText="Address" />
+        <JFXButton fx:id="btnAddNew" buttonType="RAISED" focusTraversable="false" layoutX="830.0" layoutY="121.0" onAction="#addNewOnAction" prefWidth="100.0" style="-fx-background-color: lightblue;" text="+ Add New" />
+        <JFXButton fx:id="btnSave" buttonType="RAISED" focusTraversable="false" layoutX="830.0" layoutY="194.0" onAction="#saveOnAction" prefWidth="100.0" style="-fx-background-color: lightblue;" text="Save" />
+        <JFXButton fx:id="btnDelete" buttonType="RAISED" focusTraversable="false" layoutX="830.0" layoutY="262.0" onAction="#deleteOnAction" prefWidth="100.0" style="-fx-background-color: lightblue;" text="Delete" />
+        <JFXButton buttonType="RAISED" focusTraversable="false" layoutX="18.0" layoutY="15.0" onAction="#backOnAction" prefWidth="80.0" style="-fx-background-color: lightblue;" text="Back" />
+        <JFXTextField fx:id="txtSearch" focusTraversable="false" layoutX="778.0" layoutY="47.0" onAction="#searchOnAction" promptText="ST-001" />
+        <TableView focusTraversable="false" layoutX="12.0" layoutY="321.0" prefHeight="266.0" prefWidth="975.0">
             <columns>
-                <TableColumn editable="false" minWidth="96.0" prefWidth="75.0" resizable="false" text="Student ID" />
-                <TableColumn editable="false" minWidth="96.0" prefWidth="75.0" resizable="false" text="Student Name" />
-                <TableColumn editable="false" minWidth="96.0" prefWidth="75.0" resizable="false" text="Contact" />
-                <TableColumn editable="false" minWidth="96.0" prefWidth="75.0" resizable="false" text="Address" />
-                <TableColumn editable="false" minWidth="96.0" prefWidth="75.0" resizable="false" text="DOB" />
-                <TableColumn editable="false" minWidth="83.0" prefWidth="95.0" resizable="false" text="Gender" />
+                <TableColumn editable="false" minWidth="162.0" prefWidth="75.0" resizable="false" text="Student ID" />
+                <TableColumn editable="false" minWidth="162.0" prefWidth="75.0" resizable="false" text="Student Name" />
+                <TableColumn editable="false" minWidth="162.0" prefWidth="75.0" resizable="false" text="Contact" />
+                <TableColumn editable="false" minWidth="162.0" prefWidth="75.0" resizable="false" text="Address" />
+                <TableColumn editable="false" minWidth="162.0" prefWidth="75.0" resizable="false" text="DOB" />
+                <TableColumn editable="false" minWidth="83.0" prefWidth="164.0" resizable="false" text="Gender" />
             </columns>
         </TableView>
-        <JFXTextField fx:id="txtDOB" focusTraversable="false" layoutX="81.0" layoutY="289.0" promptText="Date of Birth" />
-        <JFXComboBox fx:id="cmbGender" focusTraversable="false" layoutX="352.0" layoutY="289.0" prefHeight="31.0" prefWidth="169.0" promptText="Gender" />
+        <JFXTextField fx:id="txtDOB" focusTraversable="false" layoutX="321.0" layoutY="216.0" promptText="Date of Birth" />
+        <JFXComboBox fx:id="cmbGender" focusTraversable="false" layoutX="598.0" layoutY="216.0" prefHeight="31.0" prefWidth="169.0" promptText="Gender" />
     </children>
 </AnchorPane>

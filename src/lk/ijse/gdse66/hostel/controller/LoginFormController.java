@@ -35,4 +35,9 @@ public class LoginFormController {
         }
         stage.setTitle("Dashboard");
     }
+
+    @FXML
+    private void cancelOnAction(ActionEvent actionEvent) {
+
+    }
 }
