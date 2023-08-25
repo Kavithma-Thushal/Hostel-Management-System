@@ -10,7 +10,7 @@
 
 <AnchorPane fx:id="root" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse66.hostel.controller.ManageKeymoneyFormController">
     <children>
-        <Label focusTraversable="false" layoutX="410.0" layoutY="28.0" text="Find Key-Money">
+        <Label focusTraversable="false" layoutX="412.0" layoutY="28.0" text="Find Key Money">
             <font>
                 <Font size="25.0" />
             </font>

@@ -14,7 +14,7 @@
         </Label>
         <JFXButton buttonType="RAISED" focusTraversable="false" layoutX="88.0" layoutY="199.0" onAction="#registrationOnAction" prefHeight="31.0" prefWidth="160.0" style="-fx-background-color: lightblue;" text="Manage Registration" textAlignment="CENTER" />
         <JFXButton buttonType="RAISED" focusTraversable="false" layoutX="88.0" layoutY="300.0" onAction="#roomsOnAction" prefHeight="31.0" prefWidth="160.0" style="-fx-background-color: lightblue;" text="Manage Rooms" textAlignment="CENTER" />
-        <JFXButton buttonType="RAISED" focusTraversable="false" layoutX="88.0" layoutY="404.0" onAction="#keyMoneyOnAction" prefHeight="31.0" prefWidth="160.0" style="-fx-background-color: lightblue;" text="Find Key-Money" textAlignment="CENTER" />
+        <JFXButton buttonType="RAISED" focusTraversable="false" layoutX="88.0" layoutY="404.0" onAction="#keyMoneyOnAction" prefHeight="31.0" prefWidth="160.0" style="-fx-background-color: lightblue;" text="Find Key Money" textAlignment="CENTER" />
         <JFXButton buttonType="RAISED" focusTraversable="false" layoutX="88.0" layoutY="502.0" onAction="#userOnAction" prefHeight="31.0" prefWidth="160.0" style="-fx-background-color: lightblue;" text="Manage User" textAlignment="CENTER" />
     </children>
 </AnchorPane>
