@@ -4,15 +4,15 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
+import javax.persistence.Cacheable;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
 /**
  * @author : Kavithma Thushal
  * @project : Hostel-Management-System
- * @since : 8:29 PM - 8/25/2023
+ * @since : 9:29 PM - 8/25/2023
  **/
 @Data
 @NoArgsConstructor
@@ -20,15 +20,14 @@ import java.util.List;
 
 @Cacheable
 @Entity
-public class Student {
+public class Login {
     @Id
+    @Column(name = "user_id")
     private String id;
+    @Column(name = "user_name")
     private String name;
     private String contact;
     private String address;
-    private LocalDate dob;
+    private String password;
     private String gender;
-
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "id")
-    private List<Reservation> studentList = new ArrayList<>();
 }

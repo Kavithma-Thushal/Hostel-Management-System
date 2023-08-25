@@ -5,14 +5,13 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * @author : Kavithma Thushal
  * @project : Hostel-Management-System
- * @since : 8:29 PM - 8/25/2023
+ * @since : 9:07 PM - 8/25/2023
  **/
 @Data
 @NoArgsConstructor
@@ -20,15 +19,15 @@ import java.util.List;
 
 @Cacheable
 @Entity
-public class Student {
+public class Room {
     @Id
     private String id;
-    private String name;
-    private String contact;
-    private String address;
-    private LocalDate dob;
-    private String gender;
+    private String type;
+    @Column(name = "key_money")
+    private double keyMoney;
+    @Column(name = "quantity")
+    private int qty;
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "id")
-    private List<Reservation> studentList = new ArrayList<>();
+    private List<Reservation> roomList = new ArrayList<>();
 }
