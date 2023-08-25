@@ -20,46 +20,30 @@ public class DashboardFormController {
     private AnchorPane root;
 
     @FXML
-    private void registrationOnAction(ActionEvent actionEvent) {
+    private void registrationOnAction(ActionEvent actionEvent) throws IOException {
         Stage stage = (Stage) this.root.getScene().getWindow();
-        try {
-            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/lk/ijse/gdse66/hostel/view/manage_registration_form.fxml"))));
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/lk/ijse/gdse66/hostel/view/manage_registration_form.fxml"))));
         stage.setTitle("Manage Registration");
     }
 
     @FXML
-    private void roomsOnAction(ActionEvent actionEvent) {
+    private void roomsOnAction(ActionEvent actionEvent) throws IOException {
         Stage stage = (Stage) this.root.getScene().getWindow();
-        try {
-            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/lk/ijse/gdse66/hostel/view/manage_rooms_form.fxml"))));
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/lk/ijse/gdse66/hostel/view/manage_rooms_form.fxml"))));
         stage.setTitle("Manage Rooms");
     }
 
     @FXML
-    private void keyMoneyOnAction(ActionEvent actionEvent) {
+    private void keyMoneyOnAction(ActionEvent actionEvent) throws IOException {
         Stage stage = (Stage) this.root.getScene().getWindow();
-        try {
-            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/lk/ijse/gdse66/hostel/view/manage_keymoney_form.fxml"))));
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/lk/ijse/gdse66/hostel/view/manage_keymoney_form.fxml"))));
         stage.setTitle("Find Key-Money");
     }
 
     @FXML
-    private void userOnAction(ActionEvent actionEvent) {
+    private void userOnAction(ActionEvent actionEvent) throws IOException {
         Stage stage = (Stage) this.root.getScene().getWindow();
-        try {
-            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/lk/ijse/gdse66/hostel/view/manage_user_form.fxml"))));
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/lk/ijse/gdse66/hostel/view/manage_user_form.fxml"))));
         stage.setTitle("Manage User");
     }
 }

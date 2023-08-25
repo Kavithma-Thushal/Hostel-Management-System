@@ -57,24 +57,16 @@ public class ManageRegistrationFormController {
     }
 
     @FXML
-    private void addNewStudentOnAction(ActionEvent actionEvent) {
+    private void addNewStudentOnAction(ActionEvent actionEvent) throws IOException {
         Stage stage = (Stage) this.root.getScene().getWindow();
-        try {
-            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/lk/ijse/gdse66/hostel/view/manage_students_form.fxml"))));
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/lk/ijse/gdse66/hostel/view/manage_students_form.fxml"))));
         stage.setTitle("Manage Students");
     }
 
     @FXML
-    private void backOnAction(ActionEvent actionEvent) {
+    private void backOnAction(ActionEvent actionEvent) throws IOException {
         Stage stage = (Stage) this.root.getScene().getWindow();
-        try {
-            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/lk/ijse/gdse66/hostel/view/dashboard_form.fxml"))));
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/lk/ijse/gdse66/hostel/view/dashboard_form.fxml"))));
         stage.setTitle("Dashboard");
     }
 }

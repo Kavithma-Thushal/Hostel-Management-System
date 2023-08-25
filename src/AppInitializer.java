@@ -18,12 +18,8 @@ public class AppInitializer extends Application {
     }
 
     @Override
-    public void start(Stage primaryStage) {
-        try {
-            primaryStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("lk/ijse/gdse66/hostel/view/login_form.fxml"))));
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+    public void start(Stage primaryStage) throws IOException {
+        primaryStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("lk/ijse/gdse66/hostel/view/login_form.fxml"))));
         primaryStage.setTitle("Login");
         primaryStage.setResizable(false);
         //primaryStage.initStyle(StageStyle.UNDECORATED);
