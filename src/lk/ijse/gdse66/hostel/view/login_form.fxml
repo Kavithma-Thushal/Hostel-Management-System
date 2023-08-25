@@ -11,7 +11,7 @@
     <children>
         <JFXTextField fx:id="txtUserName" focusTraversable="false" layoutX="216.0" layoutY="136.0" promptText="User Name" />
         <JFXPasswordField fx:id="txtPassword" focusTraversable="false" layoutX="217.0" layoutY="222.0" promptText="Password" />
-        <Label focusTraversable="false" layoutX="190.0" layoutY="54.0" text="Hostel management System">
+        <Label focusTraversable="false" layoutX="190.0" layoutY="54.0" text="Hostel Management System">
          <font>
             <Font size="18.0" />
          </font></Label>

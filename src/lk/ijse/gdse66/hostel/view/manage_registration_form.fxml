@@ -1,14 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="lk.ijse.gdse66.hostel.controller.ManageRegistrationFormController"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane fx:id="root" prefHeight="728.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="lk.ijse.gdse66.hostel.controller.ManageRegistrationFormController">
+    <children>
+        <Label focusTraversable="false" layoutX="81.0" layoutY="65.0" text="Manage Registration">
+            <font>
+                <Font size="18.0"/>
+            </font>
+        </Label>
+        <JFXTextField fx:id="txtStudentName" focusTraversable="false" layoutX="353.0" layoutY="198.0"
+                      promptText="Student Name"/>
+        <JFXTextField fx:id="txtContact" focusTraversable="false" layoutX="79.0" layoutY="269.0" promptText="Contact"/>
+        <JFXTextField fx:id="txtAddress" focusTraversable="false" layoutX="353.0" layoutY="269.0" promptText="Address"/>
+        <JFXButton fx:id="btnAddNewStudent" focusTraversable="false" layoutX="369.0" layoutY="122.0"
+                   onAction="#addNewStudentOnAction" text="+ Add New Student"/>
+        <JFXButton fx:id="btnReserve" focusTraversable="false" layoutX="445.0" layoutY="645.0"
+                   onAction="#ReserveOnAction" text="Reserve"/>
+        <JFXButton focusTraversable="false" layoutX="18.0" layoutY="15.0" onAction="#backOnAction" text="Back"/>
+        <JFXTextField fx:id="txtDOB" focusTraversable="false" layoutX="79.0" layoutY="355.0"
+                      promptText="Date of Birth"/>
+        <JFXTextField fx:id="txtGender" focusTraversable="false" layoutX="353.0" layoutY="349.0" promptText="Gender"/>
+        <JFXComboBox fx:id="cmbStudentId" focusTraversable="false" layoutX="79.0" layoutY="198.0" prefHeight="31.0"
+                     prefWidth="169.0" promptText="Student ID"/>
+        <JFXComboBox fx:id="cmbRoomId" focusTraversable="false" layoutX="79.0" layoutY="468.0" prefHeight="31.0"
+                     prefWidth="169.0" promptText="Room ID"/>
+        <Separator focusTraversable="false" layoutX="79.0" layoutY="424.0" prefHeight="0.0" prefWidth="443.0"/>
+        <JFXTextField fx:id="txtRoomType" focusTraversable="false" layoutX="353.0" layoutY="468.0" prefHeight="31.0"
+                      prefWidth="169.0" promptText="Room Type"/>
+        <JFXTextField fx:id="txtKeyMoney" focusTraversable="false" layoutX="79.0" layoutY="559.0"
+                      promptText="Key Money"/>
+        <JFXTextField fx:id="txtQty" focusTraversable="false" layoutX="353.0" layoutY="559.0" promptText="Quantity"/>
+        <JFXTextField fx:id="txtAdvance" focusTraversable="false" layoutX="79.0" layoutY="645.0" promptText="Advance"/>
+        <Label fx:id="lblResId" focusTraversable="false" layoutX="445.0" layoutY="46.0" prefHeight="21.0"
+               prefWidth="72.0" text="RES-001"/>
+    </children>
 </AnchorPane>

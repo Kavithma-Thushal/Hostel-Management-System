@@ -27,14 +27,12 @@ public class LoginFormController {
 
     @FXML
     private void loginOnAction(ActionEvent actionEvent) {
-        if (txtUserName.getText().equals("") && txtPassword.getText().equals("")) {
-            Stage stage = (Stage) this.root.getScene().getWindow();
-            try {
-                stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/lk/ijse/gdse66/hostel/view/dashboard_form.fxml"))));
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-            stage.setTitle("Dashboard");
+        Stage stage = (Stage) this.root.getScene().getWindow();
+        try {
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/lk/ijse/gdse66/hostel/view/dashboard_form.fxml"))));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
+        stage.setTitle("Dashboard");
     }
 }
