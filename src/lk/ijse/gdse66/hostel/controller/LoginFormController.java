@@ -34,9 +34,7 @@ public class LoginFormController {
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
-            stage.setTitle("User Dashboard");
-            stage.setResizable(false);
-            stage.show();
+            stage.setTitle("Dashboard");
         }
     }
 }

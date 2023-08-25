@@ -28,8 +28,6 @@ public class DashboardFormController {
             throw new RuntimeException(e);
         }
         stage.setTitle("Manage Registration");
-        stage.setResizable(false);
-        stage.show();
     }
 
     @FXML
@@ -41,8 +39,6 @@ public class DashboardFormController {
             throw new RuntimeException(e);
         }
         stage.setTitle("Manage Rooms");
-        stage.setResizable(false);
-        stage.show();
     }
 
     @FXML
@@ -54,8 +50,6 @@ public class DashboardFormController {
             throw new RuntimeException(e);
         }
         stage.setTitle("Find Key-Money");
-        stage.setResizable(false);
-        stage.show();
     }
 
     @FXML
@@ -67,7 +61,5 @@ public class DashboardFormController {
             throw new RuntimeException(e);
         }
         stage.setTitle("Manage User");
-        stage.setResizable(false);
-        stage.show();
     }
 }
