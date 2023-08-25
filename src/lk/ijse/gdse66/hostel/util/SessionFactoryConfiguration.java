@@ -1,5 +1,6 @@
 package lk.ijse.gdse66.hostel.util;
 
+import lk.ijse.gdse66.hostel.entity.Student;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -15,7 +16,7 @@ public class SessionFactoryConfiguration {
 
     private SessionFactoryConfiguration() {
         sessionFactory = new Configuration()
-                .addAnnotatedClass(Customer.class)
+                .addAnnotatedClass(Student.class)
                 .configure("lk/ijse/gdse66/hostel/util/hibernate.properties")
                 .buildSessionFactory();
     }
