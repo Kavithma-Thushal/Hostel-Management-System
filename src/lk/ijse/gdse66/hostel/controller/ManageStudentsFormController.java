@@ -1,6 +1,7 @@
 package lk.ijse.gdse66.hostel.controller;
 
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -33,7 +34,7 @@ public class ManageStudentsFormController {
     @FXML
     private JFXTextField txtDOB;
     @FXML
-    private JFXTextField txtGender;
+    private JFXComboBox cmbGender;
     @FXML
     private JFXButton btnAddNew;
     @FXML

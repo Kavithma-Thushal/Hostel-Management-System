@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
@@ -44,6 +45,7 @@
         </TableView>
         <JFXTextField fx:id="txtDOB" focusTraversable="false" layoutX="81.0" layoutY="289.0"
                       promptText="Date of Birth"/>
-        <JFXTextField fx:id="txtGender" focusTraversable="false" layoutX="352.0" layoutY="289.0" promptText="Gender"/>
+        <JFXComboBox fx:id="cmbGender" layoutX="352.0" layoutY="289.0" prefHeight="31.0" prefWidth="169.0"
+                     promptText="Gender"/>
     </children>
 </AnchorPane>
