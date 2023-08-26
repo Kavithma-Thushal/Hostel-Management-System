@@ -8,6 +8,9 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
+import java.io.IOException;
+import java.util.Properties;
+
 /**
  * @author : Kavithma Thushal
  * @project : Hostel-Management-System
@@ -17,18 +20,31 @@ public class SessionFactoryConfiguration {
     private static SessionFactoryConfiguration sessionFactoryConfiguration;
     private final SessionFactory sessionFactory;
 
-    private SessionFactoryConfiguration() {
-        sessionFactory = new Configuration()
+    private SessionFactoryConfiguration() throws IOException {
+        /*sessionFactory = new Configuration()
                 .addAnnotatedClass(Student.class)
-                .addAnnotatedClass(Room.class)
+                *//*.addAnnotatedClass(Room.class)
                 .addAnnotatedClass(Reservation.class)
-                .addAnnotatedClass(Login.class)
-                .configure("lk/ijse/gdse66/hostel/util/hibernate.properties")
-                .buildSessionFactory();
+                .addAnnotatedClass(Login.class)*//*
+                .configure("lk/ijse/gdse66/hostel/util/hibernate.cfg.xml")
+                .buildSessionFactory();*/
+
+        Configuration configuration = new Configuration();
+        configuration.addAnnotatedClass(Student.class);
+
+        Properties properties = new Properties();
+        properties.load(ClassLoader.getSystemResourceAsStream("lk/ijse/gdse66/hostel/util/hibernate.properties"));
+        configuration.mergeProperties(properties);
+
+        sessionFactory = configuration.buildSessionFactory();
     }
 
     public static SessionFactoryConfiguration getInstance() {
-        return (sessionFactoryConfiguration == null) ? sessionFactoryConfiguration = new SessionFactoryConfiguration() : sessionFactoryConfiguration;
+        try {
+            return (sessionFactoryConfiguration == null) ? sessionFactoryConfiguration = new SessionFactoryConfiguration() : sessionFactoryConfiguration;
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public Session getSession() {
