@@ -34,6 +34,7 @@ public class LoginFormController {
 
     @FXML
     private void cancelOnAction(ActionEvent actionEvent) {
-
+        txtUserName.clear();
+        txtPassword.clear();
     }
 }

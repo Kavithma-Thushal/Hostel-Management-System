@@ -1,30 +1,19 @@
-package lk.ijse.gdse66.hostel.entity;
+package lk.ijse.gdse66.hostel.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Cacheable;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-
 /**
  * @author : Kavithma Thushal
  * @project : Hostel-Management-System
- * @since : 9:29 PM - 8/25/2023
+ * @since : 4:18 PM - 8/26/2023
  **/
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-
-@Cacheable
-@Entity
-public class Login {
-    @Id
-    @Column(name = "user_id")
+public class LoginDTO {
     private String id;
-    @Column(name = "user_name")
     private String name;
     private String contact;
     private String address;

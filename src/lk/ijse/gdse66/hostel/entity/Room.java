@@ -13,9 +13,9 @@ import java.util.List;
  * @project : Hostel-Management-System
  * @since : 9:07 PM - 8/25/2023
  **/
-@Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Data
 
 @Cacheable
 @Entity
