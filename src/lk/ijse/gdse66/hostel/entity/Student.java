@@ -29,6 +29,6 @@ public class Student {
     private LocalDate dob;
     private String gender;
 
-    /*@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "id")
-    private List<Reservation> studentList = new ArrayList<>();*/
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "studentId")
+    private List<Reservation> studentList = new ArrayList<>();
 }

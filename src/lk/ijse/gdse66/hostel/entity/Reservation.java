@@ -20,7 +20,7 @@ import java.time.LocalDate;
 @Entity
 public class Reservation {
     @Id
-    @Column(name = "reserve_id")
+    @Column(name = "res_id")
     private String reserveId;
     private LocalDate date;
     @Column(name = "key_money")

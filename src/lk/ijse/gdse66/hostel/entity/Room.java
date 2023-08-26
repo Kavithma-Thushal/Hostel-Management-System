@@ -28,6 +28,6 @@ public class Room {
     @Column(name = "quantity")
     private int qty;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "id")
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "roomId")
     private List<Reservation> roomList = new ArrayList<>();
 }

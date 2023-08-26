@@ -31,6 +31,9 @@ public class SessionFactoryConfiguration {
 
         Configuration configuration = new Configuration();
         configuration.addAnnotatedClass(Student.class);
+        configuration.addAnnotatedClass(Room.class);
+        configuration.addAnnotatedClass(Reservation.class);
+        configuration.addAnnotatedClass(Login.class);
 
         Properties properties = new Properties();
         properties.load(ClassLoader.getSystemResourceAsStream("lk/ijse/gdse66/hostel/util/hibernate.properties"));
