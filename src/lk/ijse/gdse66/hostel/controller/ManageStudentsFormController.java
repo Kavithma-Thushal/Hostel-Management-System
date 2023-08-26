@@ -2,22 +2,29 @@ package lk.ijse.gdse66.hostel.controller;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
+import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import lk.ijse.gdse66.hostel.bo.BOFactory;
+import lk.ijse.gdse66.hostel.bo.custom.StudentBO;
+import lk.ijse.gdse66.hostel.dto.StudentDTO;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 /**
  * @author : Kavithma Thushal
  * @project : Hostel-Management-System
  * @since : 10:00 AM - 8/25/2023
  **/
-public class ManageStudentsFormController {
+public class ManageStudentsFormController implements Initializable {
 
     @FXML
     private AnchorPane root;
@@ -32,7 +39,7 @@ public class ManageStudentsFormController {
     @FXML
     private JFXTextField txtAddress;
     @FXML
-    private JFXTextField txtDOB;
+    private JFXDatePicker dpDOB;
     @FXML
     private JFXComboBox cmbGender;
     @FXML
@@ -41,6 +48,12 @@ public class ManageStudentsFormController {
     private JFXButton btnSave;
     @FXML
     private JFXButton btnDelete;
+    private final StudentBO studentBO = (StudentBO) BOFactory.getBOFactory().getBO(BOFactory.BOTypes.STUDENT);
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        cmbGender.getItems().addAll("Male", "Female", "Other");
+    }
 
     @FXML
     private void addNewOnAction(ActionEvent actionEvent) {
@@ -49,7 +62,14 @@ public class ManageStudentsFormController {
 
     @FXML
     private void saveOnAction(ActionEvent actionEvent) {
+        String id = txtStudentId.getText();
+        String name = txtStudentName.getText();
+        String contact = txtContact.getText();
+        String address = txtAddress.getText();
+        String dob = String.valueOf(dpDOB.getValue());
+        String gender = String.valueOf(cmbGender.getValue());
 
+        studentBO.saveStudent(new StudentDTO(id, name, contact, address, dob, gender));
     }
 
     @FXML

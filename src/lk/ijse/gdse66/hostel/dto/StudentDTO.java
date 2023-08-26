@@ -4,8 +4,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDate;
-
 /**
  * @author : Kavithma Thushal
  * @project : Hostel-Management-System
@@ -19,6 +17,6 @@ public class StudentDTO {
     private String name;
     private String contact;
     private String address;
-    private LocalDate dob;
+    private String dob;
     private String gender;
 }
