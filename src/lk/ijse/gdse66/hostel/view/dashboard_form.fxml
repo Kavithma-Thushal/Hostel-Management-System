@@ -5,18 +5,18 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="767.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse66.hostel.controller.DashboardFormController">
+<AnchorPane prefHeight="741.0" prefWidth="1276.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse66.hostel.controller.DashboardFormController">
     <children>
         <Label focusTraversable="false" layoutX="643.0" layoutY="30.0" text="User Dashboard">
             <font>
                 <Font size="35.0" />
             </font>
         </Label>
-        <JFXButton buttonType="RAISED" focusTraversable="false" layoutX="58.0" layoutY="414.0" onAction="#reservationOnAction" prefHeight="31.0" prefWidth="160.0" style="-fx-background-color: lightblue;" text="Reservation" textAlignment="CENTER" />
-        <JFXButton buttonType="RAISED" focusTraversable="false" layoutX="58.0" layoutY="304.0" onAction="#roomsOnAction" prefHeight="31.0" prefWidth="160.0" style="-fx-background-color: lightblue;" text="Manage Rooms" textAlignment="CENTER" />
-        <JFXButton buttonType="RAISED" focusTraversable="false" layoutX="58.0" layoutY="528.0" onAction="#keyMoneyOnAction" prefHeight="31.0" prefWidth="160.0" style="-fx-background-color: lightblue;" text="Key Money" textAlignment="CENTER" />
-        <JFXButton buttonType="RAISED" focusTraversable="false" layoutX="58.0" layoutY="639.0" onAction="#userOnAction" prefHeight="31.0" prefWidth="160.0" style="-fx-background-color: lightblue;" text="Manage User" textAlignment="CENTER" />
-        <JFXButton buttonType="RAISED" focusTraversable="false" layoutX="58.0" layoutY="200.0" onAction="#studentsOnAction" prefHeight="31.0" prefWidth="160.0" style="-fx-background-color: lightblue;" text="Manage Students" />
+        <JFXButton buttonType="RAISED" focusTraversable="false" layoutX="65.0" layoutY="412.0" onAction="#reservationOnAction" prefHeight="31.0" prefWidth="160.0" style="-fx-background-color: lightblue;" text="Reservation" textAlignment="CENTER" />
+        <JFXButton buttonType="RAISED" focusTraversable="false" layoutX="65.0" layoutY="306.0" onAction="#roomsOnAction" prefHeight="31.0" prefWidth="160.0" style="-fx-background-color: lightblue;" text="Manage Rooms" textAlignment="CENTER" />
+        <JFXButton buttonType="RAISED" focusTraversable="false" layoutX="65.0" layoutY="523.0" onAction="#keyMoneyOnAction" prefHeight="31.0" prefWidth="160.0" style="-fx-background-color: lightblue;" text="Key Money" textAlignment="CENTER" />
+        <JFXButton buttonType="RAISED" focusTraversable="false" layoutX="65.0" layoutY="639.0" onAction="#userOnAction" prefHeight="31.0" prefWidth="160.0" style="-fx-background-color: lightblue;" text="Manage User" textAlignment="CENTER" />
+        <JFXButton buttonType="RAISED" focusTraversable="false" layoutX="65.0" layoutY="198.0" onAction="#studentsOnAction" prefHeight="31.0" prefWidth="160.0" style="-fx-background-color: lightblue;" text="Manage Students" />
         <Label fx:id="lblHeader" layoutX="276.0" layoutY="97.0" prefHeight="36.0" prefWidth="220.0" text="Welcome!">
             <font>
                 <Font size="23.0" />
@@ -32,7 +32,7 @@
                 <Font size="20.0" />
             </font>
         </Label>
-        <AnchorPane fx:id="root" layoutX="276.0" layoutY="143.0" prefHeight="600.0" prefWidth="1000.0" />
+        <AnchorPane fx:id="root" layoutX="276.0" layoutY="143.0" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: lightgrey;" />
         <Label layoutX="58.0" layoutY="41.0" text="Date : ">
             <font>
                 <Font size="20.0" />
