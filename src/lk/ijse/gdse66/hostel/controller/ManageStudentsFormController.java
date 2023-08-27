@@ -91,7 +91,7 @@ public class ManageStudentsFormController implements Initializable {
     @FXML
     private void backOnAction(ActionEvent actionEvent) throws IOException {
         Stage stage = (Stage) this.root.getScene().getWindow();
-        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/lk/ijse/gdse66/hostel/view/manage_registration_form.fxml"))));
+        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/lk/ijse/gdse66/hostel/view/dashboard_form.fxml"))));
         stage.setTitle("Manage Registration");
     }
 }

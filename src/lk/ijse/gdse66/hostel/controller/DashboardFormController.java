@@ -20,6 +20,13 @@ public class DashboardFormController {
     private AnchorPane root;
 
     @FXML
+    private void studentsOnAction(ActionEvent actionEvent) throws IOException {
+        Stage stage = (Stage) this.root.getScene().getWindow();
+        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/lk/ijse/gdse66/hostel/view/manage_students_form.fxml"))));
+        stage.setTitle("Manage Students");
+    }
+
+    @FXML
     private void registrationOnAction(ActionEvent actionEvent) throws IOException {
         Stage stage = (Stage) this.root.getScene().getWindow();
         stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/lk/ijse/gdse66/hostel/view/manage_registration_form.fxml"))));

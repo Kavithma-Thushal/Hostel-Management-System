@@ -47,20 +47,11 @@ public class ManageRegistrationFormController {
     @FXML
     private JFXTextField txtAdvance;
     @FXML
-    private JFXButton btnAddNewStudent;
-    @FXML
     private JFXButton btnReserve;
 
     @FXML
     private void ReserveOnAction(ActionEvent actionEvent) {
 
-    }
-
-    @FXML
-    private void addNewStudentOnAction(ActionEvent actionEvent) throws IOException {
-        Stage stage = (Stage) this.root.getScene().getWindow();
-        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/lk/ijse/gdse66/hostel/view/manage_students_form.fxml"))));
-        stage.setTitle("Manage Students");
     }
 
     @FXML

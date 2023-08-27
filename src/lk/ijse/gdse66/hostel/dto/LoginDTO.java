@@ -15,8 +15,8 @@ import lombok.NoArgsConstructor;
 public class LoginDTO {
     private String id;
     private String name;
-    private String contact;
-    private String address;
-    private String password;
     private String gender;
+    private String address;
+    private String contact;
+    private String password;
 }
