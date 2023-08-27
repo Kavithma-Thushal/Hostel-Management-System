@@ -12,7 +12,7 @@
                 <Font size="25.0" />
             </font>
         </Label>
-        <JFXButton buttonType="RAISED" focusTraversable="false" layoutX="88.0" layoutY="308.0" onAction="#registrationOnAction" prefHeight="31.0" prefWidth="160.0" style="-fx-background-color: lightblue;" text="Reservation" textAlignment="CENTER" />
+        <JFXButton buttonType="RAISED" focusTraversable="false" layoutX="88.0" layoutY="308.0" onAction="#reservationOnAction" prefHeight="31.0" prefWidth="160.0" style="-fx-background-color: lightblue;" text="Reservation" textAlignment="CENTER" />
         <JFXButton buttonType="RAISED" focusTraversable="false" layoutX="88.0" layoutY="218.0" onAction="#roomsOnAction" prefHeight="31.0" prefWidth="160.0" style="-fx-background-color: lightblue;" text="Manage Rooms" textAlignment="CENTER" />
         <JFXButton buttonType="RAISED" focusTraversable="false" layoutX="89.0" layoutY="399.0" onAction="#keyMoneyOnAction" prefHeight="31.0" prefWidth="160.0" style="-fx-background-color: lightblue;" text="Key Money" textAlignment="CENTER" />
         <JFXButton buttonType="RAISED" focusTraversable="false" layoutX="88.0" layoutY="492.0" onAction="#userOnAction" prefHeight="31.0" prefWidth="160.0" style="-fx-background-color: lightblue;" text="Manage User" textAlignment="CENTER" />

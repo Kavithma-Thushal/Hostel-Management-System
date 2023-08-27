@@ -18,7 +18,7 @@ import java.io.IOException;
  * @project : Hostel-Management-System
  * @since : 9:34 AM - 8/25/2023
  **/
-public class ManageRegistrationFormController {
+public class ManageReservationFormController {
 
     @FXML
     private AnchorPane root;

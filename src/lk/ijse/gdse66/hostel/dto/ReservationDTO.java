@@ -18,8 +18,8 @@ public class ReservationDTO {
     private String reserveId;
     private String studentId;
     private String roomId;
-    private LocalDate date;
-    private double keyMoney;
-    private double advance;
-    private double status;
+    private String date;
+    private String keyMoney;
+    private String advance;
+    private String status;
 }

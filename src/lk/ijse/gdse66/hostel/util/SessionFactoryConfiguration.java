@@ -1,6 +1,6 @@
 package lk.ijse.gdse66.hostel.util;
 
-import lk.ijse.gdse66.hostel.entity.Login;
+import lk.ijse.gdse66.hostel.entity.User;
 import lk.ijse.gdse66.hostel.entity.Reservation;
 import lk.ijse.gdse66.hostel.entity.Room;
 import lk.ijse.gdse66.hostel.entity.Student;
@@ -33,7 +33,7 @@ public class SessionFactoryConfiguration {
         configuration.addAnnotatedClass(Student.class);
         configuration.addAnnotatedClass(Room.class);
         configuration.addAnnotatedClass(Reservation.class);
-        configuration.addAnnotatedClass(Login.class);
+        configuration.addAnnotatedClass(User.class);
 
         Properties properties = new Properties();
         properties.load(ClassLoader.getSystemResourceAsStream("lk/ijse/gdse66/hostel/util/hibernate.properties"));

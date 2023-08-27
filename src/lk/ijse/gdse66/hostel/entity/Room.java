@@ -30,4 +30,11 @@ public class Room {
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "roomId")
     private List<Reservation> roomList = new ArrayList<>();
+
+    public Room(String id, String type, double keyMoney, int qty) {
+        this.id = id;
+        this.type = type;
+        this.keyMoney = keyMoney;
+        this.qty = qty;
+    }
 }

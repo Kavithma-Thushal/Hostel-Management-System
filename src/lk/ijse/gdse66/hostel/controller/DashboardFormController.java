@@ -27,13 +27,6 @@ public class DashboardFormController {
     }
 
     @FXML
-    private void registrationOnAction(ActionEvent actionEvent) throws IOException {
-        Stage stage = (Stage) this.root.getScene().getWindow();
-        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/lk/ijse/gdse66/hostel/view/manage_registration_form.fxml"))));
-        stage.setTitle("Manage Registration");
-    }
-
-    @FXML
     private void roomsOnAction(ActionEvent actionEvent) throws IOException {
         Stage stage = (Stage) this.root.getScene().getWindow();
         stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/lk/ijse/gdse66/hostel/view/manage_rooms_form.fxml"))));
@@ -41,10 +34,17 @@ public class DashboardFormController {
     }
 
     @FXML
+    private void reservationOnAction(ActionEvent actionEvent) throws IOException {
+        Stage stage = (Stage) this.root.getScene().getWindow();
+        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/lk/ijse/gdse66/hostel/view/manage_reservation_form.fxml"))));
+        stage.setTitle("Reservation");
+    }
+
+    @FXML
     private void keyMoneyOnAction(ActionEvent actionEvent) throws IOException {
         Stage stage = (Stage) this.root.getScene().getWindow();
         stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/lk/ijse/gdse66/hostel/view/manage_keymoney_form.fxml"))));
-        stage.setTitle("Find Key-Money");
+        stage.setTitle("Key Money");
     }
 
     @FXML

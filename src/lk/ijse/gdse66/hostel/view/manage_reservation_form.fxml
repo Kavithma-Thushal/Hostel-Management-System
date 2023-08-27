@@ -8,9 +8,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="root" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse66.hostel.controller.ManageRegistrationFormController">
+<AnchorPane fx:id="root" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse66.hostel.controller.ManageReservationFormController">
     <children>
-        <Label focusTraversable="false" layoutX="396.0" layoutY="56.0" text="Manage Registration">
+        <Label focusTraversable="false" layoutX="436.0" layoutY="57.0" text="Reservation">
             <font>
                 <Font size="25.0" />
             </font>

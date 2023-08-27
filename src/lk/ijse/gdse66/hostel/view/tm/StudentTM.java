@@ -20,5 +20,5 @@ public class StudentTM {
     private String gender;
     private String address;
     private String contact;
-    private LocalDate dob;
+    private String dob;
 }

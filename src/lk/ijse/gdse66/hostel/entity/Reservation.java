@@ -22,7 +22,7 @@ public class Reservation {
     @Id
     @Column(name = "res_id")
     private String reserveId;
-    private LocalDate date;
+    private String date;
     @Column(name = "key_money")
     private double keyMoney;
     private double advance;

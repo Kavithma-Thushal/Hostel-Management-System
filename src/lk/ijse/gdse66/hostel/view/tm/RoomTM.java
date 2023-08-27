@@ -15,6 +15,6 @@ import lombok.NoArgsConstructor;
 public class RoomTM {
     private String id;
     private String type;
-    private double keyMoney;
-    private int qty;
+    private String keyMoney;
+    private String qty;
 }

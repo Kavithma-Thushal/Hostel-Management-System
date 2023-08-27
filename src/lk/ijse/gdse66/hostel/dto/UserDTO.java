@@ -1,4 +1,4 @@
-package lk.ijse.gdse66.hostel.view.tm;
+package lk.ijse.gdse66.hostel.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class LoginTM {
+public class UserDTO {
     private String id;
     private String name;
     private String gender;
