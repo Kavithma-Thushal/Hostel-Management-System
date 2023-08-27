@@ -14,11 +14,11 @@
         <JFXTextField fx:id="txtStudentName" focusTraversable="false" layoutX="243.0" layoutY="41.0" promptText="Student Name" />
         <JFXTextField fx:id="txtContact" focusTraversable="false" layoutX="243.0" layoutY="120.0" promptText="Contact" />
         <JFXTextField fx:id="txtAddress" focusTraversable="false" layoutX="33.0" layoutY="120.0" promptText="Address" />
-        <JFXButton fx:id="btnAddNew" buttonType="RAISED" focusTraversable="false" layoutX="833.0" layoutY="41.0" onAction="#addNewOnAction" prefHeight="31.0" prefWidth="130.0" style="-fx-background-color: lightblue;" text="+ Add New" />
-        <JFXButton fx:id="btnSave" buttonType="RAISED" focusTraversable="false" layoutX="833.0" layoutY="120.0" onAction="#saveOnAction" prefHeight="31.0" prefWidth="130.0" style="-fx-background-color: lightblue;" text="Save" />
-        <JFXButton fx:id="btnDelete" buttonType="RAISED" focusTraversable="false" layoutX="657.0" layoutY="120.0" onAction="#deleteOnAction" prefHeight="31.0" prefWidth="130.0" style="-fx-background-color: lightblue;" text="Delete" />
-        <JFXTextField fx:id="txtSearch" focusTraversable="false" layoutX="657.0" layoutY="41.0" onAction="#searchOnAction" prefHeight="31.0" prefWidth="130.0" promptText="S001" />
-        <TableView focusTraversable="false" layoutX="12.0" layoutY="187.0" prefHeight="400.0" prefWidth="975.0">
+        <JFXButton fx:id="btnAddNew" buttonType="RAISED" focusTraversable="false" layoutX="660.0" layoutY="41.0" onAction="#addNewOnAction" prefHeight="31.0" prefWidth="130.0" style="-fx-background-color: lightblue;" text="+ Add New" />
+        <JFXButton fx:id="btnSave" buttonType="RAISED" focusTraversable="false" layoutX="660.0" layoutY="120.0" onAction="#saveOnAction" prefHeight="31.0" prefWidth="130.0" style="-fx-background-color: lightblue;" text="Save" />
+        <JFXButton fx:id="btnDelete" buttonType="RAISED" focusTraversable="false" layoutX="833.0" layoutY="120.0" onAction="#deleteOnAction" prefHeight="31.0" prefWidth="130.0" style="-fx-background-color: lightblue;" text="Delete" />
+        <JFXTextField fx:id="txtSearch" focusTraversable="false" layoutX="833.0" layoutY="41.0" onAction="#searchOnAction" prefHeight="31.0" prefWidth="130.0" promptText="S001" />
+        <TableView fx:id="tblStudent" focusTraversable="false" layoutX="12.0" layoutY="187.0" prefHeight="400.0" prefWidth="975.0">
             <columns>
                 <TableColumn editable="false" minWidth="162.0" prefWidth="75.0" resizable="false" text="Student ID" />
                 <TableColumn editable="false" minWidth="162.0" prefWidth="75.0" resizable="false" text="Student Name" />

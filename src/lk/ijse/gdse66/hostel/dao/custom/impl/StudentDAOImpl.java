@@ -5,6 +5,9 @@ import lk.ijse.gdse66.hostel.entity.Student;
 import lk.ijse.gdse66.hostel.util.SessionFactoryConfiguration;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
+
+import java.util.ArrayList;
 
 /**
  * @author : Kavithma Thushal
@@ -27,7 +30,37 @@ public class StudentDAOImpl implements StudentDAO {
             if (transaction != null) {
                 transaction.rollback();
             }
+            e.printStackTrace();
             return false;
+        } finally {
+            if (session != null) {
+                session.close();
+            }
+        }
+    }
+
+    @Override
+    public ArrayList<Student> getAll() {
+        try {
+            session = SessionFactoryConfiguration.getInstance().getSession();
+            transaction = session.beginTransaction();
+
+            Query query = session.createQuery("FROM Student");      //HQL
+
+            //Query query = session.createQuery("SELECT s FROM Student s");   //JPQL
+
+            //SQLQuery query = session.createSQLQuery("SELECT * FROM Student");     //SQL
+            //query.addEntity(Student.class);
+
+            ArrayList<Student> allStudentsEntity = (ArrayList<Student>) query.list();
+            transaction.commit();
+            return allStudentsEntity;
+        } catch (Exception e) {
+            if (transaction != null) {
+                transaction.rollback();
+            }
+            e.printStackTrace();
+            return null;
         } finally {
             if (session != null) {
                 session.close();

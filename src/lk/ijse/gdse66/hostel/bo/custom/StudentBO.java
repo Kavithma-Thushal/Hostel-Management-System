@@ -3,6 +3,8 @@ package lk.ijse.gdse66.hostel.bo.custom;
 import lk.ijse.gdse66.hostel.bo.SuperBO;
 import lk.ijse.gdse66.hostel.dto.StudentDTO;
 
+import java.util.ArrayList;
+
 /**
  * @author : Kavithma Thushal
  * @project : Hostel-Management-System
@@ -10,4 +12,6 @@ import lk.ijse.gdse66.hostel.dto.StudentDTO;
  **/
 public interface StudentBO extends SuperBO {
     boolean saveStudent(StudentDTO studentDTO);
+
+    ArrayList<StudentDTO> getAllStudents();
 }

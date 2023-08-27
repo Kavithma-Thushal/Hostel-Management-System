@@ -6,6 +6,8 @@ import lk.ijse.gdse66.hostel.dao.custom.StudentDAO;
 import lk.ijse.gdse66.hostel.dto.StudentDTO;
 import lk.ijse.gdse66.hostel.entity.Student;
 
+import java.util.ArrayList;
+
 /**
  * @author : Kavithma Thushal
  * @project : Hostel-Management-System
@@ -17,5 +19,15 @@ public class StudentBOImpl implements StudentBO {
     @Override
     public boolean saveStudent(StudentDTO studentDTO) {
         return studentDAO.save(new Student(studentDTO.getId(), studentDTO.getName(), studentDTO.getGender(), studentDTO.getAddress(), studentDTO.getContact(), studentDTO.getDob()));
+    }
+
+    @Override
+    public ArrayList<StudentDTO> getAllStudents() {
+        ArrayList<Student> allStudentsEntity = studentDAO.getAll();
+        ArrayList<StudentDTO> allStudentsDTO = new ArrayList<>();
+        for (Student student : allStudentsEntity) {
+            allStudentsDTO.add(new StudentDTO(student.getId(), student.getName(), student.getGender(), student.getAddress(), student.getContact(), student.getDob()));
+        }
+        return allStudentsDTO;
     }
 }
