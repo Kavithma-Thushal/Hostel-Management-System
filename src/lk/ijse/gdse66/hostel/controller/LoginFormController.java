@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.gdse66.hostel.util.SessionFactoryConfiguration;
+import org.hibernate.Session;
 
 import java.io.IOException;
 
@@ -32,9 +33,10 @@ public class LoginFormController {
         stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/lk/ijse/gdse66/hostel/view/dashboard_form.fxml"))));
         stage.setTitle("Dashboard");
 
-        new Thread(() ->
-                SessionFactoryConfiguration.getInstance().getSession()
-        ).start();
+        new Thread(() -> {
+            Session session = SessionFactoryConfiguration.getInstance().getSession();
+            session.close();
+        }).start();
     }
 
     @FXML

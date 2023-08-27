@@ -9,6 +9,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.gdse66.hostel.bo.BOFactory;
@@ -64,12 +65,17 @@ public class ManageStudentsFormController implements Initializable {
     private void saveOnAction(ActionEvent actionEvent) {
         String id = txtStudentId.getText();
         String name = txtStudentName.getText();
-        String contact = txtContact.getText();
-        String address = txtAddress.getText();
-        String dob = String.valueOf(dpDOB.getValue());
         String gender = String.valueOf(cmbGender.getValue());
+        String address = txtAddress.getText();
+        String contact = txtContact.getText();
+        String dob = String.valueOf(dpDOB.getValue());
 
-        studentBO.saveStudent(new StudentDTO(id, name, contact, address, dob, gender));
+        boolean isStudentSaved = studentBO.saveStudent(new StudentDTO(id, name,gender,address,contact,dob));
+        if (isStudentSaved) {
+            new Alert(Alert.AlertType.INFORMATION, "Student Saved Successfully!").show();
+        } else {
+            new Alert(Alert.AlertType.ERROR, "Please Try Again!").show();
+        }
     }
 
     @FXML

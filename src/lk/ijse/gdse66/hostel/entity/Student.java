@@ -23,20 +23,20 @@ public class Student {
     @Id
     private String id;
     private String name;
-    private String contact;
-    private String address;
-    private String dob;
     private String gender;
+    private String address;
+    private String contact;
+    private String dob;
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "studentId")
     private List<Reservation> studentList = new ArrayList<>();
 
-    public Student(String id, String name, String contact, String address, String dob, String gender) {
+    public Student(String id, String name, String gender, String address, String contact, String dob) {
         this.id = id;
         this.name = name;
-        this.contact = contact;
-        this.address = address;
-        this.dob = dob;
         this.gender = gender;
+        this.address = address;
+        this.contact = contact;
+        this.dob = dob;
     }
 }

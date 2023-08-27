@@ -12,14 +12,26 @@ import org.hibernate.Transaction;
  * @since : 10:45 PM - 8/26/2023
  **/
 public class StudentDAOImpl implements StudentDAO {
+    private Session session = null;
+    private Transaction transaction = null;
 
     @Override
     public boolean save(Student student) {
-        Session session = SessionFactoryConfiguration.getInstance().getSession();
-        Transaction transaction = session.beginTransaction();
-        session.save(student);
-        transaction.commit();
-        session.close();
-        return true;
+        try {
+            session = SessionFactoryConfiguration.getInstance().getSession();
+            transaction = session.beginTransaction();
+            session.save(student);
+            transaction.commit();
+            return true;
+        } catch (Exception e) {
+            if (transaction != null) {
+                transaction.rollback();
+            }
+            return false;
+        } finally {
+            if (session != null) {
+                session.close();
+            }
+        }
     }
 }

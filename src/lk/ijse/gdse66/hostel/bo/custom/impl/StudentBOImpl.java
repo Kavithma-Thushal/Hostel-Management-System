@@ -16,6 +16,6 @@ public class StudentBOImpl implements StudentBO {
 
     @Override
     public boolean saveStudent(StudentDTO studentDTO) {
-        return studentDAO.save(new Student(studentDTO.getId(),studentDTO.getName(),studentDTO.getContact(),studentDTO.getAddress(),studentDTO.getDob(),studentDTO.getGender()));
+        return studentDAO.save(new Student(studentDTO.getId(), studentDTO.getName(), studentDTO.getGender(), studentDTO.getAddress(), studentDTO.getContact(), studentDTO.getDob()));
     }
 }

@@ -17,8 +17,8 @@ import java.time.LocalDate;
 public class StudentTM {
     private String id;
     private String name;
-    private String contact;
-    private String address;
-    private LocalDate dob;
     private String gender;
+    private String address;
+    private String contact;
+    private LocalDate dob;
 }
