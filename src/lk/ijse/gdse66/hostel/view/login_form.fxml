@@ -7,16 +7,16 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="root" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse66.hostel.controller.LoginFormController">
+<AnchorPane fx:id="root" prefHeight="767.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse66.hostel.controller.LoginFormController">
     <children>
-        <JFXTextField fx:id="txtUserName" focusTraversable="false" layoutX="158.0" layoutY="237.0" prefHeight="31.0" prefWidth="311.0" promptText="User Name" />
-        <JFXPasswordField fx:id="txtPassword" focusTraversable="false" layoutX="158.0" layoutY="317.0" prefHeight="31.0" prefWidth="311.0" promptText="Password" />
-        <Label focusTraversable="false" layoutX="158.0" layoutY="79.0" text="Hostel Management System">
+        <JFXTextField fx:id="txtUserName" focusTraversable="false" layoutX="158.0" layoutY="368.0" prefHeight="31.0" prefWidth="311.0" promptText="User Name" />
+        <JFXPasswordField fx:id="txtPassword" focusTraversable="false" layoutX="158.0" layoutY="472.0" prefHeight="31.0" prefWidth="311.0" promptText="Password" />
+        <Label focusTraversable="false" layoutX="433.0" layoutY="98.0" text="Hostel Management System">
             <font>
-                <Font size="25.0" />
+                <Font size="35.0" />
             </font>
         </Label>
-        <JFXButton buttonType="RAISED" focusTraversable="false" layoutX="158.0" layoutY="427.0" onAction="#loginOnAction" prefHeight="31.0" prefWidth="142.0" style="-fx-background-color: lightblue;" text="Log In" />
-      <JFXButton buttonType="RAISED" focusTraversable="false" layoutX="327.0" layoutY="427.0" onAction="#cancelOnAction" prefHeight="31.0" prefWidth="142.0" style="-fx-background-color: lightblue;" text="Cancel" />
+        <JFXButton buttonType="RAISED" focusTraversable="false" layoutX="158.0" layoutY="598.0" onAction="#loginOnAction" prefHeight="31.0" prefWidth="142.0" style="-fx-background-color: lightblue;" text="Log In" />
+      <JFXButton buttonType="RAISED" focusTraversable="false" layoutX="327.0" layoutY="598.0" onAction="#cancelOnAction" prefHeight="31.0" prefWidth="142.0" style="-fx-background-color: lightblue;" text="Cancel" />
     </children>
 </AnchorPane>
