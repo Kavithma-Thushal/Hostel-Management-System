@@ -6,17 +6,13 @@ import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
 import lk.ijse.gdse66.hostel.bo.BOFactory;
 import lk.ijse.gdse66.hostel.bo.custom.StudentBO;
 import lk.ijse.gdse66.hostel.dto.StudentDTO;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -86,12 +82,5 @@ public class ManageStudentsFormController implements Initializable {
     @FXML
     private void deleteOnAction(ActionEvent actionEvent) {
 
-    }
-
-    @FXML
-    private void backOnAction(ActionEvent actionEvent) throws IOException {
-        Stage stage = (Stage) this.root.getScene().getWindow();
-        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/lk/ijse/gdse66/hostel/view/dashboard_form.fxml"))));
-        stage.setTitle("Manage Registration");
     }
 }
