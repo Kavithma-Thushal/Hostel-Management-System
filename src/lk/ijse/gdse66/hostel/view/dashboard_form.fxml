@@ -17,21 +17,31 @@
         <JFXButton buttonType="RAISED" focusTraversable="false" layoutX="58.0" layoutY="528.0" onAction="#keyMoneyOnAction" prefHeight="31.0" prefWidth="160.0" style="-fx-background-color: lightblue;" text="Key Money" textAlignment="CENTER" />
         <JFXButton buttonType="RAISED" focusTraversable="false" layoutX="58.0" layoutY="639.0" onAction="#userOnAction" prefHeight="31.0" prefWidth="160.0" style="-fx-background-color: lightblue;" text="Manage User" textAlignment="CENTER" />
         <JFXButton buttonType="RAISED" focusTraversable="false" layoutX="58.0" layoutY="200.0" onAction="#studentsOnAction" prefHeight="31.0" prefWidth="160.0" style="-fx-background-color: lightblue;" text="Manage Students" />
-      <Label layoutX="276.0" layoutY="81.0" text="Manage Students">
-         <font>
-            <Font size="25.0" />
-         </font>
-      </Label>
-      <Label layoutX="59.0" layoutY="41.0" text="Date : 2023/08/18">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
-      <Label layoutX="1133.0" layoutY="41.0" text="Time : 08:18 AM">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
-      <AnchorPane fx:id="root" layoutX="276.0" layoutY="143.0" prefHeight="600.0" prefWidth="1000.0" />
+        <Label fx:id="lblHeader" layoutX="276.0" layoutY="97.0" prefHeight="36.0" prefWidth="220.0" text="Welcome!">
+            <font>
+                <Font size="23.0" />
+            </font>
+        </Label>
+        <Label fx:id="lblDate" layoutX="115.0" layoutY="41.0" prefHeight="30.0" prefWidth="116.0" text="2023/08/18">
+            <font>
+                <Font size="20.0" />
+            </font>
+        </Label>
+        <Label fx:id="lblTime" layoutX="1164.0" layoutY="41.0" prefHeight="30.0" prefWidth="102.0" text="08:18 AM">
+            <font>
+                <Font size="20.0" />
+            </font>
+        </Label>
+        <AnchorPane fx:id="root" layoutX="276.0" layoutY="143.0" prefHeight="600.0" prefWidth="1000.0" />
+        <Label layoutX="58.0" layoutY="41.0" text="Date : ">
+            <font>
+                <Font size="20.0" />
+            </font>
+        </Label>
+        <Label layoutX="1105.0" layoutY="41.0" text="Time : ">
+            <font>
+                <Font size="20.0" />
+            </font>
+        </Label>
     </children>
 </AnchorPane>
