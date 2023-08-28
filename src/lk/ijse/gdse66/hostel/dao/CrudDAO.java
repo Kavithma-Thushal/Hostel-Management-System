@@ -1,7 +1,5 @@
 package lk.ijse.gdse66.hostel.dao;
 
-import lk.ijse.gdse66.hostel.entity.Student;
-
 import java.util.ArrayList;
 
 /**
@@ -12,4 +10,5 @@ import java.util.ArrayList;
 public interface CrudDAO<Entity, Type> extends SuperDAO {
     boolean save(Entity entity);
     ArrayList<Entity> getAll();
+    Entity search(Type id);
 }

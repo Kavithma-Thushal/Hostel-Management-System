@@ -3,6 +3,7 @@ package lk.ijse.gdse66.hostel.dao.custom.impl;
 import lk.ijse.gdse66.hostel.dao.custom.StudentDAO;
 import lk.ijse.gdse66.hostel.entity.Student;
 import lk.ijse.gdse66.hostel.util.SessionFactoryConfiguration;
+import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
@@ -43,17 +44,12 @@ public class StudentDAOImpl implements StudentDAO {
     public ArrayList<Student> getAll() {
         try {
             session = SessionFactoryConfiguration.getInstance().getSession();
-            transaction = session.beginTransaction();
 
             Query query = session.createQuery("FROM Student");      //HQL
-
-            //Query query = session.createQuery("SELECT s FROM Student s");   //JPQL
-
-            //SQLQuery query = session.createSQLQuery("SELECT * FROM Student");     //SQL
-            //query.addEntity(Student.class);
+            //Query query = session.createQuery("SELECT s FROM Student s");     //JPQL
+            //SQLQuery query = session.createSQLQuery("SELECT * FROM Student").addEntity(Student.class);      //SQL
 
             ArrayList<Student> allStudentsEntity = (ArrayList<Student>) query.list();
-            transaction.commit();
             return allStudentsEntity;
         } catch (Exception e) {
             if (transaction != null) {
@@ -66,5 +62,11 @@ public class StudentDAOImpl implements StudentDAO {
                 session.close();
             }
         }
+    }
+
+    @Override
+    public Student search(String id) {
+        session = SessionFactoryConfiguration.getInstance().getSession();
+        return null;
     }
 }
