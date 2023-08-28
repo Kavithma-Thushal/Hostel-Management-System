@@ -17,25 +17,25 @@ public class StudentBOImpl implements StudentBO {
     private final StudentDAO studentDAO = (StudentDAO) DAOFactory.getDAOFactory().getDAO(DAOFactory.DAOTypes.STUDENT);
 
     @Override
-    public boolean saveStudent(StudentDTO dto) {
-        return studentDAO.save(new Student(dto.getId(), dto.getName(), dto.getGender(), dto.getAddress(), dto.getContact(), dto.getDob()));
+    public boolean saveStudent(StudentDTO studentDTO) {
+        return studentDAO.save(new Student(studentDTO.getId(), studentDTO.getName(), studentDTO.getGender(), studentDTO.getAddress(), studentDTO.getContact(), studentDTO.getDob()));
     }
 
     @Override
     public ArrayList<StudentDTO> getAllStudents() {
-        ArrayList<Student> allStudentsEntity = studentDAO.getAll();
-        ArrayList<StudentDTO> allStudentsDTO = new ArrayList<>();
-        for (Student student : allStudentsEntity) {
-            allStudentsDTO.add(new StudentDTO(student.getId(), student.getName(), student.getGender(), student.getAddress(), student.getContact(), student.getDob()));
+        ArrayList<Student> studentArrayList = studentDAO.getAll();
+        ArrayList<StudentDTO> studentDTOArrayList = new ArrayList<>();
+        for (Student student : studentArrayList) {
+            studentDTOArrayList.add(new StudentDTO(student.getId(), student.getName(), student.getGender(), student.getAddress(), student.getContact(), student.getDob()));
         }
-        return allStudentsDTO;
+        return studentDTOArrayList;
     }
 
     @Override
     public ArrayList<StudentDTO> searchStudent(String id) {
         Student student = studentDAO.search(id);
-        ArrayList<StudentDTO> studentDTO = new ArrayList<>();
-        studentDTO.add(new StudentDTO(student.getId(), student.getName(), student.getGender(), student.getAddress(), student.getContact(), student.getDob()));
-        return studentDTO;
+        ArrayList<StudentDTO> studentDTOArrayList = new ArrayList<>();
+        studentDTOArrayList.add(new StudentDTO(student.getId(), student.getName(), student.getGender(), student.getAddress(), student.getContact(), student.getDob()));
+        return studentDTOArrayList;
     }
 }

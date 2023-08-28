@@ -74,8 +74,8 @@ public class ManageStudentsFormController implements Initializable {
     }
 
     private void loadAllStudents() {
-        ArrayList<StudentDTO> allStudentsDTO = studentBO.getAllStudents();
-        for (StudentDTO studentDTO : allStudentsDTO) {
+        ArrayList<StudentDTO> studentDTOArrayList = studentBO.getAllStudents();
+        for (StudentDTO studentDTO : studentDTOArrayList) {
             tblStudent.getItems().add(new StudentTM(studentDTO.getId(), studentDTO.getName(), studentDTO.getGender(), studentDTO.getAddress(), studentDTO.getContact(), studentDTO.getDob()));
         }
     }
@@ -107,8 +107,8 @@ public class ManageStudentsFormController implements Initializable {
     private void searchOnAction(ActionEvent actionEvent) {
         tblStudent.getItems().clear();
 
-        ArrayList<StudentDTO> studentDTOS = studentBO.searchStudent(txtSearch.getText());
-        for (StudentDTO studentDTO : studentDTOS) {
+        ArrayList<StudentDTO> studentDTOArrayList = studentBO.searchStudent(txtSearch.getText());
+        for (StudentDTO studentDTO : studentDTOArrayList) {
             tblStudent.getItems().add(new StudentTM(studentDTO.getId(), studentDTO.getName(), studentDTO.getGender(), studentDTO.getAddress(), studentDTO.getContact(), studentDTO.getDob()));
         }
     }

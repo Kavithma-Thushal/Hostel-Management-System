@@ -12,7 +12,7 @@ import java.util.ArrayList;
  **/
 public interface StudentBO extends SuperBO {
 
-    boolean saveStudent(StudentDTO dto);
+    boolean saveStudent(StudentDTO studentDTO);
 
     ArrayList<StudentDTO> getAllStudents();
 

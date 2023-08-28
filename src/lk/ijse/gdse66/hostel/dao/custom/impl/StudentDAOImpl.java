@@ -3,7 +3,6 @@ package lk.ijse.gdse66.hostel.dao.custom.impl;
 import lk.ijse.gdse66.hostel.dao.custom.StudentDAO;
 import lk.ijse.gdse66.hostel.entity.Student;
 import lk.ijse.gdse66.hostel.util.SessionFactoryConfiguration;
-import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
@@ -49,8 +48,8 @@ public class StudentDAOImpl implements StudentDAO {
             //Query query = session.createQuery("SELECT s FROM Student s");     //JPQL
             //SQLQuery query = session.createSQLQuery("SELECT * FROM Student").addEntity(Student.class);      //SQL
 
-            ArrayList<Student> allStudentsEntity = (ArrayList<Student>) query.list();
-            return allStudentsEntity;
+            ArrayList<Student> studentArrayList = (ArrayList<Student>) query.list();
+            return studentArrayList;
         } catch (Exception e) {
             if (transaction != null) {
                 transaction.rollback();
