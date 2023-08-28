@@ -22,12 +22,12 @@
                 <Font size="23.0" />
             </font>
         </Label>
-        <Label fx:id="lblDate" focusTraversable="false" layoutX="115.0" layoutY="41.0" prefHeight="30.0" prefWidth="116.0" text="2023/08/18">
+        <Label fx:id="lblDate" focusTraversable="false" layoutX="115.0" layoutY="41.0" prefHeight="30.0" prefWidth="116.0" text="2012/12/12">
             <font>
                 <Font size="20.0" />
             </font>
         </Label>
-        <Label fx:id="lblTime" focusTraversable="false" layoutX="1164.0" layoutY="41.0" prefHeight="30.0" prefWidth="102.0" text="08:18 AM">
+        <Label fx:id="lblTime" focusTraversable="false" layoutX="1164.0" layoutY="41.0" prefHeight="30.0" prefWidth="102.0" text="12:12 PM">
             <font>
                 <Font size="20.0" />
             </font>

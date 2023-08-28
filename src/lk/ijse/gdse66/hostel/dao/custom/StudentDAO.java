@@ -3,6 +3,8 @@ package lk.ijse.gdse66.hostel.dao.custom;
 import lk.ijse.gdse66.hostel.dao.CrudDAO;
 import lk.ijse.gdse66.hostel.entity.Student;
 
+import java.util.ArrayList;
+
 /**
  * @author : Kavithma Thushal
  * @project : Hostel-Management-System
