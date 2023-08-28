@@ -17,6 +17,7 @@ import lk.ijse.gdse66.hostel.dto.StudentDTO;
 import lk.ijse.gdse66.hostel.view.tm.StudentTM;
 
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
@@ -56,21 +57,37 @@ public class ManageStudentsFormController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         setComboElements();
-        setCellvalue();
+        setCellValue();
         loadAllStudents();
+        setTableElements();
     }
 
     private void setComboElements() {
         cmbGender.getItems().addAll("Male", "Female", "Other");
     }
 
-    private void setCellvalue() {
+    private void setCellValue() {
         tblStudent.getColumns().get(0).setCellValueFactory(new PropertyValueFactory<>("id"));
         tblStudent.getColumns().get(1).setCellValueFactory(new PropertyValueFactory<>("name"));
         tblStudent.getColumns().get(2).setCellValueFactory(new PropertyValueFactory<>("gender"));
         tblStudent.getColumns().get(3).setCellValueFactory(new PropertyValueFactory<>("address"));
         tblStudent.getColumns().get(4).setCellValueFactory(new PropertyValueFactory<>("contact"));
         tblStudent.getColumns().get(5).setCellValueFactory(new PropertyValueFactory<>("dob"));
+    }
+
+    private void setTableElements() {
+        tblStudent.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            btnSave.setText(newValue != null ? "Update" : "Save");
+
+            if (newValue != null) {
+                txtStudentId.setText(newValue.getId());
+                txtStudentName.setText(newValue.getName());
+                cmbGender.setValue(newValue.getGender());
+                txtAddress.setText(newValue.getAddress());
+                txtContact.setText(newValue.getContact());
+                dpDOB.setValue(LocalDate.parse(newValue.getDob()));
+            }
+        });
     }
 
     private void loadAllStudents() {
@@ -94,12 +111,33 @@ public class ManageStudentsFormController implements Initializable {
         String contact = txtContact.getText();
         String dob = String.valueOf(dpDOB.getValue());
 
-        boolean isSaved = studentBO.saveStudent(new StudentDTO(id, name, gender, address, contact, dob));
-        tblStudent.getItems().add(new StudentTM(id, name, gender, address, contact, dob));
-        if (isSaved) {
-            new Alert(Alert.AlertType.INFORMATION, "Student Saved Successfully!").show();
+        if (btnSave.getText().equalsIgnoreCase("save")) {
+            /*Save Student*/
+            boolean isSaved = studentBO.saveStudent(new StudentDTO(id, name, gender, address, contact, dob));
+            tblStudent.getItems().add(new StudentTM(id, name, gender, address, contact, dob));
+            if (isSaved) {
+                new Alert(Alert.AlertType.INFORMATION, "Student Saved Successfully!").show();
+            } else {
+                new Alert(Alert.AlertType.ERROR, "Please Try Again!").show();
+            }
+
         } else {
-            new Alert(Alert.AlertType.ERROR, "Please Try Again!").show();
+            /*Update Student*/
+            boolean isUpdated = studentBO.updateStudent(new StudentDTO(id, name, gender, address, contact, dob));
+            if (isUpdated) {
+                new Alert(Alert.AlertType.INFORMATION, "Student Updated Successfully!").show();
+            } else {
+                new Alert(Alert.AlertType.ERROR, "Please Try Again!").show();
+            }
+
+            StudentTM selectedItem = tblStudent.getSelectionModel().getSelectedItem();
+            selectedItem.setId(id);
+            selectedItem.setName(name);
+            selectedItem.setGender(gender);
+            selectedItem.setAddress(address);
+            selectedItem.setContact(contact);
+            selectedItem.setDob(dob);
+            tblStudent.refresh();
         }
     }
 
