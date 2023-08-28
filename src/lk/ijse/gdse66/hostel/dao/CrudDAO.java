@@ -14,4 +14,6 @@ public interface CrudDAO<Entity, Type> extends SuperDAO {
     boolean save(Entity student);
 
     Entity search(Type id);
+
+    boolean delete(Type id);
 }

@@ -94,9 +94,9 @@ public class ManageStudentsFormController implements Initializable {
         String contact = txtContact.getText();
         String dob = String.valueOf(dpDOB.getValue());
 
-        boolean isStudentSaved = studentBO.saveStudent(new StudentDTO(id, name, gender, address, contact, dob));
+        boolean isSaved = studentBO.saveStudent(new StudentDTO(id, name, gender, address, contact, dob));
         tblStudent.getItems().add(new StudentTM(id, name, gender, address, contact, dob));
-        if (isStudentSaved) {
+        if (isSaved) {
             new Alert(Alert.AlertType.INFORMATION, "Student Saved Successfully!").show();
         } else {
             new Alert(Alert.AlertType.ERROR, "Please Try Again!").show();
@@ -119,6 +119,14 @@ public class ManageStudentsFormController implements Initializable {
 
     @FXML
     private void deleteOnAction(ActionEvent actionEvent) {
+        String code = tblStudent.getSelectionModel().getSelectedItem().getId();
 
+        boolean isDeleted = studentBO.deleteStudent(code);
+        tblStudent.getItems().remove(tblStudent.getSelectionModel().getSelectedItem());
+        if (isDeleted) {
+            new Alert(Alert.AlertType.INFORMATION, "Student Deleted Successfully!").show();
+        } else {
+            new Alert(Alert.AlertType.ERROR, "Please Try Again!").show();
+        }
     }
 }

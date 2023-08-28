@@ -38,4 +38,9 @@ public class StudentBOImpl implements StudentBO {
         studentDTOArrayList.add(new StudentDTO(student.getId(), student.getName(), student.getGender(), student.getAddress(), student.getContact(), student.getDob()));
         return studentDTOArrayList;
     }
+
+    @Override
+    public boolean deleteStudent(String id) {
+        return studentDAO.delete(id);
+    }
 }
