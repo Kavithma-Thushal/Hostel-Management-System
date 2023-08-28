@@ -19,27 +19,6 @@ public class StudentDAOImpl implements StudentDAO {
     private Transaction transaction = null;
 
     @Override
-    public boolean save(Student student) {
-        try {
-            session = SessionFactoryConfiguration.getInstance().getSession();
-            transaction = session.beginTransaction();
-            session.save(student);
-            transaction.commit();
-            return true;
-        } catch (Exception e) {
-            if (transaction != null) {
-                transaction.rollback();
-            }
-            e.printStackTrace();
-            return false;
-        } finally {
-            if (session != null) {
-                session.close();
-            }
-        }
-    }
-
-    @Override
     public ArrayList<Student> getAll() {
         try {
             session = SessionFactoryConfiguration.getInstance().getSession();
@@ -56,6 +35,27 @@ public class StudentDAOImpl implements StudentDAO {
             }
             e.printStackTrace();
             return null;
+        } finally {
+            if (session != null) {
+                session.close();
+            }
+        }
+    }
+
+    @Override
+    public boolean save(Student student) {
+        try {
+            session = SessionFactoryConfiguration.getInstance().getSession();
+            transaction = session.beginTransaction();
+            session.save(student);
+            transaction.commit();
+            return true;
+        } catch (Exception e) {
+            if (transaction != null) {
+                transaction.rollback();
+            }
+            e.printStackTrace();
+            return false;
         } finally {
             if (session != null) {
                 session.close();

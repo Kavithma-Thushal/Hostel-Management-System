@@ -12,9 +12,9 @@ import java.util.ArrayList;
  **/
 public interface StudentBO extends SuperBO {
 
-    boolean saveStudent(StudentDTO studentDTO);
-
     ArrayList<StudentDTO> getAllStudents();
+
+    boolean saveStudent(StudentDTO studentDTO);
 
     ArrayList<StudentDTO> searchStudent(String id);
 }
