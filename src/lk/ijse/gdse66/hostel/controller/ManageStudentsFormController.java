@@ -106,7 +106,6 @@ public class ManageStudentsFormController implements Initializable {
     @FXML
     private void searchOnAction(ActionEvent actionEvent) {
         tblStudent.getItems().clear();
-
         ArrayList<StudentDTO> studentDTOS = studentBO.searchStudent(txtSearch.getText());
         for (StudentDTO studentDTO : studentDTOS) {
             tblStudent.getItems().add(new StudentTM(studentDTO.getId(), studentDTO.getName(), studentDTO.getGender(), studentDTO.getAddress(), studentDTO.getContact(), studentDTO.getDob()));
