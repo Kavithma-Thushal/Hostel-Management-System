@@ -108,8 +108,12 @@ public class ManageStudentsFormController implements Initializable {
         tblStudent.getItems().clear();
 
         ArrayList<StudentDTO> studentDTOArrayList = studentBO.searchStudent(txtSearch.getText());
-        for (StudentDTO studentDTO : studentDTOArrayList) {
-            tblStudent.getItems().add(new StudentTM(studentDTO.getId(), studentDTO.getName(), studentDTO.getGender(), studentDTO.getAddress(), studentDTO.getContact(), studentDTO.getDob()));
+        if (studentDTOArrayList != null) {
+            for (StudentDTO studentDTO : studentDTOArrayList) {
+                tblStudent.getItems().add(new StudentTM(studentDTO.getId(), studentDTO.getName(), studentDTO.getGender(), studentDTO.getAddress(), studentDTO.getContact(), studentDTO.getDob()));
+            }
+        } else {
+            new Alert(Alert.AlertType.ERROR, "Please Try Again!").show();
         }
     }
 
