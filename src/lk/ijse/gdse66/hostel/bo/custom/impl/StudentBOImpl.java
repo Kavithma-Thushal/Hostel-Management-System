@@ -32,16 +32,16 @@ public class StudentBOImpl implements StudentBO {
     }
 
     @Override
-    public boolean updateStudent(StudentDTO studentDTO) {
-        return studentDAO.update(new Student(studentDTO.getId(), studentDTO.getName(), studentDTO.getGender(), studentDTO.getAddress(), studentDTO.getContact(), studentDTO.getDob()));
-    }
-
-    @Override
     public ArrayList<StudentDTO> searchStudent(String id) {
         Student student = studentDAO.search(id);
         ArrayList<StudentDTO> studentDTOArrayList = new ArrayList<>();
         studentDTOArrayList.add(new StudentDTO(student.getId(), student.getName(), student.getGender(), student.getAddress(), student.getContact(), student.getDob()));
         return studentDTOArrayList;
+    }
+
+    @Override
+    public boolean updateStudent(StudentDTO studentDTO) {
+        return studentDAO.update(new Student(studentDTO.getId(), studentDTO.getName(), studentDTO.getGender(), studentDTO.getAddress(), studentDTO.getContact(), studentDTO.getDob()));
     }
 
     @Override

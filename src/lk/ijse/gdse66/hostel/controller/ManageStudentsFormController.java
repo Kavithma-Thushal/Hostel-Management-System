@@ -75,6 +75,13 @@ public class ManageStudentsFormController implements Initializable {
         tblStudent.getColumns().get(5).setCellValueFactory(new PropertyValueFactory<>("dob"));
     }
 
+    private void loadAllStudents() {
+        ArrayList<StudentDTO> studentDTOArrayList = studentBO.getAllStudents();
+        for (StudentDTO studentDTO : studentDTOArrayList) {
+            tblStudent.getItems().add(new StudentTM(studentDTO.getId(), studentDTO.getName(), studentDTO.getGender(), studentDTO.getAddress(), studentDTO.getContact(), studentDTO.getDob()));
+        }
+    }
+
     private void setTableElements() {
         tblStudent.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             btnSave.setText(newValue != null ? "Update" : "Save");
@@ -88,13 +95,6 @@ public class ManageStudentsFormController implements Initializable {
                 dpDOB.setValue(LocalDate.parse(newValue.getDob()));
             }
         });
-    }
-
-    private void loadAllStudents() {
-        ArrayList<StudentDTO> studentDTOArrayList = studentBO.getAllStudents();
-        for (StudentDTO studentDTO : studentDTOArrayList) {
-            tblStudent.getItems().add(new StudentTM(studentDTO.getId(), studentDTO.getName(), studentDTO.getGender(), studentDTO.getAddress(), studentDTO.getContact(), studentDTO.getDob()));
-        }
     }
 
     @FXML
