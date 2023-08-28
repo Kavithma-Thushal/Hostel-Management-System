@@ -48,6 +48,7 @@ public class StudentDAOImpl implements StudentDAO {
             Query query = session.createQuery("FROM Student");      //HQL
             //Query query = session.createQuery("SELECT s FROM Student s");     //JPQL
             //SQLQuery query = session.createSQLQuery("SELECT * FROM Student").addEntity(Student.class);      //SQL
+
             ArrayList<Student> allStudentsEntity = (ArrayList<Student>) query.list();
             return allStudentsEntity;
         } catch (Exception e) {
@@ -66,6 +67,6 @@ public class StudentDAOImpl implements StudentDAO {
     @Override
     public Student search(String id) {
         session = SessionFactoryConfiguration.getInstance().getSession();
-        return null;
+        return session.get(Student.class, id);
     }
 }

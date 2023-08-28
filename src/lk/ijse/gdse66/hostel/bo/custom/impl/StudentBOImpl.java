@@ -17,8 +17,8 @@ public class StudentBOImpl implements StudentBO {
     private final StudentDAO studentDAO = (StudentDAO) DAOFactory.getDAOFactory().getDAO(DAOFactory.DAOTypes.STUDENT);
 
     @Override
-    public boolean saveStudent(StudentDTO studentDTO) {
-        return studentDAO.save(new Student(studentDTO.getId(), studentDTO.getName(), studentDTO.getGender(), studentDTO.getAddress(), studentDTO.getContact(), studentDTO.getDob()));
+    public boolean saveStudent(StudentDTO dto) {
+        return studentDAO.save(new Student(dto.getId(), dto.getName(), dto.getGender(), dto.getAddress(), dto.getContact(), dto.getDob()));
     }
 
     @Override
@@ -29,5 +29,13 @@ public class StudentBOImpl implements StudentBO {
             allStudentsDTO.add(new StudentDTO(student.getId(), student.getName(), student.getGender(), student.getAddress(), student.getContact(), student.getDob()));
         }
         return allStudentsDTO;
+    }
+
+    @Override
+    public ArrayList<StudentDTO> searchStudent(String id) {
+        Student student = studentDAO.search(id);
+        ArrayList<StudentDTO> studentDTO = new ArrayList<>();
+        studentDTO.add(new StudentDTO(student.getId(), student.getName(), student.getGender(), student.getAddress(), student.getContact(), student.getDob()));
+        return studentDTO;
     }
 }
