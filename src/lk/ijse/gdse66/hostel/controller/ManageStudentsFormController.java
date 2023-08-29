@@ -98,15 +98,6 @@ public class ManageStudentsFormController implements Initializable {
         });
     }
 
-    private void disableTextFields() {
-        txtStudentId.setDisable(true);
-        txtStudentName.setDisable(true);
-        cmbGender.setDisable(true);
-        txtAddress.setDisable(true);
-        txtContact.setDisable(true);
-        dpDOB.setDisable(true);
-    }
-
     private void enableTextFields() {
         txtStudentId.setDisable(false);
         txtStudentName.setDisable(false);
@@ -114,6 +105,15 @@ public class ManageStudentsFormController implements Initializable {
         txtAddress.setDisable(false);
         txtContact.setDisable(false);
         dpDOB.setDisable(false);
+    }
+
+    private void disableTextFields() {
+        txtStudentId.setDisable(true);
+        txtStudentName.setDisable(true);
+        cmbGender.setDisable(true);
+        txtAddress.setDisable(true);
+        txtContact.setDisable(true);
+        dpDOB.setDisable(true);
     }
 
     private void clearTextFields() {
