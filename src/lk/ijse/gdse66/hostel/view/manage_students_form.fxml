@@ -17,7 +17,7 @@
         <JFXButton fx:id="btnAddNew" buttonType="RAISED" focusTraversable="false" layoutX="660.0" layoutY="41.0" onAction="#addNewOnAction" prefHeight="31.0" prefWidth="130.0" style="-fx-background-color: lightblue;" text="+ Add New" />
         <JFXButton fx:id="btnSave" buttonType="RAISED" focusTraversable="false" layoutX="660.0" layoutY="120.0" onAction="#saveOnAction" prefHeight="31.0" prefWidth="130.0" style="-fx-background-color: lightblue;" text="Save" />
         <JFXButton fx:id="btnDelete" buttonType="RAISED" focusTraversable="false" layoutX="833.0" layoutY="120.0" onAction="#deleteOnAction" prefHeight="31.0" prefWidth="130.0" style="-fx-background-color: lightblue;" text="Delete" />
-        <JFXTextField fx:id="txtSearch" focusTraversable="false" layoutX="833.0" layoutY="41.0" onAction="#searchOnAction" prefHeight="31.0" prefWidth="130.0" promptText="S001" />
+        <JFXTextField fx:id="txtSearch" focusTraversable="false" layoutX="833.0" layoutY="41.0" onAction="#searchOnAction" prefHeight="31.0" prefWidth="130.0" promptText="Search Here" />
         <TableView fx:id="tblStudent" fixedCellSize="0.0" focusTraversable="false" layoutX="12.0" layoutY="187.0" prefHeight="400.0" prefWidth="975.0">
             <columns>
                 <TableColumn editable="false" prefWidth="162.0" resizable="false" text="Student ID" />

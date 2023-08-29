@@ -59,6 +59,7 @@ public class ManageStudentsFormController implements Initializable {
         selectTableElements();
 
         disableTextFields();
+        clearTextFields();
         btnSave.setDisable(true);
         btnDelete.setDisable(true);
     }
@@ -195,6 +196,10 @@ public class ManageStudentsFormController implements Initializable {
         if (existStudent(txtSearch.getText())) {
             tblStudent.getItems().clear();
             ArrayList<StudentDTO> studentDTOArrayList = studentBO.searchStudent(txtSearch.getText());
+            disableTextFields();
+            clearTextFields();
+            btnSave.setDisable(true);
+            btnDelete.setDisable(true);
             if (studentDTOArrayList != null) {
                 for (StudentDTO studentDTO : studentDTOArrayList) {
                     tblStudent.getItems().add(new StudentTM(studentDTO.getId(), studentDTO.getName(), studentDTO.getGender(), studentDTO.getAddress(), studentDTO.getContact(), studentDTO.getDob()));
