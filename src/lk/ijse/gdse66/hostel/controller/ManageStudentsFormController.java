@@ -132,8 +132,10 @@ public class ManageStudentsFormController implements Initializable {
     @FXML
     private void addNewOnAction(ActionEvent actionEvent) {
         enableTextFields();
+        clearTextFields();
         btnSave.setDisable(false);
         txtStudentId.requestFocus();
+        btnSave.setText(false ? "Update" : "Save");
     }
 
     @FXML
@@ -162,6 +164,7 @@ public class ManageStudentsFormController implements Initializable {
         } else {
             /*Update Student*/
             boolean isUpdated = studentBO.updateStudent(new StudentDTO(id, name, gender, address, contact, dob));
+            btnSave.setText(!isUpdated ? "Update" : "Save");
             disableTextFields();
             clearTextFields();
             btnSave.setDisable(true);
