@@ -19,7 +19,7 @@ public class StudentDAOImpl implements StudentDAO {
     private Transaction transaction = null;
 
     @Override
-    public ArrayList<Student> getAll() {
+    public ArrayList<Student> loadAll() {
         try {
             session = SessionFactoryConfiguration.getInstance().getSession();
 
@@ -112,6 +112,27 @@ public class StudentDAOImpl implements StudentDAO {
             if (transaction != null) {
                 transaction.rollback();
             }
+            e.printStackTrace();
+            return false;
+        } finally {
+            if (session != null) {
+                session.close();
+            }
+        }
+    }
+
+    @Override
+    public boolean exist(String code) {
+        try {
+            session = SessionFactoryConfiguration.getInstance().getSession();
+            Query query = session.createQuery("SELECT id FROM Student WHERE id=:code");
+            String id = (String) query.setParameter("code", code).uniqueResult();
+            if (id != null) {
+                return true;
+            } else {
+                return false;
+            }
+        } catch (Exception e) {
             e.printStackTrace();
             return false;
         } finally {

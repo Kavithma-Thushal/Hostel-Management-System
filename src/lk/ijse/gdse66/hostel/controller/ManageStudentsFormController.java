@@ -76,7 +76,7 @@ public class ManageStudentsFormController implements Initializable {
     }
 
     private void loadAllStudents() {
-        ArrayList<StudentDTO> studentDTOArrayList = studentBO.getAllStudents();
+        ArrayList<StudentDTO> studentDTOArrayList = studentBO.loadAllStudents();
         for (StudentDTO studentDTO : studentDTOArrayList) {
             tblStudent.getItems().add(new StudentTM(studentDTO.getId(), studentDTO.getName(), studentDTO.getGender(), studentDTO.getAddress(), studentDTO.getContact(), studentDTO.getDob()));
         }
@@ -141,17 +141,25 @@ public class ManageStudentsFormController implements Initializable {
         }
     }
 
+    private boolean existStudent(String id) {
+        return studentBO.existStudent(id);
+    }
+
     @FXML
     private void searchOnAction(ActionEvent actionEvent) {
-        tblStudent.getItems().clear();
-
-        ArrayList<StudentDTO> studentDTOArrayList = studentBO.searchStudent(txtSearch.getText());
-        if (studentDTOArrayList != null) {
-            for (StudentDTO studentDTO : studentDTOArrayList) {
-                tblStudent.getItems().add(new StudentTM(studentDTO.getId(), studentDTO.getName(), studentDTO.getGender(), studentDTO.getAddress(), studentDTO.getContact(), studentDTO.getDob()));
+        if (existStudent(txtSearch.getText())) {
+            tblStudent.getItems().clear();
+            ArrayList<StudentDTO> studentDTOArrayList = studentBO.searchStudent(txtSearch.getText());
+            if (studentDTOArrayList != null) {
+                for (StudentDTO studentDTO : studentDTOArrayList) {
+                    tblStudent.getItems().add(new StudentTM(studentDTO.getId(), studentDTO.getName(), studentDTO.getGender(), studentDTO.getAddress(), studentDTO.getContact(), studentDTO.getDob()));
+                }
+            } else {
+                new Alert(Alert.AlertType.ERROR, "Please Try Again!").show();
             }
         } else {
-            new Alert(Alert.AlertType.ERROR, "Please Try Again!").show();
+            tblStudent.getItems().clear();
+            new Alert(Alert.AlertType.ERROR, "There is no student related to this ID").show();
         }
     }
 

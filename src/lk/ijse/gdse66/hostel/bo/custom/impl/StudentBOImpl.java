@@ -17,8 +17,8 @@ public class StudentBOImpl implements StudentBO {
     private final StudentDAO studentDAO = (StudentDAO) DAOFactory.getDAOFactory().getDAO(DAOFactory.DAOTypes.STUDENT);
 
     @Override
-    public ArrayList<StudentDTO> getAllStudents() {
-        ArrayList<Student> studentArrayList = studentDAO.getAll();
+    public ArrayList<StudentDTO> loadAllStudents() {
+        ArrayList<Student> studentArrayList = studentDAO.loadAll();
         ArrayList<StudentDTO> studentDTOArrayList = new ArrayList<>();
         for (Student student : studentArrayList) {
             studentDTOArrayList.add(new StudentDTO(student.getId(), student.getName(), student.getGender(), student.getAddress(), student.getContact(), student.getDob()));
@@ -47,5 +47,10 @@ public class StudentBOImpl implements StudentBO {
     @Override
     public boolean deleteStudent(String id) {
         return studentDAO.delete(id);
+    }
+
+    @Override
+    public boolean existStudent(String id) {
+        return studentDAO.exist(id);
     }
 }

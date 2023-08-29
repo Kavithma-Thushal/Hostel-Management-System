@@ -9,7 +9,7 @@ import java.util.ArrayList;
  **/
 public interface CrudDAO<Entity, Type> extends SuperDAO {
 
-    ArrayList<Entity> getAll();
+    ArrayList<Entity> loadAll();
 
     boolean save(Entity student);
 
@@ -18,4 +18,6 @@ public interface CrudDAO<Entity, Type> extends SuperDAO {
     boolean update(Entity student);
 
     boolean delete(Type id);
+
+    boolean exist(Type code);
 }

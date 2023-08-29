@@ -12,7 +12,7 @@ import java.util.ArrayList;
  **/
 public interface StudentBO extends SuperBO {
 
-    ArrayList<StudentDTO> getAllStudents();
+    ArrayList<StudentDTO> loadAllStudents();
 
     boolean saveStudent(StudentDTO studentDTO);
 
@@ -21,4 +21,6 @@ public interface StudentBO extends SuperBO {
     boolean updateStudent(StudentDTO studentDTO);
 
     boolean deleteStudent(String id);
+
+    boolean existStudent(String id);
 }
