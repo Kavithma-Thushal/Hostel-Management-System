@@ -56,7 +56,11 @@ public class ManageStudentsFormController implements Initializable {
         setComboElements();
         setCellValue();
         loadAllStudents();
-        setTableElements();
+        selectTableElements();
+
+        disableTextFields();
+        btnSave.setDisable(true);
+        btnDelete.setDisable(true);
     }
 
     private void setComboElements() {
@@ -79,7 +83,7 @@ public class ManageStudentsFormController implements Initializable {
         }
     }
 
-    private void setTableElements() {
+    private void selectTableElements() {
         tblStudent.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             btnSave.setText(newValue != null ? "Update" : "Save");
 
@@ -94,9 +98,37 @@ public class ManageStudentsFormController implements Initializable {
         });
     }
 
+    private void disableTextFields() {
+        txtStudentId.setDisable(true);
+        txtStudentName.setDisable(true);
+        cmbGender.setDisable(true);
+        txtAddress.setDisable(true);
+        txtContact.setDisable(true);
+        dpDOB.setDisable(true);
+    }
+
+    private void enableTextFields() {
+        txtStudentId.setDisable(false);
+        txtStudentName.setDisable(false);
+        cmbGender.setDisable(false);
+        txtAddress.setDisable(false);
+        txtContact.setDisable(false);
+        dpDOB.setDisable(false);
+    }
+
+    private void clearTextFields() {
+        txtStudentId.clear();
+        txtStudentName.clear();
+        cmbGender.getSelectionModel().clearSelection();
+        txtAddress.clear();
+        txtContact.clear();
+        dpDOB.getEditor().clear();
+    }
+
     @FXML
     private void addNewOnAction(ActionEvent actionEvent) {
-
+        enableTextFields();
+        btnSave.setDisable(false);
     }
 
     @FXML
@@ -112,6 +144,10 @@ public class ManageStudentsFormController implements Initializable {
             /*Save Student*/
             boolean isSaved = studentBO.saveStudent(new StudentDTO(id, name, gender, address, contact, dob));
             tblStudent.getItems().add(new StudentTM(id, name, gender, address, contact, dob));
+            clearTextFields();
+            disableTextFields();
+            btnSave.setDisable(true);
+            btnDelete.setDisable(true);
             if (isSaved) {
                 new Alert(Alert.AlertType.INFORMATION, "Student Saved Successfully!").show();
             } else {
