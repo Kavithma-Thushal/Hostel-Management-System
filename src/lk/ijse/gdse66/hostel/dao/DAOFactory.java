@@ -1,5 +1,6 @@
 package lk.ijse.gdse66.hostel.dao;
 
+import lk.ijse.gdse66.hostel.dao.custom.impl.RoomDAOImpl;
 import lk.ijse.gdse66.hostel.dao.custom.impl.StudentDAOImpl;
 
 /**
@@ -17,16 +18,18 @@ public class DAOFactory {
         return daoFactory == null ? daoFactory = new DAOFactory() : daoFactory;
     }
 
+    public enum DAOTypes {
+        STUDENT, ROOM
+    }
+
     public SuperDAO getDAO(DAOTypes daoTypes) {
         switch (daoTypes) {
             case STUDENT:
                 return new StudentDAOImpl();
+            case ROOM:
+                return new RoomDAOImpl();
             default:
                 return null;
         }
-    }
-
-    public enum DAOTypes {
-        STUDENT
     }
 }

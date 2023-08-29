@@ -1,5 +1,6 @@
 package lk.ijse.gdse66.hostel.bo;
 
+import lk.ijse.gdse66.hostel.bo.custom.impl.RoomBOImpl;
 import lk.ijse.gdse66.hostel.bo.custom.impl.StudentBOImpl;
 
 /**
@@ -19,13 +20,15 @@ public class BOFactory {
     }
 
     public enum BOTypes {
-        STUDENT
+        STUDENT,ROOM
     }
 
     public SuperBO getBO(BOTypes boTypes) {
         switch (boTypes) {
             case STUDENT:
                 return new StudentBOImpl();
+            case ROOM:
+                return new RoomBOImpl();
             default:
                 return null;
         }
