@@ -94,6 +94,10 @@ public class ManageStudentsFormController implements Initializable {
                 txtAddress.setText(newValue.getAddress());
                 txtContact.setText(newValue.getContact());
                 dpDOB.setValue(LocalDate.parse(newValue.getDob()));
+
+                enableTextFields();
+                btnSave.setDisable(false);
+                btnDelete.setDisable(false);
             }
         });
     }
@@ -145,6 +149,10 @@ public class ManageStudentsFormController implements Initializable {
             /*Save Student*/
             boolean isSaved = studentBO.saveStudent(new StudentDTO(id, name, gender, address, contact, dob));
             tblStudent.getItems().add(new StudentTM(id, name, gender, address, contact, dob));
+            disableTextFields();
+            clearTextFields();
+            btnSave.setDisable(true);
+            btnDelete.setDisable(true);
             if (isSaved) {
                 new Alert(Alert.AlertType.INFORMATION, "Student Saved Successfully!").show();
             } else {
@@ -154,6 +162,10 @@ public class ManageStudentsFormController implements Initializable {
         } else {
             /*Update Student*/
             boolean isUpdated = studentBO.updateStudent(new StudentDTO(id, name, gender, address, contact, dob));
+            disableTextFields();
+            clearTextFields();
+            btnSave.setDisable(true);
+            btnDelete.setDisable(true);
             if (isUpdated) {
                 new Alert(Alert.AlertType.INFORMATION, "Student Updated Successfully!").show();
             } else {
@@ -199,6 +211,11 @@ public class ManageStudentsFormController implements Initializable {
 
         boolean isDeleted = studentBO.deleteStudent(code);
         tblStudent.getItems().remove(tblStudent.getSelectionModel().getSelectedItem());
+        tblStudent.getSelectionModel().clearSelection();
+        disableTextFields();
+        clearTextFields();
+        btnSave.setDisable(true);
+        btnDelete.setDisable(true);
         if (isDeleted) {
             new Alert(Alert.AlertType.INFORMATION, "Student Deleted Successfully!").show();
         } else {
