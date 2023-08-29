@@ -151,6 +151,24 @@ public class ManageStudentsFormController implements Initializable {
         String contact = txtContact.getText();
         String dob = String.valueOf(dpDOB.getValue());
 
+        if (!id.matches("^S[0-9]{3}$")) {
+            new Alert(Alert.AlertType.ERROR, "Invalid Student ID").show();
+            txtStudentId.requestFocus();
+            return;
+        } else if (!name.matches("^([A-Z a-z]{4,40})$")) {
+            new Alert(Alert.AlertType.ERROR, "Invalid Student Name").show();
+            txtStudentName.requestFocus();
+            return;
+        } else if (!address.matches("^([A-Z a-z]{4,40})$")) {
+            new Alert(Alert.AlertType.ERROR, "Invalid Student Address").show();
+            txtAddress.requestFocus();
+            return;
+        } else if (!contact.matches("^(07(0|1|2|4|5|6|7|8)|091)[0-9]{7}$")) {
+            new Alert(Alert.AlertType.ERROR, "Invalid Student Contact").show();
+            txtContact.requestFocus();
+            return;
+        }
+
         if (btnSave.getText().equalsIgnoreCase("save")) {
             /*Save Student*/
             boolean isSaved = studentBO.saveStudent(new StudentDTO(id, name, gender, address, contact, dob));
