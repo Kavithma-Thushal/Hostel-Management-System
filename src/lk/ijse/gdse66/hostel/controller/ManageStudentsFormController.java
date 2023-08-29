@@ -57,11 +57,7 @@ public class ManageStudentsFormController implements Initializable {
         setCellValue();
         loadAllStudents();
         selectTableElements();
-
-        disableTextFields();
-        clearTextFields();
-        btnSave.setDisable(true);
-        btnDelete.setDisable(true);
+        initUI();
     }
 
     private void setComboElements() {
@@ -130,13 +126,20 @@ public class ManageStudentsFormController implements Initializable {
         dpDOB.getEditor().clear();
     }
 
+    private void initUI() {
+        clearTextFields();
+        disableTextFields();
+        btnSave.setDisable(true);
+        btnDelete.setDisable(true);
+    }
+
     @FXML
     private void addNewOnAction(ActionEvent actionEvent) {
-        enableTextFields();
         clearTextFields();
-        btnSave.setDisable(false);
+        enableTextFields();
         txtStudentId.requestFocus();
-        btnSave.setText(false ? "Update" : "Save");
+        btnSave.setDisable(false);
+        btnSave.setText(true ? "Save" : "Update");
     }
 
     @FXML
@@ -152,10 +155,7 @@ public class ManageStudentsFormController implements Initializable {
             /*Save Student*/
             boolean isSaved = studentBO.saveStudent(new StudentDTO(id, name, gender, address, contact, dob));
             tblStudent.getItems().add(new StudentTM(id, name, gender, address, contact, dob));
-            disableTextFields();
-            clearTextFields();
-            btnSave.setDisable(true);
-            btnDelete.setDisable(true);
+            initUI();
             if (isSaved) {
                 new Alert(Alert.AlertType.INFORMATION, "Student Saved Successfully!").show();
             } else {
@@ -165,11 +165,8 @@ public class ManageStudentsFormController implements Initializable {
         } else {
             /*Update Student*/
             boolean isUpdated = studentBO.updateStudent(new StudentDTO(id, name, gender, address, contact, dob));
-            btnSave.setText(!isUpdated ? "Update" : "Save");
-            disableTextFields();
-            clearTextFields();
-            btnSave.setDisable(true);
-            btnDelete.setDisable(true);
+            btnSave.setText(isUpdated ? "Save" : "Update");
+            initUI();
             if (isUpdated) {
                 new Alert(Alert.AlertType.INFORMATION, "Student Updated Successfully!").show();
             } else {
@@ -196,10 +193,7 @@ public class ManageStudentsFormController implements Initializable {
         if (existStudent(txtSearch.getText())) {
             tblStudent.getItems().clear();
             ArrayList<StudentDTO> studentDTOArrayList = studentBO.searchStudent(txtSearch.getText());
-            disableTextFields();
-            clearTextFields();
-            btnSave.setDisable(true);
-            btnDelete.setDisable(true);
+            initUI();
             if (studentDTOArrayList != null) {
                 for (StudentDTO studentDTO : studentDTOArrayList) {
                     tblStudent.getItems().add(new StudentTM(studentDTO.getId(), studentDTO.getName(), studentDTO.getGender(), studentDTO.getAddress(), studentDTO.getContact(), studentDTO.getDob()));
@@ -220,10 +214,7 @@ public class ManageStudentsFormController implements Initializable {
         boolean isDeleted = studentBO.deleteStudent(code);
         tblStudent.getItems().remove(tblStudent.getSelectionModel().getSelectedItem());
         tblStudent.getSelectionModel().clearSelection();
-        disableTextFields();
-        clearTextFields();
-        btnSave.setDisable(true);
-        btnDelete.setDisable(true);
+        initUI();
         if (isDeleted) {
             new Alert(Alert.AlertType.INFORMATION, "Student Deleted Successfully!").show();
         } else {
