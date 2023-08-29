@@ -8,7 +8,7 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane fx:id="root" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse66.hostel.controller.ManageStudentsFormController">
+<AnchorPane prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse66.hostel.controller.ManageStudentsFormController">
     <children>
         <JFXTextField fx:id="txtStudentId" focusTraversable="false" layoutX="33.0" layoutY="41.0" promptText="Student ID" />
         <JFXTextField fx:id="txtStudentName" focusTraversable="false" layoutX="243.0" layoutY="41.0" promptText="Student Name" />

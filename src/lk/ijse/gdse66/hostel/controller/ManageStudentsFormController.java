@@ -10,7 +10,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.layout.AnchorPane;
 import lk.ijse.gdse66.hostel.bo.BOFactory;
 import lk.ijse.gdse66.hostel.bo.custom.StudentBO;
 import lk.ijse.gdse66.hostel.dto.StudentDTO;
@@ -29,21 +28,19 @@ import java.util.ResourceBundle;
 public class ManageStudentsFormController implements Initializable {
 
     @FXML
-    private AnchorPane root;
-    @FXML
-    private JFXTextField txtSearch;
-    @FXML
     private JFXTextField txtStudentId;
     @FXML
     private JFXTextField txtStudentName;
     @FXML
-    private JFXTextField txtContact;
+    private JFXComboBox cmbGender;
     @FXML
     private JFXTextField txtAddress;
     @FXML
+    private JFXTextField txtContact;
+    @FXML
     private JFXDatePicker dpDOB;
     @FXML
-    private JFXComboBox cmbGender;
+    private JFXTextField txtSearch;
     @FXML
     private TableView<StudentTM> tblStudent;
     @FXML
