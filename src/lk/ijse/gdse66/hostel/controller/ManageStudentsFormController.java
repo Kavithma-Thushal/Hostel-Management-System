@@ -129,6 +129,7 @@ public class ManageStudentsFormController implements Initializable {
     private void addNewOnAction(ActionEvent actionEvent) {
         enableTextFields();
         btnSave.setDisable(false);
+        txtStudentId.requestFocus();
     }
 
     @FXML
@@ -144,10 +145,6 @@ public class ManageStudentsFormController implements Initializable {
             /*Save Student*/
             boolean isSaved = studentBO.saveStudent(new StudentDTO(id, name, gender, address, contact, dob));
             tblStudent.getItems().add(new StudentTM(id, name, gender, address, contact, dob));
-            clearTextFields();
-            disableTextFields();
-            btnSave.setDisable(true);
-            btnDelete.setDisable(true);
             if (isSaved) {
                 new Alert(Alert.AlertType.INFORMATION, "Student Saved Successfully!").show();
             } else {
