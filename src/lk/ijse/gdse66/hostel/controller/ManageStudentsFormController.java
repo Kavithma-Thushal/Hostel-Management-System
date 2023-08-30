@@ -131,10 +131,12 @@ public class ManageStudentsFormController implements Initializable {
     private void addNewOnAction(ActionEvent actionEvent) {
         clearTextFields();
         enableTextFields();
+        txtSearch.clear();
         txtStudentName.requestFocus();
         btnSave.setDisable(false);
         btnSave.setText(true ? "Save" : "Update");
         generateNextStudentId();
+        loadAllStudents();
     }
 
     private void loadAllStudents() {

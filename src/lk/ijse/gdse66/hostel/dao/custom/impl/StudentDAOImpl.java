@@ -146,11 +146,15 @@ public class StudentDAOImpl implements StudentDAO {
             session = SessionFactoryConfiguration.getInstance().getSession();
             Query query = session.createQuery("FROM Student ORDER BY id DESC");
             query.setMaxResults(1);
-            List<Student> students = query.list();
-            if (!students.isEmpty()) {
-                return splitStudentId(students.get(0).getId());
+            List<Student> studentList = query.list();
+            if (!studentList.isEmpty()) {
+                String currentId = studentList.get(0).getId();
+                String[] strings = currentId.split("S");
+                int id = Integer.parseInt(strings[1]);
+                id++;
+                return "S" + String.format("%03d", id);
             }
-            return splitStudentId(null);
+            return "S001";
         } catch (Exception e) {
             e.printStackTrace();
             return null;
@@ -159,15 +163,5 @@ public class StudentDAOImpl implements StudentDAO {
                 session.close();
             }
         }
-    }
-
-    private String splitStudentId(String currentId) {
-        if (currentId != null) {
-            String[] strings = currentId.split("S");
-            int id = Integer.parseInt(strings[1]);
-            id++;
-            return "S" + String.format("%02d", id);
-        }
-        return "S01";
     }
 }
