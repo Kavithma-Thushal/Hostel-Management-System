@@ -197,7 +197,9 @@ public class ManageStudentsFormController implements Initializable {
             selectedItem.setAddress(address);
             selectedItem.setContact(contact);
             selectedItem.setDob(dob);
+
             tblStudent.refresh();
+            tblStudent.getSelectionModel().clearSelection();
         }
     }
 
