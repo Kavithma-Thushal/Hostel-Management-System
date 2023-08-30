@@ -8,6 +8,7 @@ import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author : Kavithma Thushal
@@ -30,9 +31,6 @@ public class StudentDAOImpl implements StudentDAO {
             ArrayList<Student> studentArrayList = (ArrayList<Student>) query.list();
             return studentArrayList;
         } catch (Exception e) {
-            if (transaction != null) {
-                transaction.rollback();
-            }
             e.printStackTrace();
             return null;
         } finally {
@@ -140,5 +138,36 @@ public class StudentDAOImpl implements StudentDAO {
                 session.close();
             }
         }
+    }
+
+    @Override
+    public String generateNextId() {
+        try {
+            session = SessionFactoryConfiguration.getInstance().getSession();
+            Query query = session.createQuery("FROM Student ORDER BY id DESC");
+            query.setMaxResults(1);
+            List<Student> students = query.list();
+            if (!students.isEmpty()) {
+                return splitStudentId(students.get(0).getId());
+            }
+            return splitStudentId(null);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        } finally {
+            if (session != null) {
+                session.close();
+            }
+        }
+    }
+
+    private String splitStudentId(String currentId) {
+        if (currentId != null) {
+            String[] strings = currentId.split("S");
+            int id = Integer.parseInt(strings[1]);
+            id++;
+            return "S" + String.format("%02d", id);
+        }
+        return "S01";
     }
 }

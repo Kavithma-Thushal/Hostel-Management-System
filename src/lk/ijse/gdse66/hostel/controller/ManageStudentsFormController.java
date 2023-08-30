@@ -55,9 +55,10 @@ public class ManageStudentsFormController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         setComboElements();
         setCellValue();
-        loadAllStudents();
         selectTableElements();
         initUI();
+        loadAllStudents();
+        generateNextStudentId();
     }
 
     private void setComboElements() {
@@ -71,13 +72,6 @@ public class ManageStudentsFormController implements Initializable {
         tblStudent.getColumns().get(3).setCellValueFactory(new PropertyValueFactory<>("address"));
         tblStudent.getColumns().get(4).setCellValueFactory(new PropertyValueFactory<>("contact"));
         tblStudent.getColumns().get(5).setCellValueFactory(new PropertyValueFactory<>("dob"));
-    }
-
-    private void loadAllStudents() {
-        ArrayList<StudentDTO> studentDTOArrayList = studentBO.loadAllStudents();
-        for (StudentDTO studentDTO : studentDTOArrayList) {
-            tblStudent.getItems().add(new StudentTM(studentDTO.getId(), studentDTO.getName(), studentDTO.getGender(), studentDTO.getAddress(), studentDTO.getContact(), studentDTO.getDob()));
-        }
     }
 
     private void selectTableElements() {
@@ -137,9 +131,17 @@ public class ManageStudentsFormController implements Initializable {
     private void addNewOnAction(ActionEvent actionEvent) {
         clearTextFields();
         enableTextFields();
-        txtStudentId.requestFocus();
+        txtStudentName.requestFocus();
         btnSave.setDisable(false);
         btnSave.setText(true ? "Save" : "Update");
+        generateNextStudentId();
+    }
+
+    private void loadAllStudents() {
+        ArrayList<StudentDTO> studentDTOArrayList = studentBO.loadAllStudents();
+        for (StudentDTO studentDTO : studentDTOArrayList) {
+            tblStudent.getItems().add(new StudentTM(studentDTO.getId(), studentDTO.getName(), studentDTO.getGender(), studentDTO.getAddress(), studentDTO.getContact(), studentDTO.getDob()));
+        }
     }
 
     @FXML
@@ -151,11 +153,7 @@ public class ManageStudentsFormController implements Initializable {
         String contact = txtContact.getText();
         String dob = String.valueOf(dpDOB.getValue());
 
-        if (!id.matches("^S[0-9]{3}$")) {
-            new Alert(Alert.AlertType.ERROR, "Invalid Student ID").show();
-            txtStudentId.requestFocus();
-            return;
-        } else if (!name.matches("^([A-Z a-z]{4,40})$")) {
+        if (!name.matches("^([A-Z a-z]{4,40})$")) {
             new Alert(Alert.AlertType.ERROR, "Invalid Student Name").show();
             txtStudentName.requestFocus();
             return;
@@ -202,10 +200,6 @@ public class ManageStudentsFormController implements Initializable {
         }
     }
 
-    private boolean existStudent(String id) {
-        return studentBO.existStudent(id);
-    }
-
     @FXML
     private void searchOnAction(ActionEvent actionEvent) {
         if (existStudent(txtSearch.getText())) {
@@ -238,5 +232,14 @@ public class ManageStudentsFormController implements Initializable {
         } else {
             new Alert(Alert.AlertType.ERROR, "Please Try Again!").show();
         }
+    }
+
+    private boolean existStudent(String id) {
+        return studentBO.existStudent(id);
+    }
+
+    private void generateNextStudentId() {
+        String nextId = studentBO.generateNextStudentId();
+        txtStudentId.setText(nextId);
     }
 }

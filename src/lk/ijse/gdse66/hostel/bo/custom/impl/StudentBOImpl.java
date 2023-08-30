@@ -53,4 +53,9 @@ public class StudentBOImpl implements StudentBO {
     public boolean existStudent(String id) {
         return studentDAO.exist(id);
     }
+
+    @Override
+    public String generateNextStudentId() {
+        return studentDAO.generateNextId();
+    }
 }

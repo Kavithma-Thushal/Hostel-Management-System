@@ -23,4 +23,6 @@ public interface StudentBO extends SuperBO {
     boolean deleteStudent(String id);
 
     boolean existStudent(String id);
+
+    String generateNextStudentId();
 }

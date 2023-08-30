@@ -7,17 +7,19 @@ import java.util.ArrayList;
  * @project : Hostel-Management-System
  * @since : 10:41 PM - 8/26/2023
  **/
-public interface CrudDAO<Entity, Type> extends SuperDAO {
+public interface CrudDAO<Entity> extends SuperDAO {
 
     ArrayList<Entity> loadAll();
 
     boolean save(Entity student);
 
-    Entity search(Type id);
+    Entity search(String id);
 
     boolean update(Entity student);
 
-    boolean delete(Type id);
+    boolean delete(String id);
 
-    boolean exist(Type code);
+    boolean exist(String code);
+
+    String generateNextId();
 }

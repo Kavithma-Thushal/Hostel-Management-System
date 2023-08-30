@@ -41,4 +41,9 @@ public class RoomDAOImpl implements RoomDAO {
     public boolean exist(String code) {
         return false;
     }
+
+    @Override
+    public String generateNextId() {
+        return null;
+    }
 }
