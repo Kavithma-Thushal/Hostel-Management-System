@@ -58,7 +58,6 @@ public class ManageStudentsFormController implements Initializable {
         selectTableElements();
         initUI();
         loadAllStudents();
-        generateNextStudentId();
     }
 
     private void setComboElements() {
@@ -86,6 +85,7 @@ public class ManageStudentsFormController implements Initializable {
                 txtContact.setText(newValue.getContact());
                 dpDOB.setValue(LocalDate.parse(newValue.getDob()));
 
+                txtSearch.clear();
                 enableTextFields();
                 btnSave.setDisable(false);
                 btnDelete.setDisable(false);
@@ -122,6 +122,7 @@ public class ManageStudentsFormController implements Initializable {
 
     private void initUI() {
         clearTextFields();
+        txtSearch.clear();
         disableTextFields();
         btnSave.setDisable(true);
         btnDelete.setDisable(true);
@@ -130,8 +131,8 @@ public class ManageStudentsFormController implements Initializable {
     @FXML
     private void addNewOnAction(ActionEvent actionEvent) {
         clearTextFields();
-        enableTextFields();
         txtSearch.clear();
+        enableTextFields();
         txtStudentName.requestFocus();
         btnSave.setDisable(false);
         btnSave.setText(true ? "Save" : "Update");
