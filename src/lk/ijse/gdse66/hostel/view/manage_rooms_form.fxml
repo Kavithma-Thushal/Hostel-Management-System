@@ -6,9 +6,9 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane fx:id="root" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse66.hostel.controller.ManageRoomsFormController">
+<AnchorPane prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse66.hostel.controller.ManageRoomsFormController">
     <children>
-        <JFXTextField fx:id="txtRoomId" focusTraversable="false" layoutX="82.0" layoutY="47.0" promptText="Room ID" />
+        <JFXTextField fx:id="txtRoomId" editable="false" focusTraversable="false" layoutX="82.0" layoutY="47.0" promptText="Room ID" />
         <JFXTextField fx:id="txtRoomType" focusTraversable="false" layoutX="359.0" layoutY="47.0" promptText="Room Type" />
         <JFXTextField fx:id="txtKeyMoney" focusTraversable="false" layoutX="82.0" layoutY="121.0" promptText="Key Money" />
         <JFXTextField fx:id="txtQty" focusTraversable="false" layoutX="359.0" layoutY="121.0" promptText="Quantity" />
@@ -16,12 +16,12 @@
         <JFXButton fx:id="btnSave" buttonType="RAISED" focusTraversable="false" layoutX="632.0" layoutY="121.0" onAction="#saveOnAction" prefHeight="31.0" prefWidth="130.0" style="-fx-background-color: lightblue;" text="Save" />
         <JFXButton fx:id="btnDelete" buttonType="RAISED" focusTraversable="false" layoutX="822.0" layoutY="121.0" onAction="#deleteOnAction" prefHeight="31.0" prefWidth="130.0" style="-fx-background-color: lightblue;" text="Delete" />
         <JFXTextField fx:id="txtSearch" focusTraversable="false" layoutX="822.0" layoutY="47.0" onAction="#searchOnAction" prefWidth="130.0" promptText="Search Here" />
-        <TableView focusTraversable="false" layoutX="12.0" layoutY="186.0" prefHeight="400.0" prefWidth="976.0">
+        <TableView fx:id="tblRoom" focusTraversable="false" layoutX="12.0" layoutY="186.0" prefHeight="400.0" prefWidth="976.0">
             <columns>
-                <TableColumn editable="false" minWidth="244.0" prefWidth="75.0" resizable="false" text="Room ID" />
-                <TableColumn editable="false" minWidth="244.0" prefWidth="75.0" resizable="false" text="Room Type" />
-                <TableColumn editable="false" minWidth="244.0" prefWidth="75.0" resizable="false" text="Key Money" />
-                <TableColumn editable="false" minWidth="140.0" prefWidth="243.0" resizable="false" text="Quantity" />
+                <TableColumn editable="false" prefWidth="244.0" resizable="false" text="Room ID" />
+                <TableColumn editable="false" prefWidth="244.0" resizable="false" text="Room Type" />
+                <TableColumn editable="false" prefWidth="244.0" resizable="false" text="Key Money" />
+                <TableColumn editable="false" prefWidth="242.0" resizable="false" text="Quantity" />
             </columns>
         </TableView>
     </children>

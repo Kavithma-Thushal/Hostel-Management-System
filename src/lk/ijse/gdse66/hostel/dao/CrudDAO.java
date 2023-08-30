@@ -11,11 +11,11 @@ public interface CrudDAO<Entity> extends SuperDAO {
 
     ArrayList<Entity> loadAll();
 
-    boolean save(Entity student);
+    boolean save(Entity entity);
 
     Entity search(String id);
 
-    boolean update(Entity student);
+    boolean update(Entity entity);
 
     boolean delete(String id);
 
