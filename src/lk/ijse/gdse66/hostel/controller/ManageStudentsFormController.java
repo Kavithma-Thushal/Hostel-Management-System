@@ -136,7 +136,6 @@ public class ManageStudentsFormController implements Initializable {
         btnSave.setDisable(false);
         btnSave.setText(true ? "Save" : "Update");
         generateNextStudentId();
-        loadAllStudents();
     }
 
     private void loadAllStudents() {
