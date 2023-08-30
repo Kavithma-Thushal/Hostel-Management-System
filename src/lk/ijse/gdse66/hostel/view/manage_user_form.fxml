@@ -13,10 +13,10 @@
         <JFXTextField fx:id="txtUserName" focusTraversable="false" layoutX="239.0" layoutY="38.0" promptText="User Name" />
         <JFXTextField fx:id="txtContact" focusTraversable="false" layoutX="239.0" layoutY="112.0" promptText="Contact" />
         <JFXTextField fx:id="txtAddress" focusTraversable="false" layoutX="38.0" layoutY="112.0" promptText="Address" />
-        <JFXButton fx:id="btnAddNew" buttonType="RAISED" focusTraversable="false" layoutX="828.0" layoutY="38.0" onAction="#addNewOnAction" prefWidth="130.0" style="-fx-background-color: lightblue;" text="+ Add New" />
-        <JFXButton fx:id="btnSave" buttonType="RAISED" focusTraversable="false" layoutX="828.0" layoutY="112.0" onAction="#saveOnAction" prefWidth="130.0" style="-fx-background-color: lightblue;" text="Save" />
-        <JFXButton fx:id="btnDelete" buttonType="RAISED" focusTraversable="false" layoutX="662.0" layoutY="112.0" onAction="#deleteOnAction" prefWidth="130.0" style="-fx-background-color: lightblue;" text="Delete" />
-        <JFXTextField fx:id="txtSearch" focusTraversable="false" layoutX="662.0" layoutY="38.0" onAction="#searchOnAction" prefWidth="130.0" promptText="U001" />
+        <JFXButton fx:id="btnAddNew" buttonType="RAISED" focusTraversable="false" layoutX="662.0" layoutY="38.0" onAction="#addNewOnAction" prefWidth="130.0" style="-fx-background-color: lightblue;" text="+ Add New" />
+        <JFXButton fx:id="btnSave" buttonType="RAISED" focusTraversable="false" layoutX="662.0" layoutY="112.0" onAction="#saveOnAction" prefWidth="130.0" style="-fx-background-color: lightblue;" text="Save" />
+        <JFXButton fx:id="btnDelete" buttonType="RAISED" focusTraversable="false" layoutX="828.0" layoutY="112.0" onAction="#deleteOnAction" prefWidth="130.0" style="-fx-background-color: lightblue;" text="Delete" />
+        <JFXTextField fx:id="txtSearch" focusTraversable="false" layoutX="828.0" layoutY="38.0" onAction="#searchOnAction" prefWidth="130.0" promptText="Search Here" />
         <TableView focusTraversable="false" layoutX="12.0" layoutY="183.0" prefHeight="404.0" prefWidth="975.0">
             <columns>
                 <TableColumn editable="false" minWidth="162.0" prefWidth="75.0" resizable="false" text="User ID" />
