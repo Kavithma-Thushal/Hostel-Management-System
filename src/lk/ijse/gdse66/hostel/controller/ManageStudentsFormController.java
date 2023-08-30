@@ -128,6 +128,22 @@ public class ManageStudentsFormController implements Initializable {
         btnDelete.setDisable(true);
     }
 
+    private boolean existStudent(String id) {
+        return studentBO.existStudent(id);
+    }
+
+    private void generateNextStudentId() {
+        String nextId = studentBO.generateNextStudentId();
+        txtStudentId.setText(nextId);
+    }
+
+    private void loadAllStudents() {
+        ArrayList<StudentDTO> studentDTOArrayList = studentBO.loadAllStudents();
+        for (StudentDTO studentDTO : studentDTOArrayList) {
+            tblStudent.getItems().add(new StudentTM(studentDTO.getId(), studentDTO.getName(), studentDTO.getGender(), studentDTO.getAddress(), studentDTO.getContact(), studentDTO.getDob()));
+        }
+    }
+
     @FXML
     private void addNewOnAction(ActionEvent actionEvent) {
         clearTextFields();
@@ -137,13 +153,6 @@ public class ManageStudentsFormController implements Initializable {
         btnSave.setDisable(false);
         btnSave.setText(true ? "Save" : "Update");
         generateNextStudentId();
-    }
-
-    private void loadAllStudents() {
-        ArrayList<StudentDTO> studentDTOArrayList = studentBO.loadAllStudents();
-        for (StudentDTO studentDTO : studentDTOArrayList) {
-            tblStudent.getItems().add(new StudentTM(studentDTO.getId(), studentDTO.getName(), studentDTO.getGender(), studentDTO.getAddress(), studentDTO.getContact(), studentDTO.getDob()));
-        }
     }
 
     @FXML
@@ -169,7 +178,7 @@ public class ManageStudentsFormController implements Initializable {
             return;
         }
 
-        if (btnSave.getText().equalsIgnoreCase("save")) {
+        if (btnSave.getText().equalsIgnoreCase("Save")) {
             /*Save Student*/
             boolean isSaved = studentBO.saveStudent(new StudentDTO(id, name, gender, address, contact, dob));
             tblStudent.getItems().add(new StudentTM(id, name, gender, address, contact, dob));
@@ -236,14 +245,5 @@ public class ManageStudentsFormController implements Initializable {
         } else {
             new Alert(Alert.AlertType.ERROR, "Please Try Again!").show();
         }
-    }
-
-    private boolean existStudent(String id) {
-        return studentBO.existStudent(id);
-    }
-
-    private void generateNextStudentId() {
-        String nextId = studentBO.generateNextStudentId();
-        txtStudentId.setText(nextId);
     }
 }

@@ -106,6 +106,22 @@ public class ManageRoomsFormController implements Initializable {
         btnDelete.setDisable(true);
     }
 
+    private boolean existRoom(String id) {
+        return roomBO.existRoom(id);
+    }
+
+    private void generateNextRoomId() {
+        String nextId = roomBO.generateNextRoomId();
+        txtRoomId.setText(nextId);
+    }
+
+    private void loadAllRooms() {
+        ArrayList<RoomDTO> roomDTOArrayList = roomBO.loadAllRooms();
+        for (RoomDTO roomDTO : roomDTOArrayList) {
+            tblRoom.getItems().add(new RoomTM(roomDTO.getId(), roomDTO.getType(), roomDTO.getKeyMoney(), roomDTO.getQty()));
+        }
+    }
+
     @FXML
     private void addNewOnAction(ActionEvent actionEvent) {
         clearTextFields();
@@ -115,13 +131,6 @@ public class ManageRoomsFormController implements Initializable {
         btnSave.setDisable(false);
         btnSave.setText(true ? "Save" : "Update");
         generateNextRoomId();
-    }
-
-    private void loadAllRooms() {
-        ArrayList<RoomDTO> roomDTOArrayList = roomBO.loadAllRooms();
-        for (RoomDTO roomDTO : roomDTOArrayList) {
-            tblRoom.getItems().add(new RoomTM(roomDTO.getId(), roomDTO.getType(), roomDTO.getKeyMoney(), roomDTO.getQty()));
-        }
     }
 
     @FXML
@@ -145,7 +154,7 @@ public class ManageRoomsFormController implements Initializable {
             return;
         }*/
 
-        if (btnSave.getText().equalsIgnoreCase("save")) {
+        if (btnSave.getText().equalsIgnoreCase("Save")) {
             /*Save Room*/
             boolean isSaved = roomBO.saveRoom(new RoomDTO(id, type, keyMoney, qty));
             tblRoom.getItems().add(new RoomTM(id, type, keyMoney, qty));
@@ -210,14 +219,5 @@ public class ManageRoomsFormController implements Initializable {
         } else {
             new Alert(Alert.AlertType.ERROR, "Please Try Again!").show();
         }
-    }
-
-    private boolean existRoom(String id) {
-        return roomBO.existRoom(id);
-    }
-
-    private void generateNextRoomId() {
-        String nextId = roomBO.generateNextRoomId();
-        txtRoomId.setText(nextId);
     }
 }
