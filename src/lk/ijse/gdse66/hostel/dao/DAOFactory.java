@@ -1,5 +1,6 @@
 package lk.ijse.gdse66.hostel.dao;
 
+import lk.ijse.gdse66.hostel.dao.custom.impl.ReserveDAOImpl;
 import lk.ijse.gdse66.hostel.dao.custom.impl.RoomDAOImpl;
 import lk.ijse.gdse66.hostel.dao.custom.impl.StudentDAOImpl;
 import lk.ijse.gdse66.hostel.dao.custom.impl.UserDAOImpl;
@@ -20,7 +21,7 @@ public class DAOFactory {
     }
 
     public enum DAOTypes {
-        STUDENT, ROOM, USER
+        STUDENT, ROOM, USER, RESERVE
     }
 
     public SuperDAO getDAO(DAOTypes daoTypes) {
@@ -31,6 +32,8 @@ public class DAOFactory {
                 return new RoomDAOImpl();
             case USER:
                 return new UserDAOImpl();
+            case RESERVE:
+                return new ReserveDAOImpl();
             default:
                 return null;
         }
