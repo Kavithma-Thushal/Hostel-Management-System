@@ -9,6 +9,7 @@ import org.hibernate.query.Query;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * @author : Kavithma Thushal
@@ -155,6 +156,23 @@ public class StudentDAOImpl implements StudentDAO {
                 return "S" + String.format("%03d", id);
             }
             return "S001";
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        } finally {
+            if (session != null) {
+                session.close();
+            }
+        }
+    }
+
+    @Override
+    public List<String> loadStudentIds() {
+        try {
+            session = SessionFactoryConfiguration.getInstance().getSession();
+            Query query = session.createQuery("SELECT id FROM Student ORDER BY id ASC");
+            List<String> studentIds = (List<String>) query.list();
+            return studentIds;
         } catch (Exception e) {
             e.printStackTrace();
             return null;

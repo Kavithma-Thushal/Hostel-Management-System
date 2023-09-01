@@ -3,15 +3,19 @@ package lk.ijse.gdse66.hostel.controller;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import lk.ijse.gdse66.hostel.bo.BOFactory;
 import lk.ijse.gdse66.hostel.bo.custom.ReserveBO;
 import lk.ijse.gdse66.hostel.bo.custom.StudentBO;
 
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 /**
@@ -24,7 +28,7 @@ public class ManageReservationFormController implements Initializable {
     @FXML
     private Label lblResId;
     @FXML
-    private JFXComboBox cmbStudentId;
+    private JFXComboBox<String> cmbStudentId;
     @FXML
     private JFXTextField txtStudentName;
     @FXML
@@ -51,7 +55,17 @@ public class ManageReservationFormController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        loadStudentIds();
+    }
 
+    private void loadStudentIds() {
+        ObservableList<String> observableList = FXCollections.observableArrayList();
+        List<String> studentIds = reserveBO.loadStudentIds();
+
+        for (String id : studentIds) {
+            observableList.add(id);
+        }
+        cmbStudentId.setItems(observableList);
     }
 
     @FXML
