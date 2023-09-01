@@ -13,6 +13,7 @@ import javafx.scene.control.Label;
 import lk.ijse.gdse66.hostel.bo.BOFactory;
 import lk.ijse.gdse66.hostel.bo.custom.ReserveBO;
 import lk.ijse.gdse66.hostel.bo.custom.StudentBO;
+import lk.ijse.gdse66.hostel.dto.RoomDTO;
 import lk.ijse.gdse66.hostel.dto.StudentDTO;
 
 import java.net.URL;
@@ -41,7 +42,7 @@ public class ManageReservationFormController implements Initializable {
     @FXML
     private JFXTextField txtDOB;
     @FXML
-    private JFXComboBox cmbRoomId;
+    private JFXComboBox<String> cmbRoomId;
     @FXML
     private JFXTextField txtRoomType;
     @FXML
@@ -57,6 +58,7 @@ public class ManageReservationFormController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         loadStudentIds();
+        loadRoomIds();
     }
 
     private void loadStudentIds() {
@@ -67,6 +69,16 @@ public class ManageReservationFormController implements Initializable {
             observableList.add(id);
         }
         cmbStudentId.setItems(observableList);
+    }
+
+    private void loadRoomIds() {
+        ObservableList<String> observableList = FXCollections.observableArrayList();
+        List<String> roomIds = reserveBO.loadRoomIds();
+
+        for (String id : roomIds) {
+            observableList.add(id);
+        }
+        cmbRoomId.setItems(observableList);
     }
 
     @FXML
@@ -84,7 +96,13 @@ public class ManageReservationFormController implements Initializable {
 
     @FXML
     private void cmbRoomIdOnAction(ActionEvent actionEvent) {
+        String roomId = cmbRoomId.getValue();
+        //cmbStudentId.setDisable(true);
 
+        RoomDTO roomDTO = reserveBO.searchByRoomId(roomId);
+        txtRoomType.setText(roomDTO.getType());
+        txtKeyMoney.setText(roomDTO.getKeyMoney());
+        txtQty.setText(roomDTO.getQty());
     }
 
     @FXML

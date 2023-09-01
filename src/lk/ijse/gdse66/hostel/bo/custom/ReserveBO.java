@@ -1,6 +1,7 @@
 package lk.ijse.gdse66.hostel.bo.custom;
 
 import lk.ijse.gdse66.hostel.bo.SuperBO;
+import lk.ijse.gdse66.hostel.dto.RoomDTO;
 import lk.ijse.gdse66.hostel.dto.StudentDTO;
 
 import java.util.List;
@@ -15,4 +16,8 @@ public interface ReserveBO extends SuperBO {
     List<String> loadStudentIds();
 
     StudentDTO searchByStudentId(String studentId);
+
+    List<String> loadRoomIds();
+
+    RoomDTO searchByRoomId(String roomId);
 }

@@ -160,4 +160,21 @@ public class RoomDAOImpl implements RoomDAO {
             }
         }
     }
+
+    @Override
+    public List<String> loadRoomIds() {
+        try {
+            session = SessionFactoryConfiguration.getInstance().getSession();
+            Query query = session.createQuery("SELECT id FROM Room ORDER BY id ASC");
+            List<String> roomIds = (List<String>) query.list();
+            return roomIds;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        } finally {
+            if (session != null) {
+                session.close();
+            }
+        }
+    }
 }
