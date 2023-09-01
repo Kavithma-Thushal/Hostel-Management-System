@@ -5,6 +5,8 @@ import lk.ijse.gdse66.hostel.dao.DAOFactory;
 import lk.ijse.gdse66.hostel.dao.custom.ReserveDAO;
 import lk.ijse.gdse66.hostel.dao.custom.RoomDAO;
 import lk.ijse.gdse66.hostel.dao.custom.StudentDAO;
+import lk.ijse.gdse66.hostel.dto.StudentDTO;
+import lk.ijse.gdse66.hostel.entity.Student;
 
 import java.util.List;
 
@@ -21,5 +23,11 @@ public class ReserveBOImpl implements ReserveBO {
     @Override
     public List<String> loadStudentIds() {
         return studentDAO.loadStudentIds();
+    }
+
+    @Override
+    public StudentDTO searchByStudentId(String studentId) {
+        Student student = studentDAO.search(studentId);
+        return new StudentDTO(student.getId(),student.getName(),student.getGender(),student.getAddress(),student.getContact(),student.getDob());
     }
 }

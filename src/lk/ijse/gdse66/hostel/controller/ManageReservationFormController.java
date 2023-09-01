@@ -13,6 +13,7 @@ import javafx.scene.control.Label;
 import lk.ijse.gdse66.hostel.bo.BOFactory;
 import lk.ijse.gdse66.hostel.bo.custom.ReserveBO;
 import lk.ijse.gdse66.hostel.bo.custom.StudentBO;
+import lk.ijse.gdse66.hostel.dto.StudentDTO;
 
 import java.net.URL;
 import java.util.List;
@@ -28,7 +29,7 @@ public class ManageReservationFormController implements Initializable {
     @FXML
     private Label lblResId;
     @FXML
-    private JFXComboBox cmbStudentId;
+    private JFXComboBox<String> cmbStudentId;
     @FXML
     private JFXTextField txtStudentName;
     @FXML
@@ -66,6 +67,24 @@ public class ManageReservationFormController implements Initializable {
             observableList.add(id);
         }
         cmbStudentId.setItems(observableList);
+    }
+
+    @FXML
+    private void cmbStudentIdOnAction(ActionEvent actionEvent) {
+        String studentId = cmbStudentId.getValue();
+        //cmbStudentId.setDisable(true);
+
+        StudentDTO studentDTO = reserveBO.searchByStudentId(studentId);
+        txtStudentName.setText(studentDTO.getName());
+        txtGender.setText(studentDTO.getGender());
+        txtAddress.setText(studentDTO.getAddress());
+        txtContact.setText(studentDTO.getContact());
+        txtDOB.setText(studentDTO.getDob());
+    }
+
+    @FXML
+    private void cmbRoomIdOnAction(ActionEvent actionEvent) {
+
     }
 
     @FXML
