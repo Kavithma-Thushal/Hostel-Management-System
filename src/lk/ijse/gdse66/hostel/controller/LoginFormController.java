@@ -33,15 +33,20 @@ public class LoginFormController {
 
     @FXML
     private void loginOnAction(ActionEvent actionEvent) throws IOException {
+        boolean validLogin = false;
         ArrayList<UserDTO> userDTOArrayList = userBO.loadAllUsers();
         for (UserDTO userDTO : userDTOArrayList) {
             if (txtUserName.getText().equals(userDTO.getUserName()) && txtPassword.getText().equals(userDTO.getUserPassword())) {
                 Stage stage = (Stage) this.root.getScene().getWindow();
                 stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/lk/ijse/gdse66/hostel/view/dashboard_form.fxml"))));
                 stage.setTitle("Dashboard");
-            } else {
-                new Alert(Alert.AlertType.ERROR, "Please Try Again!").show();
+                validLogin = true;
+                break;
             }
+        }
+
+        if (!validLogin) {
+            new Alert(Alert.AlertType.ERROR, "Try Again!").show();
         }
     }
 
@@ -56,7 +61,6 @@ public class LoginFormController {
         Stage stage = new Stage();
         stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/lk/ijse/gdse66/hostel/view/create_account_form.fxml"))));
         stage.setTitle("Create Account");
-
         stage.show();
     }
 }
