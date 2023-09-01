@@ -56,6 +56,7 @@ public class LoginFormController {
         Stage stage = new Stage();
         stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/lk/ijse/gdse66/hostel/view/create_account_form.fxml"))));
         stage.setTitle("Create Account");
+
         stage.show();
     }
 }
