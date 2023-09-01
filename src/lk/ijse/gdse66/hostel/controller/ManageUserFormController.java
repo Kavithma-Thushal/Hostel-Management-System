@@ -64,11 +64,11 @@ public class ManageUserFormController implements Initializable {
 
     private void setCellValue() {
         tblUser.getColumns().get(0).setCellValueFactory(new PropertyValueFactory<>("id"));
-        tblUser.getColumns().get(1).setCellValueFactory(new PropertyValueFactory<>("name"));
+        tblUser.getColumns().get(1).setCellValueFactory(new PropertyValueFactory<>("userName"));
         tblUser.getColumns().get(2).setCellValueFactory(new PropertyValueFactory<>("gender"));
         tblUser.getColumns().get(3).setCellValueFactory(new PropertyValueFactory<>("address"));
         tblUser.getColumns().get(4).setCellValueFactory(new PropertyValueFactory<>("contact"));
-        tblUser.getColumns().get(5).setCellValueFactory(new PropertyValueFactory<>("password"));
+        tblUser.getColumns().get(5).setCellValueFactory(new PropertyValueFactory<>("userPassword"));
     }
 
     private void selectTableElements() {
