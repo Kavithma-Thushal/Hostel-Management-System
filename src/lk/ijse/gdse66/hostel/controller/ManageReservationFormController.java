@@ -28,7 +28,7 @@ public class ManageReservationFormController implements Initializable {
     @FXML
     private Label lblResId;
     @FXML
-    private JFXComboBox<String> cmbStudentId;
+    private JFXComboBox cmbStudentId;
     @FXML
     private JFXTextField txtStudentName;
     @FXML
