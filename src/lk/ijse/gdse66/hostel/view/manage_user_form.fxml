@@ -27,7 +27,7 @@
                 <TableColumn editable="false" prefWidth="163.0" resizable="false" text="Password" />
             </columns>
         </TableView>
-        <JFXTextField fx:id="txtPassword" focusTraversable="false" layoutX="453.0" layoutY="112.0" promptText="Password" />
+        <JFXTextField fx:id="txtPassword" focusTraversable="false" layoutX="453.0" layoutY="112.0" promptText="User Password" />
         <JFXComboBox fx:id="cmbGender" focusTraversable="false" layoutX="453.0" layoutY="38.0" prefHeight="31.0" prefWidth="169.0" promptText="Gender" />
     </children>
 </AnchorPane>

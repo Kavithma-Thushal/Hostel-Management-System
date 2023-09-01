@@ -2,6 +2,8 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import lk.ijse.gdse66.hostel.util.SessionFactoryConfiguration;
+import org.hibernate.Session;
 
 import java.io.IOException;
 
@@ -23,5 +25,10 @@ public class AppInitializer extends Application {
         primaryStage.setResizable(false);
         //primaryStage.initStyle(StageStyle.UNDECORATED);
         primaryStage.show();
+
+        new Thread(() -> {
+            Session session = SessionFactoryConfiguration.getInstance().getSession();
+            session.close();
+        }).start();
     }
 }

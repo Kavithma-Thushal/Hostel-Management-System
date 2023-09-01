@@ -22,12 +22,12 @@ import javax.persistence.Id;
 @Entity
 public class User {
     @Id
-    @Column(name = "user_id")
     private String id;
     @Column(name = "user_name")
-    private String name;
+    private String userName;
     private String gender;
     private String address;
     private String contact;
-    private String password;
+    @Column(name = "user_password")
+    private String userPassword;
 }

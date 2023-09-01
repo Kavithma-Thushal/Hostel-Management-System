@@ -14,9 +14,9 @@ import lombok.NoArgsConstructor;
 @Data
 public class UserTM {
     private String id;
-    private String name;
+    private String userName;
     private String gender;
     private String address;
     private String contact;
-    private String password;
+    private String userPassword;
 }

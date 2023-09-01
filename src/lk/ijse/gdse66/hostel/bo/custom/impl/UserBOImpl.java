@@ -21,27 +21,27 @@ public class UserBOImpl implements UserBO {
         ArrayList<User> userArrayList = userDAO.loadAll();
         ArrayList<UserDTO> userDTOArrayList = new ArrayList<>();
         for (User user : userArrayList) {
-            userDTOArrayList.add(new UserDTO(user.getId(), user.getName(), user.getGender(), user.getAddress(), user.getContact(), user.getPassword()));
+            userDTOArrayList.add(new UserDTO(user.getId(), user.getUserName(), user.getGender(), user.getAddress(), user.getContact(), user.getUserPassword()));
         }
         return userDTOArrayList;
     }
 
     @Override
     public boolean saveUser(UserDTO userDTO) {
-        return userDAO.save(new User(userDTO.getId(), userDTO.getName(), userDTO.getGender(), userDTO.getAddress(), userDTO.getContact(), userDTO.getPassword()));
+        return userDAO.save(new User(userDTO.getId(), userDTO.getUserName(), userDTO.getGender(), userDTO.getAddress(), userDTO.getContact(), userDTO.getUserPassword()));
     }
 
     @Override
     public ArrayList<UserDTO> searchUser(String id) {
         User user = userDAO.search(id);
         ArrayList<UserDTO> userDTOArrayList = new ArrayList<>();
-        userDTOArrayList.add(new UserDTO(user.getId(), user.getName(), user.getGender(), user.getAddress(), user.getContact(), user.getPassword()));
+        userDTOArrayList.add(new UserDTO(user.getId(), user.getUserName(), user.getGender(), user.getAddress(), user.getContact(), user.getUserPassword()));
         return userDTOArrayList;
     }
 
     @Override
     public boolean updateUser(UserDTO userDTO) {
-        return userDAO.update(new User(userDTO.getId(), userDTO.getName(), userDTO.getGender(), userDTO.getAddress(), userDTO.getContact(), userDTO.getPassword()));
+        return userDAO.update(new User(userDTO.getId(), userDTO.getUserName(), userDTO.getGender(), userDTO.getAddress(), userDTO.getContact(), userDTO.getUserPassword()));
     }
 
     @Override

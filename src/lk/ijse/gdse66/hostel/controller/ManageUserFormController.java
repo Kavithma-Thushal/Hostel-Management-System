@@ -77,11 +77,11 @@ public class ManageUserFormController implements Initializable {
 
             if (newValue != null) {
                 txtUserId.setText(newValue.getId());
-                txtUserName.setText(newValue.getName());
+                txtUserName.setText(newValue.getUserName());
                 cmbGender.setValue(newValue.getGender());
                 txtAddress.setText(newValue.getAddress());
                 txtContact.setText(newValue.getContact());
-                txtPassword.setText(newValue.getPassword());
+                txtPassword.setText(newValue.getUserPassword());
 
                 txtSearch.clear();
                 enableTextFields();
@@ -138,7 +138,7 @@ public class ManageUserFormController implements Initializable {
     private void loadAllUsers() {
         ArrayList<UserDTO> userDTOArrayList = userBO.loadAllUsers();
         for (UserDTO userDTO : userDTOArrayList) {
-            tblUser.getItems().add(new UserTM(userDTO.getId(), userDTO.getName(), userDTO.getGender(), userDTO.getAddress(), userDTO.getContact(), userDTO.getPassword()));
+            tblUser.getItems().add(new UserTM(userDTO.getId(), userDTO.getUserName(), userDTO.getGender(), userDTO.getAddress(), userDTO.getContact(), userDTO.getUserPassword()));
         }
     }
 
@@ -174,7 +174,7 @@ public class ManageUserFormController implements Initializable {
             new Alert(Alert.AlertType.ERROR, "Invalid User Contact").show();
             txtContact.requestFocus();
             return;
-        } else if (!password.matches("^([A-Z a-z]{4,40})$")) {
+        } else if (!password.matches("^([A-Z a-z 0-9]{4,40})$")) {
             new Alert(Alert.AlertType.ERROR, "Invalid User Password").show();
             txtPassword.requestFocus();
             return;
@@ -204,11 +204,11 @@ public class ManageUserFormController implements Initializable {
 
             UserTM selectedItem = tblUser.getSelectionModel().getSelectedItem();
             selectedItem.setId(id);
-            selectedItem.setName(name);
+            selectedItem.setUserName(name);
             selectedItem.setGender(gender);
             selectedItem.setAddress(address);
             selectedItem.setContact(contact);
-            selectedItem.setContact(password);
+            selectedItem.setUserPassword(password);
 
             tblUser.refresh();
             tblUser.getSelectionModel().clearSelection();
@@ -223,7 +223,7 @@ public class ManageUserFormController implements Initializable {
             initUI();
             if (userDTOArrayList != null) {
                 for (UserDTO userDTO : userDTOArrayList) {
-                    tblUser.getItems().add(new UserTM(userDTO.getId(), userDTO.getName(), userDTO.getGender(), userDTO.getAddress(), userDTO.getContact(), userDTO.getPassword()));
+                    tblUser.getItems().add(new UserTM(userDTO.getId(), userDTO.getUserName(), userDTO.getGender(), userDTO.getAddress(), userDTO.getContact(), userDTO.getUserPassword()));
                 }
             } else {
                 new Alert(Alert.AlertType.ERROR, "Please Try Again!").show();
