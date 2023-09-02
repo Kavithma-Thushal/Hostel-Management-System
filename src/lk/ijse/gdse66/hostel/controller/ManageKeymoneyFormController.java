@@ -4,6 +4,7 @@ import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import lk.ijse.gdse66.hostel.bo.BOFactory;
@@ -53,6 +54,19 @@ public class ManageKeymoneyFormController implements Initializable {
 
     @FXML
     private void searchOnAction(ActionEvent actionEvent) {
-
+        //if (existReservation(txtSearch.getText())) {
+            tblReservation.getItems().clear();
+            ArrayList<ReservationDTO> reservationDTOArrayList = reserveBO.searchReservation(txtSearch.getText());
+            if (reservationDTOArrayList != null) {
+                for (ReservationDTO reservationDTO : reservationDTOArrayList) {
+                    tblReservation.getItems().add(new ReservationTM(reservationDTO.getReserveId(), reservationDTO.getStudentId(), reservationDTO.getRoomId(), reservationDTO.getDate(), reservationDTO.getStatus()));
+                }
+            } else {
+                new Alert(Alert.AlertType.ERROR, "Please Try Again!").show();
+            }
+        /*} else {
+            tblReservation.getItems().clear();
+            new Alert(Alert.AlertType.ERROR, "There is no reservation related to this ID").show();
+        }*/
     }
 }

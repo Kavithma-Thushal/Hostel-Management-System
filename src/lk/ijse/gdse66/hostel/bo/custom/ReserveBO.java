@@ -16,7 +16,10 @@ import java.util.List;
 public interface ReserveBO extends SuperBO {
 
     String generateNextReservationId();
+
     ArrayList<ReservationDTO> loadAllReservations();
+
+    ArrayList<ReservationDTO> searchReservation(String id);
 
     List<String> loadStudentIds();
 
@@ -27,5 +30,4 @@ public interface ReserveBO extends SuperBO {
     RoomDTO searchByRoomId(String roomId);
 
     boolean placeReservation(ReservationDTO reservationDTO);
-
 }

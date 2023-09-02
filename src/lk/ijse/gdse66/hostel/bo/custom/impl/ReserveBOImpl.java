@@ -44,6 +44,14 @@ public class ReserveBOImpl implements ReserveBO {
     }
 
     @Override
+    public ArrayList<ReservationDTO> searchReservation(String id) {
+        Reservation reservation = reserveDAO.search(id);
+        ArrayList<ReservationDTO> reservationDTOArrayList = new ArrayList<>();
+        reservationDTOArrayList.add(new ReservationDTO(reservation.getReserveId(), reservation.getStudentId().getId(), reservation.getRoomId().getId(), reservation.getDate(), reservation.getStatus()));
+        return reservationDTOArrayList;
+    }
+
+    @Override
     public List<String> loadStudentIds() {
         return studentDAO.loadStudentIds();
     }

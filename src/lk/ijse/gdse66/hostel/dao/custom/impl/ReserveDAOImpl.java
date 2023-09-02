@@ -2,6 +2,7 @@ package lk.ijse.gdse66.hostel.dao.custom.impl;
 
 import lk.ijse.gdse66.hostel.dao.custom.ReserveDAO;
 import lk.ijse.gdse66.hostel.entity.Reservation;
+import lk.ijse.gdse66.hostel.entity.Student;
 import lk.ijse.gdse66.hostel.util.SessionFactoryConfiguration;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -59,7 +60,17 @@ public class ReserveDAOImpl implements ReserveDAO {
 
     @Override
     public Reservation search(String id) {
-        return null;
+        try {
+            session = SessionFactoryConfiguration.getInstance().getSession();
+            return session.get(Reservation.class, id);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        } finally {
+            if (session != null) {
+                session.close();
+            }
+        }
     }
 
     @Override
