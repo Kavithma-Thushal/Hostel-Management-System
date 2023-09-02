@@ -19,7 +19,5 @@ public class ReservationTM {
     private String studentId;
     private String roomId;
     private String date;
-    private String keyMoney;
-    private String advance;
     private String status;
 }

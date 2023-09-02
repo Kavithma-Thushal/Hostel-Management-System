@@ -25,7 +25,23 @@ public class ReserveDAOImpl implements ReserveDAO {
 
     @Override
     public boolean save(Reservation reservation) {
-        return false;
+        try {
+            session = SessionFactoryConfiguration.getInstance().getSession();
+            transaction = session.beginTransaction();
+            session.save(reservation);
+            transaction.commit();
+            return true;
+        } catch (Exception e) {
+            if (transaction != null) {
+                transaction.rollback();
+            }
+            e.printStackTrace();
+            return false;
+        } finally {
+            if (session != null) {
+                session.close();
+            }
+        }
     }
 
     @Override

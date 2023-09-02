@@ -22,11 +22,6 @@ public class Reservation {
     @Id
     @Column(name = "res_id")
     private String reserveId;
-    private String date;
-    @Column(name = "key_money")
-    private double keyMoney;
-    private double advance;
-    private double status;
 
     @ManyToOne
     @JoinColumn(name = "student_id")
@@ -35,4 +30,7 @@ public class Reservation {
     @ManyToOne
     @JoinColumn(name = "room_id")
     private Room roomId;
+
+    private String date;
+    private String status;
 }

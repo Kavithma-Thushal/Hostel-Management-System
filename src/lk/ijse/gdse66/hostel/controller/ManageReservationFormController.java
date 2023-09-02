@@ -12,7 +12,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import lk.ijse.gdse66.hostel.bo.BOFactory;
 import lk.ijse.gdse66.hostel.bo.custom.ReserveBO;
-import lk.ijse.gdse66.hostel.bo.custom.StudentBO;
+import lk.ijse.gdse66.hostel.dto.ReservationDTO;
 import lk.ijse.gdse66.hostel.dto.RoomDTO;
 import lk.ijse.gdse66.hostel.dto.StudentDTO;
 
@@ -64,6 +64,11 @@ public class ManageReservationFormController implements Initializable {
         loadRoomIds();
     }
 
+    private void generateNextReservationId() {
+        String nextId = reserveBO.generateNextReservationId();
+        lblResId.setText(nextId);
+    }
+
     private void loadStudentIds() {
         ObservableList<String> observableList = FXCollections.observableArrayList();
         List<String> studentIds = reserveBO.loadStudentIds();
@@ -82,11 +87,6 @@ public class ManageReservationFormController implements Initializable {
             observableList.add(id);
         }
         cmbRoomId.setItems(observableList);
-    }
-
-    private void generateNextReservationId() {
-        String nextId = reserveBO.generateNextReservationId();
-        lblResId.setText(nextId);
     }
 
     @FXML
@@ -119,7 +119,13 @@ public class ManageReservationFormController implements Initializable {
         String studentId = cmbStudentId.getValue();
         String roomId = cmbRoomId.getValue();
         String date = String.valueOf(LocalDate.now());
-        String keyMoney = txtKeyMoney.getText();
         String status = String.valueOf(cmbStatus.getValue());
+
+        boolean isPlacedReservation = reserveBO.placeReservation(new ReservationDTO(reservationId, studentId, roomId, date, status));
+        if (isPlacedReservation) {
+            new Alert(Alert.AlertType.INFORMATION, "Room Booked Successfully!").show();
+        } else {
+            new Alert(Alert.AlertType.ERROR, "Please Try Again!").show();
+        }
     }
 }

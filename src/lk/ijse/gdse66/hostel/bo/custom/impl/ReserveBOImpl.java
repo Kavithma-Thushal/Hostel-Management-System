@@ -5,10 +5,15 @@ import lk.ijse.gdse66.hostel.dao.DAOFactory;
 import lk.ijse.gdse66.hostel.dao.custom.ReserveDAO;
 import lk.ijse.gdse66.hostel.dao.custom.RoomDAO;
 import lk.ijse.gdse66.hostel.dao.custom.StudentDAO;
+import lk.ijse.gdse66.hostel.dto.ReservationDTO;
 import lk.ijse.gdse66.hostel.dto.RoomDTO;
 import lk.ijse.gdse66.hostel.dto.StudentDTO;
+import lk.ijse.gdse66.hostel.entity.Reservation;
 import lk.ijse.gdse66.hostel.entity.Room;
 import lk.ijse.gdse66.hostel.entity.Student;
+import lk.ijse.gdse66.hostel.util.SessionFactoryConfiguration;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
 
 import java.util.List;
 
@@ -23,8 +28,18 @@ public class ReserveBOImpl implements ReserveBO {
     private final RoomDAO roomDAO = (RoomDAO) DAOFactory.getDAOFactory().getDAO(DAOFactory.DAOTypes.ROOM);
 
     @Override
+    public String generateNextReservationId() {
+        return reserveDAO.generateNextId();
+    }
+
+    @Override
     public List<String> loadStudentIds() {
         return studentDAO.loadStudentIds();
+    }
+
+    @Override
+    public List<String> loadRoomIds() {
+        return roomDAO.loadRoomIds();
     }
 
     @Override
@@ -34,18 +49,17 @@ public class ReserveBOImpl implements ReserveBO {
     }
 
     @Override
-    public List<String> loadRoomIds() {
-        return roomDAO.loadRoomIds();
-    }
-
-    @Override
     public RoomDTO searchByRoomId(String roomId) {
         Room room = roomDAO.search(roomId);
         return new RoomDTO(room.getId(), room.getType(), String.valueOf(room.getKeyMoney()), String.valueOf(room.getQty()));
     }
 
     @Override
-    public String generateNextReservationId() {
-        return reserveDAO.generateNextId();
+    public boolean placeReservation(ReservationDTO reservationDTO) {
+        Session session = SessionFactoryConfiguration.getInstance().getSession();
+        Student studentId = session.get(Student.class, reservationDTO.getStudentId());
+        Room roomId = session.get(Room.class, reservationDTO.getRoomId());
+
+        return reserveDAO.save(new Reservation(reservationDTO.getReserveId(), studentId, roomId, reservationDTO.getDate(), reservationDTO.getStatus()));
     }
 }

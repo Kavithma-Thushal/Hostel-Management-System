@@ -1,6 +1,7 @@
 package lk.ijse.gdse66.hostel.bo.custom;
 
 import lk.ijse.gdse66.hostel.bo.SuperBO;
+import lk.ijse.gdse66.hostel.dto.ReservationDTO;
 import lk.ijse.gdse66.hostel.dto.RoomDTO;
 import lk.ijse.gdse66.hostel.dto.StudentDTO;
 
@@ -13,13 +14,15 @@ import java.util.List;
  **/
 public interface ReserveBO extends SuperBO {
 
-    List<String> loadStudentIds();
+    String generateNextReservationId();
 
-    StudentDTO searchByStudentId(String studentId);
+    List<String> loadStudentIds();
 
     List<String> loadRoomIds();
 
+    StudentDTO searchByStudentId(String studentId);
+
     RoomDTO searchByRoomId(String roomId);
 
-    String generateNextReservationId();
+    boolean placeReservation(ReservationDTO reservationDTO);
 }
