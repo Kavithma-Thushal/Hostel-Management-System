@@ -19,6 +19,8 @@ public interface ReserveBO extends SuperBO {
 
     ArrayList<ReservationDTO> loadAllReservations();
 
+    boolean existReservation(String id);
+
     ArrayList<ReservationDTO> searchReservation(String id);
 
     List<String> loadStudentIds();

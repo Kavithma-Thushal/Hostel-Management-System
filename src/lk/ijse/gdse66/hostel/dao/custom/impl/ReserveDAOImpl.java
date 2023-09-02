@@ -2,9 +2,7 @@ package lk.ijse.gdse66.hostel.dao.custom.impl;
 
 import lk.ijse.gdse66.hostel.dao.custom.ReserveDAO;
 import lk.ijse.gdse66.hostel.entity.Reservation;
-import lk.ijse.gdse66.hostel.entity.Student;
 import lk.ijse.gdse66.hostel.util.SessionFactoryConfiguration;
-import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
@@ -85,7 +83,23 @@ public class ReserveDAOImpl implements ReserveDAO {
 
     @Override
     public boolean exist(String code) {
-        return false;
+        try {
+            session = SessionFactoryConfiguration.getInstance().getSession();
+            Query query = session.createQuery("SELECT id FROM Reservation WHERE id=:code");
+            String id = (String) query.setParameter("code", code).uniqueResult();
+            if (id != null) {
+                return true;
+            } else {
+                return false;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        } finally {
+            if (session != null) {
+                session.close();
+            }
+        }
     }
 
     @Override

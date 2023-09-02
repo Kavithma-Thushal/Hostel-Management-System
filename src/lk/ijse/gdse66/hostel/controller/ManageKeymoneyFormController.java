@@ -10,9 +10,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import lk.ijse.gdse66.hostel.bo.BOFactory;
 import lk.ijse.gdse66.hostel.bo.custom.ReserveBO;
 import lk.ijse.gdse66.hostel.dto.ReservationDTO;
-import lk.ijse.gdse66.hostel.dto.StudentDTO;
 import lk.ijse.gdse66.hostel.view.tm.ReservationTM;
-import lk.ijse.gdse66.hostel.view.tm.StudentTM;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -52,9 +50,13 @@ public class ManageKeymoneyFormController implements Initializable {
         }
     }
 
+    private boolean existReservation(String id) {
+        return reserveBO.existReservation(id);
+    }
+
     @FXML
     private void searchOnAction(ActionEvent actionEvent) {
-        //if (existReservation(txtSearch.getText())) {
+        if (existReservation(txtSearch.getText())) {
             tblReservation.getItems().clear();
             ArrayList<ReservationDTO> reservationDTOArrayList = reserveBO.searchReservation(txtSearch.getText());
             if (reservationDTOArrayList != null) {
@@ -64,9 +66,9 @@ public class ManageKeymoneyFormController implements Initializable {
             } else {
                 new Alert(Alert.AlertType.ERROR, "Please Try Again!").show();
             }
-        /*} else {
+        } else {
             tblReservation.getItems().clear();
             new Alert(Alert.AlertType.ERROR, "There is no reservation related to this ID").show();
-        }*/
+        }
     }
 }

@@ -13,7 +13,6 @@ import lk.ijse.gdse66.hostel.entity.Room;
 import lk.ijse.gdse66.hostel.entity.Student;
 import lk.ijse.gdse66.hostel.util.SessionFactoryConfiguration;
 import org.hibernate.Session;
-import org.hibernate.Transaction;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,6 +40,11 @@ public class ReserveBOImpl implements ReserveBO {
             reservationDTOArrayList.add(new ReservationDTO(reservation.getReserveId(), reservation.getStudentId().getId(), reservation.getRoomId().getId(), reservation.getDate(), reservation.getStatus()));
         }
         return reservationDTOArrayList;
+    }
+
+    @Override
+    public boolean existReservation(String id) {
+        return reserveDAO.exist(id);
     }
 
     @Override
