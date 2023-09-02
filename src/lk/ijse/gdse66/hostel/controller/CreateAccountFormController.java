@@ -30,6 +30,12 @@ public class CreateAccountFormController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         cmbGender.getItems().addAll("Male", "Female", "Other");
+        generateNextUserId();
+    }
+
+    private void generateNextUserId() {
+        String nextId = userBO.generateNextUserId();
+        txtUserId.setText(nextId);
     }
 
     public void createNewAccountOnAction(ActionEvent actionEvent) {

@@ -7,27 +7,19 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171"
-            xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="lk.ijse.gdse66.hostel.controller.CreateAccountFormController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse66.hostel.controller.CreateAccountFormController">
     <children>
         <Label focusTraversable="false" layoutX="196.0" layoutY="29.0" text="Create New Account">
             <font>
-                <Font size="23.0"/>
+                <Font size="23.0" />
             </font>
         </Label>
-        <JFXTextField fx:id="txtUserId" focusTraversable="false" layoutX="79.0" layoutY="111.0" promptText="User ID"/>
-        <JFXTextField fx:id="txtUserName" focusTraversable="false" layoutX="348.0" layoutY="111.0"
-                      promptText="User Name"/>
-        <JFXTextField fx:id="txtAddress" focusTraversable="false" layoutX="348.0" layoutY="185.0" promptText="Address"/>
-        <JFXTextField fx:id="txtContact" focusTraversable="false" layoutX="79.0" layoutY="264.0" promptText="Contact"/>
-        <JFXTextField fx:id="txtPassword" focusTraversable="false" layoutX="348.0" layoutY="264.0"
-                      promptText="User Password"/>
-        <JFXButton buttonType="RAISED" focusTraversable="false" layoutX="222.0" layoutY="336.0"
-                   onAction="#createNewAccountOnAction" style="-fx-background-color: lightblue;"
-                   text="Create New Account"/>
-        <JFXComboBox fx:id="cmbGender" focusTraversable="false" layoutX="79.0" layoutY="185.0" prefHeight="31.0"
-                     prefWidth="169.0" promptText="Gender"/>
+        <JFXTextField fx:id="txtUserId" editable="false" focusTraversable="false" layoutX="79.0" layoutY="111.0" promptText="User ID" />
+        <JFXTextField fx:id="txtUserName" focusTraversable="false" layoutX="348.0" layoutY="111.0" promptText="User Name" />
+        <JFXTextField fx:id="txtAddress" focusTraversable="false" layoutX="348.0" layoutY="185.0" promptText="Address" />
+        <JFXTextField fx:id="txtContact" focusTraversable="false" layoutX="79.0" layoutY="264.0" promptText="Contact" />
+        <JFXTextField fx:id="txtPassword" focusTraversable="false" layoutX="348.0" layoutY="264.0" promptText="User Password" />
+        <JFXButton buttonType="RAISED" focusTraversable="false" layoutX="222.0" layoutY="336.0" onAction="#createNewAccountOnAction" style="-fx-background-color: lightblue;" text="Create New Account" />
+        <JFXComboBox fx:id="cmbGender" focusTraversable="false" layoutX="79.0" layoutY="185.0" prefHeight="31.0" prefWidth="169.0" promptText="Gender" />
     </children>
 </AnchorPane>

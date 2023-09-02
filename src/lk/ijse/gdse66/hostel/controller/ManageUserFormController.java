@@ -126,11 +126,11 @@ public class ManageUserFormController implements Initializable {
         btnDelete.setDisable(true);
     }
 
-    private boolean existStudent(String id) {
+    private boolean existUser(String id) {
         return userBO.existUser(id);
     }
 
-    private void generateNextStudentId() {
+    private void generateNextUserId() {
         String nextId = userBO.generateNextUserId();
         txtUserId.setText(nextId);
     }
@@ -150,7 +150,7 @@ public class ManageUserFormController implements Initializable {
         txtUserName.requestFocus();
         btnSave.setDisable(false);
         btnSave.setText(true ? "Save" : "Update");
-        generateNextStudentId();
+        generateNextUserId();
     }
 
     @FXML
@@ -217,7 +217,7 @@ public class ManageUserFormController implements Initializable {
 
     @FXML
     private void searchOnAction(ActionEvent actionEvent) {
-        if (existStudent(txtSearch.getText())) {
+        if (existUser(txtSearch.getText())) {
             tblUser.getItems().clear();
             ArrayList<UserDTO> userDTOArrayList = userBO.searchUser(txtSearch.getText());
             initUI();
