@@ -17,6 +17,7 @@ import lk.ijse.gdse66.hostel.dto.RoomDTO;
 import lk.ijse.gdse66.hostel.dto.StudentDTO;
 
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -50,13 +51,14 @@ public class ManageReservationFormController implements Initializable {
     @FXML
     private JFXTextField txtQty;
     @FXML
-    private JFXTextField txtAdvance;
+    private JFXComboBox cmbStatus;
     @FXML
     private JFXButton btnReserve;
     private final ReserveBO reserveBO = (ReserveBO) BOFactory.getBOFactory().getBO(BOFactory.BOTypes.RESERVE);
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        cmbStatus.getItems().addAll("Paid", "Non-Paid");
         generateNextReservationId();
         loadStudentIds();
         loadRoomIds();
@@ -113,6 +115,11 @@ public class ManageReservationFormController implements Initializable {
 
     @FXML
     private void ReserveOnAction(ActionEvent actionEvent) {
-
+        String reservationId = lblResId.getText();
+        String studentId = cmbStudentId.getValue();
+        String roomId = cmbRoomId.getValue();
+        String date = String.valueOf(LocalDate.now());
+        String keyMoney = txtKeyMoney.getText();
+        String status = String.valueOf(cmbStatus.getValue());
     }
 }

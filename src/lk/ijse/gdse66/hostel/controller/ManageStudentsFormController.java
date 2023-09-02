@@ -53,15 +53,11 @@ public class ManageStudentsFormController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        setComboElements();
+        cmbGender.getItems().addAll("Male", "Female", "Other");
         setCellValue();
         selectTableElements();
         initUI();
         loadAllStudents();
-    }
-
-    private void setComboElements() {
-        cmbGender.getItems().addAll("Male", "Female", "Other");
     }
 
     private void setCellValue() {
