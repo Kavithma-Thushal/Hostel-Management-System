@@ -5,6 +5,7 @@ import lk.ijse.gdse66.hostel.dto.ReservationDTO;
 import lk.ijse.gdse66.hostel.dto.RoomDTO;
 import lk.ijse.gdse66.hostel.dto.StudentDTO;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -15,6 +16,7 @@ import java.util.List;
 public interface ReserveBO extends SuperBO {
 
     String generateNextReservationId();
+    ArrayList<ReservationDTO> loadAllReservations();
 
     List<String> loadStudentIds();
 
@@ -25,4 +27,5 @@ public interface ReserveBO extends SuperBO {
     RoomDTO searchByRoomId(String roomId);
 
     boolean placeReservation(ReservationDTO reservationDTO);
+
 }

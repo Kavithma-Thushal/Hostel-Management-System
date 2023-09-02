@@ -15,6 +15,7 @@ import lk.ijse.gdse66.hostel.util.SessionFactoryConfiguration;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -30,6 +31,16 @@ public class ReserveBOImpl implements ReserveBO {
     @Override
     public String generateNextReservationId() {
         return reserveDAO.generateNextId();
+    }
+
+    @Override
+    public ArrayList<ReservationDTO> loadAllReservations() {
+        ArrayList<Reservation> reservationArrayList = reserveDAO.loadAll();
+        ArrayList<ReservationDTO> reservationDTOArrayList = new ArrayList<>();
+        for (Reservation reservation : reservationArrayList) {
+            reservationDTOArrayList.add(new ReservationDTO(reservation.getReserveId(), reservation.getStudentId().getId(), reservation.getRoomId().getId(), reservation.getDate(), reservation.getStatus()));
+        }
+        return reservationDTOArrayList;
     }
 
     @Override

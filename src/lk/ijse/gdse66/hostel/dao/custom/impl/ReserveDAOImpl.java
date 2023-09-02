@@ -3,6 +3,7 @@ package lk.ijse.gdse66.hostel.dao.custom.impl;
 import lk.ijse.gdse66.hostel.dao.custom.ReserveDAO;
 import lk.ijse.gdse66.hostel.entity.Reservation;
 import lk.ijse.gdse66.hostel.util.SessionFactoryConfiguration;
+import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
@@ -20,7 +21,19 @@ public class ReserveDAOImpl implements ReserveDAO {
 
     @Override
     public ArrayList<Reservation> loadAll() {
-        return null;
+        try {
+            session = SessionFactoryConfiguration.getInstance().getSession();
+            Query query = session.createQuery("FROM Reservation ");
+            ArrayList<Reservation> reservationArrayList = (ArrayList<Reservation>) query.list();
+            return reservationArrayList;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        } finally {
+            if (session != null) {
+                session.close();
+            }
+        }
     }
 
     @Override
@@ -72,7 +85,7 @@ public class ReserveDAOImpl implements ReserveDAO {
             query.setMaxResults(1);
             String currentId = (String) query.uniqueResult();
             if (currentId != null) {
-                int id = Integer.parseInt(currentId.substring(1)) + 1;
+                int id = Integer.parseInt(currentId.substring(3)) + 1;
                 return "RES" + String.format("%03d", id);
             }
             return "RES001";
