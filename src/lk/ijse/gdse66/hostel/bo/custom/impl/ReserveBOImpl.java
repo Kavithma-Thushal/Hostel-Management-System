@@ -43,4 +43,9 @@ public class ReserveBOImpl implements ReserveBO {
         Room room = roomDAO.search(roomId);
         return new RoomDTO(room.getId(), room.getType(), String.valueOf(room.getKeyMoney()), String.valueOf(room.getQty()));
     }
+
+    @Override
+    public String generateNextReservationId() {
+        return reserveDAO.generateNextId();
+    }
 }

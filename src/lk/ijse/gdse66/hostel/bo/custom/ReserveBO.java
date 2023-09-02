@@ -20,4 +20,6 @@ public interface ReserveBO extends SuperBO {
     List<String> loadRoomIds();
 
     RoomDTO searchByRoomId(String roomId);
+
+    String generateNextReservationId();
 }

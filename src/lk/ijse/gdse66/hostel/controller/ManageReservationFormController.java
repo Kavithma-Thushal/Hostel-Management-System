@@ -57,6 +57,7 @@ public class ManageReservationFormController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        generateNextReservationId();
         loadStudentIds();
         loadRoomIds();
     }
@@ -79,6 +80,11 @@ public class ManageReservationFormController implements Initializable {
             observableList.add(id);
         }
         cmbRoomId.setItems(observableList);
+    }
+
+    private void generateNextReservationId() {
+        String nextId = reserveBO.generateNextReservationId();
+        lblResId.setText(nextId);
     }
 
     @FXML
