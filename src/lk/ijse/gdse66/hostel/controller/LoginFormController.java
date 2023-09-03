@@ -1,19 +1,23 @@
 package lk.ijse.gdse66.hostel.controller;
 
-import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 import lk.ijse.gdse66.hostel.bo.BOFactory;
 import lk.ijse.gdse66.hostel.bo.custom.UserBO;
 import lk.ijse.gdse66.hostel.dto.UserDTO;
+import org.controlsfx.control.Notifications;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -42,13 +46,32 @@ public class LoginFormController {
                 Stage stage = (Stage) this.root.getScene().getWindow();
                 stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/lk/ijse/gdse66/hostel/view/dashboard_form.fxml"))));
                 stage.setTitle("Dashboard");
+
+                Image img = new Image("lk/ijse/gdse66/hostel/view/assets/images/tick.gif", 90, 90, false, false);
+                Notifications notificationBuilder = Notifications.create()
+                        .title("Admin login")
+                        .text("Admin login Successful!")
+                        .graphic(new ImageView(img))
+                        .hideAfter(Duration.seconds(2))
+                        .position(Pos.BOTTOM_RIGHT);
+                notificationBuilder.darkStyle();
+                notificationBuilder.show();
+
                 validLogin = true;
                 break;
             }
         }
 
         if (!validLogin) {
-            new Alert(Alert.AlertType.ERROR, "Try Again!").show();
+            Image img = new Image("lk/ijse/gdse66/hostel/view/assets/images/error.gif", 90, 90, false, false);
+            Notifications notificationBuilder = Notifications.create()
+                    .title("Error")
+                    .text("Admin login Unsuccessful!")
+                    .graphic(new ImageView(img))
+                    .hideAfter(Duration.seconds(4))
+                    .position(Pos.BOTTOM_RIGHT);
+            notificationBuilder.darkStyle();
+            notificationBuilder.show();
         }
     }
 

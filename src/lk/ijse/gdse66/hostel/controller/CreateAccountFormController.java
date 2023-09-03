@@ -75,6 +75,7 @@ public class CreateAccountFormController implements Initializable {
 
         boolean isSaved = userBO.saveUser(new UserDTO(id, name, gender, address, contact, password));
         clearTextFields();
+        txtUserName.requestFocus();
         if (isSaved) {
             new Alert(Alert.AlertType.INFORMATION, "Account Created Successfully!").show();
         } else {
