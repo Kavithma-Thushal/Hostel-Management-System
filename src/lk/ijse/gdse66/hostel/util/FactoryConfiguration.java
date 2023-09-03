@@ -16,11 +16,11 @@ import java.util.Properties;
  * @project : Hostel-Management-System
  * @since : 8:26 PM - 8/25/2023
  **/
-public class SessionFactoryConfiguration {
-    private static SessionFactoryConfiguration sessionFactoryConfiguration;
+public class FactoryConfiguration {
+    private static FactoryConfiguration factoryConfiguration;
     private final SessionFactory sessionFactory;
 
-    private SessionFactoryConfiguration() throws IOException {
+    private FactoryConfiguration() throws IOException {
         /*sessionFactory = new Configuration()
                 .addAnnotatedClass(Student.class)
                 *//*.addAnnotatedClass(Room.class)
@@ -42,9 +42,9 @@ public class SessionFactoryConfiguration {
         sessionFactory = configuration.buildSessionFactory();
     }
 
-    public static SessionFactoryConfiguration getInstance() {
+    public static FactoryConfiguration getInstance() {
         try {
-            return (sessionFactoryConfiguration == null) ? sessionFactoryConfiguration = new SessionFactoryConfiguration() : sessionFactoryConfiguration;
+            return (factoryConfiguration == null) ? factoryConfiguration = new FactoryConfiguration() : factoryConfiguration;
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

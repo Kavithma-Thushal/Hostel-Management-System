@@ -16,7 +16,7 @@ import java.io.File;
  **/
 public class Random {
     private static final String IMAGE_DIR_PATH = "/D:\\IJSE\\Workspace\\2nd Sem Repo\\Hostel-Management-System\\src\\lk\\ijse\\gdse66\\hostel\\view\\assets\\random";
-    private static final Duration IMAGE_CHANGE_INTERVAL = Duration.seconds(2);
+    private static final Duration IMAGE_CHANGE_INTERVAL = Duration.seconds(4);
 
     private final java.util.Random random = new java.util.Random();
 
@@ -54,10 +54,5 @@ public class Random {
         imageView.fitHeightProperty().bind(root.heightProperty());
         root.getChildren().clear();
         root.getChildren().add(imageView);
-    }
-
-    public void stop() {
-        // Stop image change timeline
-        imageChangeTimeline.stop();
     }
 }

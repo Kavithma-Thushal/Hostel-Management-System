@@ -2,7 +2,7 @@ package lk.ijse.gdse66.hostel.dao.custom.impl;
 
 import lk.ijse.gdse66.hostel.dao.custom.ReserveDAO;
 import lk.ijse.gdse66.hostel.entity.Reservation;
-import lk.ijse.gdse66.hostel.util.SessionFactoryConfiguration;
+import lk.ijse.gdse66.hostel.util.FactoryConfiguration;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
@@ -21,7 +21,7 @@ public class ReserveDAOImpl implements ReserveDAO {
     @Override
     public ArrayList<Reservation> loadAll() {
         try {
-            session = SessionFactoryConfiguration.getInstance().getSession();
+            session = FactoryConfiguration.getInstance().getSession();
             Query query = session.createQuery("FROM Reservation ");
             ArrayList<Reservation> reservationArrayList = (ArrayList<Reservation>) query.list();
             return reservationArrayList;
@@ -38,7 +38,7 @@ public class ReserveDAOImpl implements ReserveDAO {
     @Override
     public boolean save(Reservation reservation) {
         try {
-            session = SessionFactoryConfiguration.getInstance().getSession();
+            session = FactoryConfiguration.getInstance().getSession();
             transaction = session.beginTransaction();
             session.save(reservation);
             transaction.commit();
@@ -59,7 +59,7 @@ public class ReserveDAOImpl implements ReserveDAO {
     @Override
     public Reservation search(String id) {
         try {
-            session = SessionFactoryConfiguration.getInstance().getSession();
+            session = FactoryConfiguration.getInstance().getSession();
             return session.get(Reservation.class, id);
         } catch (Exception e) {
             e.printStackTrace();
@@ -84,7 +84,7 @@ public class ReserveDAOImpl implements ReserveDAO {
     @Override
     public boolean exist(String code) {
         try {
-            session = SessionFactoryConfiguration.getInstance().getSession();
+            session = FactoryConfiguration.getInstance().getSession();
             Query query = session.createQuery("SELECT id FROM Reservation WHERE id=:code");
             String id = (String) query.setParameter("code", code).uniqueResult();
             if (id != null) {
@@ -105,7 +105,7 @@ public class ReserveDAOImpl implements ReserveDAO {
     @Override
     public String generateNextId() {
         try {
-            session = SessionFactoryConfiguration.getInstance().getSession();
+            session = FactoryConfiguration.getInstance().getSession();
             Query query = session.createQuery("SELECT id FROM Reservation ORDER BY id DESC");
             query.setMaxResults(1);
             String currentId = (String) query.uniqueResult();

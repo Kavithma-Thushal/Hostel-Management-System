@@ -2,14 +2,13 @@ package lk.ijse.gdse66.hostel.dao.custom.impl;
 
 import lk.ijse.gdse66.hostel.dao.custom.StudentDAO;
 import lk.ijse.gdse66.hostel.entity.Student;
-import lk.ijse.gdse66.hostel.util.SessionFactoryConfiguration;
+import lk.ijse.gdse66.hostel.util.FactoryConfiguration;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  * @author : Kavithma Thushal
@@ -23,7 +22,7 @@ public class StudentDAOImpl implements StudentDAO {
     @Override
     public ArrayList<Student> loadAll() {
         try {
-            session = SessionFactoryConfiguration.getInstance().getSession();
+            session = FactoryConfiguration.getInstance().getSession();
 
             Query query = session.createQuery("FROM Student");      //HQL
             //Query query = session.createQuery("SELECT s FROM Student s");     //JPQL
@@ -44,7 +43,7 @@ public class StudentDAOImpl implements StudentDAO {
     @Override
     public boolean save(Student student) {
         try {
-            session = SessionFactoryConfiguration.getInstance().getSession();
+            session = FactoryConfiguration.getInstance().getSession();
             transaction = session.beginTransaction();
             session.save(student);
             transaction.commit();
@@ -65,7 +64,7 @@ public class StudentDAOImpl implements StudentDAO {
     @Override
     public Student search(String id) {
         try {
-            session = SessionFactoryConfiguration.getInstance().getSession();
+            session = FactoryConfiguration.getInstance().getSession();
             return session.get(Student.class, id);
         } catch (Exception e) {
             e.printStackTrace();
@@ -80,7 +79,7 @@ public class StudentDAOImpl implements StudentDAO {
     @Override
     public boolean update(Student student) {
         try {
-            session = SessionFactoryConfiguration.getInstance().getSession();
+            session = FactoryConfiguration.getInstance().getSession();
             transaction = session.beginTransaction();
             session.update(student);
             transaction.commit();
@@ -101,7 +100,7 @@ public class StudentDAOImpl implements StudentDAO {
     @Override
     public boolean delete(String id) {
         try {
-            session = SessionFactoryConfiguration.getInstance().getSession();
+            session = FactoryConfiguration.getInstance().getSession();
             transaction = session.beginTransaction();
             Student student = session.get(Student.class, id);
             session.delete(student);
@@ -123,7 +122,7 @@ public class StudentDAOImpl implements StudentDAO {
     @Override
     public boolean exist(String code) {
         try {
-            session = SessionFactoryConfiguration.getInstance().getSession();
+            session = FactoryConfiguration.getInstance().getSession();
             Query query = session.createQuery("SELECT id FROM Student WHERE id=:code");
             String id = (String) query.setParameter("code", code).uniqueResult();
             if (id != null) {
@@ -144,7 +143,7 @@ public class StudentDAOImpl implements StudentDAO {
     @Override
     public String generateNextId() {
         try {
-            session = SessionFactoryConfiguration.getInstance().getSession();
+            session = FactoryConfiguration.getInstance().getSession();
             Query query = session.createQuery("FROM Student ORDER BY id DESC");
             query.setMaxResults(1);
             List<Student> studentList = query.list();
@@ -169,7 +168,7 @@ public class StudentDAOImpl implements StudentDAO {
     @Override
     public List<String> loadStudentIds() {
         try {
-            session = SessionFactoryConfiguration.getInstance().getSession();
+            session = FactoryConfiguration.getInstance().getSession();
             Query query = session.createQuery("SELECT id FROM Student ORDER BY id ASC");
             List<String> studentIds = (List<String>) query.list();
             return studentIds;

@@ -2,7 +2,7 @@ package lk.ijse.gdse66.hostel.dao.custom.impl;
 
 import lk.ijse.gdse66.hostel.dao.custom.UserDAO;
 import lk.ijse.gdse66.hostel.entity.User;
-import lk.ijse.gdse66.hostel.util.SessionFactoryConfiguration;
+import lk.ijse.gdse66.hostel.util.FactoryConfiguration;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
@@ -22,7 +22,7 @@ public class UserDAOImpl implements UserDAO {
     @Override
     public ArrayList<User> loadAll() {
         try {
-            session = SessionFactoryConfiguration.getInstance().getSession();
+            session = FactoryConfiguration.getInstance().getSession();
             Query query = session.createQuery("FROM User");
             ArrayList<User> userArrayList = (ArrayList<User>) query.list();
             return userArrayList;
@@ -39,7 +39,7 @@ public class UserDAOImpl implements UserDAO {
     @Override
     public boolean save(User user) {
         try {
-            session = SessionFactoryConfiguration.getInstance().getSession();
+            session = FactoryConfiguration.getInstance().getSession();
             transaction = session.beginTransaction();
             session.save(user);
             transaction.commit();
@@ -60,7 +60,7 @@ public class UserDAOImpl implements UserDAO {
     @Override
     public User search(String id) {
         try {
-            session = SessionFactoryConfiguration.getInstance().getSession();
+            session = FactoryConfiguration.getInstance().getSession();
             return session.get(User.class, id);
         } catch (Exception e) {
             e.printStackTrace();
@@ -75,7 +75,7 @@ public class UserDAOImpl implements UserDAO {
     @Override
     public boolean update(User user) {
         try {
-            session = SessionFactoryConfiguration.getInstance().getSession();
+            session = FactoryConfiguration.getInstance().getSession();
             transaction = session.beginTransaction();
             session.update(user);
             transaction.commit();
@@ -96,7 +96,7 @@ public class UserDAOImpl implements UserDAO {
     @Override
     public boolean delete(String id) {
         try {
-            session = SessionFactoryConfiguration.getInstance().getSession();
+            session = FactoryConfiguration.getInstance().getSession();
             transaction = session.beginTransaction();
             User user = session.get(User.class, id);
             session.delete(user);
@@ -118,7 +118,7 @@ public class UserDAOImpl implements UserDAO {
     @Override
     public boolean exist(String code) {
         try {
-            session = SessionFactoryConfiguration.getInstance().getSession();
+            session = FactoryConfiguration.getInstance().getSession();
             Query query = session.createQuery("SELECT id FROM User WHERE id=:code");
             String id = (String) query.setParameter("code", code).uniqueResult();
             if (id != null) {
@@ -139,7 +139,7 @@ public class UserDAOImpl implements UserDAO {
     @Override
     public String generateNextId() {
         try {
-            session = SessionFactoryConfiguration.getInstance().getSession();
+            session = FactoryConfiguration.getInstance().getSession();
             Query query = session.createQuery("FROM User ORDER BY id DESC");
             query.setMaxResults(1);
             List<User> userList = query.list();

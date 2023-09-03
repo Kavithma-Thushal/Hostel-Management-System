@@ -2,7 +2,7 @@ package lk.ijse.gdse66.hostel.dao.custom.impl;
 
 import lk.ijse.gdse66.hostel.dao.custom.RoomDAO;
 import lk.ijse.gdse66.hostel.entity.Room;
-import lk.ijse.gdse66.hostel.util.SessionFactoryConfiguration;
+import lk.ijse.gdse66.hostel.util.FactoryConfiguration;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
@@ -22,7 +22,7 @@ public class RoomDAOImpl implements RoomDAO {
     @Override
     public ArrayList<Room> loadAll() {
         try {
-            session = SessionFactoryConfiguration.getInstance().getSession();
+            session = FactoryConfiguration.getInstance().getSession();
             Query query = session.createQuery("FROM Room");
             ArrayList<Room> roomArrayList = (ArrayList<Room>) query.list();
             return roomArrayList;
@@ -39,7 +39,7 @@ public class RoomDAOImpl implements RoomDAO {
     @Override
     public boolean save(Room room) {
         try {
-            session = SessionFactoryConfiguration.getInstance().getSession();
+            session = FactoryConfiguration.getInstance().getSession();
             transaction = session.beginTransaction();
             session.save(room);
             transaction.commit();
@@ -60,7 +60,7 @@ public class RoomDAOImpl implements RoomDAO {
     @Override
     public Room search(String id) {
         try {
-            session = SessionFactoryConfiguration.getInstance().getSession();
+            session = FactoryConfiguration.getInstance().getSession();
             return session.get(Room.class, id);
         } catch (Exception e) {
             e.printStackTrace();
@@ -75,7 +75,7 @@ public class RoomDAOImpl implements RoomDAO {
     @Override
     public boolean update(Room room) {
         try {
-            session = SessionFactoryConfiguration.getInstance().getSession();
+            session = FactoryConfiguration.getInstance().getSession();
             transaction = session.beginTransaction();
             session.update(room);
             transaction.commit();
@@ -96,7 +96,7 @@ public class RoomDAOImpl implements RoomDAO {
     @Override
     public boolean delete(String id) {
         try {
-            session = SessionFactoryConfiguration.getInstance().getSession();
+            session = FactoryConfiguration.getInstance().getSession();
             transaction = session.beginTransaction();
             Room room = session.get(Room.class, id);
             session.delete(room);
@@ -118,7 +118,7 @@ public class RoomDAOImpl implements RoomDAO {
     @Override
     public boolean exist(String code) {
         try {
-            session = SessionFactoryConfiguration.getInstance().getSession();
+            session = FactoryConfiguration.getInstance().getSession();
             Query query = session.createQuery("SELECT id FROM Room WHERE id=:code");
             String id = (String) query.setParameter("code", code).uniqueResult();
             if (id != null) {
@@ -139,7 +139,7 @@ public class RoomDAOImpl implements RoomDAO {
     @Override
     public String generateNextId() {
         try {
-            session = SessionFactoryConfiguration.getInstance().getSession();
+            session = FactoryConfiguration.getInstance().getSession();
             Query query = session.createQuery("FROM Room ORDER BY id DESC");
             query.setMaxResults(1);
             List<Room> roomList = query.list();
@@ -164,7 +164,7 @@ public class RoomDAOImpl implements RoomDAO {
     @Override
     public List<String> loadRoomIds() {
         try {
-            session = SessionFactoryConfiguration.getInstance().getSession();
+            session = FactoryConfiguration.getInstance().getSession();
             Query query = session.createQuery("SELECT id FROM Room ORDER BY id ASC");
             List<String> roomIds = (List<String>) query.list();
             return roomIds;

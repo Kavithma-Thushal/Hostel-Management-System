@@ -11,7 +11,7 @@ import lk.ijse.gdse66.hostel.dto.StudentDTO;
 import lk.ijse.gdse66.hostel.entity.Reservation;
 import lk.ijse.gdse66.hostel.entity.Room;
 import lk.ijse.gdse66.hostel.entity.Student;
-import lk.ijse.gdse66.hostel.util.SessionFactoryConfiguration;
+import lk.ijse.gdse66.hostel.util.FactoryConfiguration;
 import org.hibernate.Session;
 
 import java.util.ArrayList;
@@ -79,7 +79,7 @@ public class ReserveBOImpl implements ReserveBO {
 
     @Override
     public boolean placeReservation(ReservationDTO reservationDTO) {
-        Session session = SessionFactoryConfiguration.getInstance().getSession();
+        Session session = FactoryConfiguration.getInstance().getSession();
         Student studentId = session.get(Student.class, reservationDTO.getStudentId());
         Room roomId = session.get(Room.class, reservationDTO.getRoomId());
 
