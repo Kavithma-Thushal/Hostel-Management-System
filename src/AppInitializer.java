@@ -2,6 +2,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import lk.ijse.gdse66.hostel.util.FactoryConfiguration;
 import org.hibernate.Session;
 
@@ -23,7 +24,7 @@ public class AppInitializer extends Application {
         primaryStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("lk/ijse/gdse66/hostel/view/login_form.fxml"))));
         primaryStage.setTitle("Login");
         primaryStage.setResizable(false);
-        //primaryStage.initStyle(StageStyle.UNDECORATED);
+        primaryStage.initStyle(StageStyle.UNDECORATED);
         primaryStage.show();
 
         new Thread(() -> {

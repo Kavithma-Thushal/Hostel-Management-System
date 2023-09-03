@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import lk.ijse.gdse66.hostel.util.DateAndTime;
 import lk.ijse.gdse66.hostel.util.Random;
@@ -66,5 +67,10 @@ public class DashboardFormController implements Initializable {
     private void userOnAction(ActionEvent actionEvent) throws IOException {
         UILoader.dashboardUILoader(root, "manage_user_form");
         lblHeader.setText("Manage User");
+    }
+
+    @FXML
+    private void closeOnAction(MouseEvent mouseEvent) {
+        System.exit(0);
     }
 }

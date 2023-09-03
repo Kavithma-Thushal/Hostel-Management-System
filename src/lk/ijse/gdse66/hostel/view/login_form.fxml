@@ -16,7 +16,7 @@
                 <Image url="@assets/images/login.jpg" />
             </image>
         </ImageView>
-        <AnchorPane layoutX="59.0" layoutY="290.0" opacity="0.9" prefHeight="427.0" prefWidth="396.0" style="-fx-background-color: white; -fx-background-radius: 20px;">
+        <AnchorPane layoutX="83.0" layoutY="290.0" prefHeight="427.0" prefWidth="396.0" style="-fx-background-color: white; -fx-background-radius: 20px;">
             <children>
                 <JFXTextField fx:id="txtUserName" focusTraversable="false" layoutX="43.0" layoutY="60.0" prefHeight="31.0" prefWidth="311.0" promptText="User Name" />
                 <JFXPasswordField fx:id="txtPassword" focusTraversable="false" layoutX="43.0" layoutY="149.0" prefHeight="31.0" prefWidth="311.0" promptText="Password" />
@@ -30,12 +30,21 @@
                 <JFXButton buttonType="RAISED" focusTraversable="false" layoutX="43.0" layoutY="332.0" onAction="#createAccountOnAction" prefHeight="31.0" prefWidth="311.0" style="-fx-background-color: lightblue;" text="Create an Account" />
             </children>
         </AnchorPane>
-        <Label focusTraversable="false" layoutX="59.0" layoutY="60.0" prefHeight="41.0" prefWidth="442.0" text="Hostel Management System" textFill="WHITE">
-            <font>
-                <Font name="Arial" size="35.0" />
-            </font>
-        </Label>
-        <ImageView fitHeight="105.0" fitWidth="102.0" layoutX="1302.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+      <AnchorPane prefHeight="50.0" prefWidth="1422.0" style="-fx-background-color: black;">
+         <children>
+              <Label focusTraversable="false" layoutX="522.0" layoutY="5.0" prefHeight="41.0" prefWidth="379.0" text="Hostel Management System" textFill="WHITE">
+                  <font>
+                      <Font name="Arial" size="30.0" />
+                  </font>
+              </Label>
+            <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="1384.0" layoutY="11.0" onMouseClicked="#closeOnAction" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/images/close.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+        <ImageView fitHeight="105.0" fitWidth="102.0" layoutX="1309.0" layoutY="61.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@assets/images/logo.png" />
             </image>

@@ -88,4 +88,9 @@ public class LoginFormController {
         txtUserName.clear();
         txtPassword.clear();
     }
+
+    @FXML
+    private void closeOnAction(MouseEvent mouseEvent) {
+        System.exit(0);
+    }
 }

@@ -14,11 +14,20 @@
                 <Image url="@assets/images/background.jpg" />
             </image>
         </ImageView>
-        <Label focusTraversable="false" layoutX="653.0" layoutY="31.0" text="Admin Dashboard">
-            <font>
-                <Font size="35.0" />
-            </font>
-        </Label>
+      <AnchorPane prefHeight="50.0" prefWidth="1422.0" style="-fx-background-color: black;">
+         <children>
+              <Label focusTraversable="false" layoutX="591.0" layoutY="5.0" text="Admin Dashboard" textFill="WHITE">
+                  <font>
+                      <Font size="30.0" />
+                  </font>
+              </Label>
+            <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="1383.0" layoutY="12.0" onMouseClicked="#closeOnAction" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/images/close.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
         <JFXButton buttonType="RAISED" focusTraversable="false" layoutX="57.0" layoutY="447.0" onAction="#reservationOnAction" prefHeight="31.0" prefWidth="160.0" style="-fx-background-color: lightblue;" text="Reservation" textAlignment="CENTER" />
         <JFXButton buttonType="RAISED" focusTraversable="false" layoutX="57.0" layoutY="330.0" onAction="#roomsOnAction" prefHeight="31.0" prefWidth="160.0" style="-fx-background-color: lightblue;" text="Manage Rooms" textAlignment="CENTER" />
         <JFXButton buttonType="RAISED" focusTraversable="false" layoutX="57.0" layoutY="562.0" onAction="#keyMoneyOnAction" prefHeight="31.0" prefWidth="160.0" style="-fx-background-color: lightblue;" text="Key Money" textAlignment="CENTER" />
@@ -29,12 +38,12 @@
                 <Font size="23.0" />
             </font>
         </Label>
-        <Label fx:id="lblDate" focusTraversable="false" layoutX="91.0" layoutY="41.0" prefHeight="30.0" prefWidth="116.0" text="2012/12/12">
+        <Label fx:id="lblDate" focusTraversable="false" layoutX="91.0" layoutY="74.0" prefHeight="30.0" prefWidth="116.0" text="2012/12/12">
             <font>
                 <Font size="20.0" />
             </font>
         </Label>
-        <Label fx:id="lblTime" focusTraversable="false" layoutX="1292.0" layoutY="42.0" prefHeight="30.0" prefWidth="102.0" text="12:12 PM">
+        <Label fx:id="lblTime" focusTraversable="false" layoutX="1292.0" layoutY="74.0" prefHeight="30.0" prefWidth="102.0" text="12:12 PM">
             <font>
                 <Font size="20.0" />
             </font>
@@ -49,12 +58,12 @@
             <AnchorPane fx:id="random" layoutX="-2.0" layoutY="-10.0" prefHeight="630.0" prefWidth="1120.0" />
             </children>
         </AnchorPane>
-        <Label focusTraversable="false" layoutX="34.0" layoutY="41.0" text="Date : ">
+        <Label focusTraversable="false" layoutX="34.0" layoutY="74.0" text="Date : ">
             <font>
                 <Font size="20.0" />
             </font>
         </Label>
-        <Label focusTraversable="false" layoutX="1233.0" layoutY="41.0" text="Time : ">
+        <Label focusTraversable="false" layoutX="1233.0" layoutY="74.0" text="Time : ">
             <font>
                 <Font size="20.0" />
             </font>
