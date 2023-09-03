@@ -142,15 +142,15 @@ public class ManageRoomsFormController implements Initializable {
         String keyMoney = txtKeyMoney.getText();
         String qty = txtQty.getText();
 
-        /*if (!keyMoney.matches("^([A-Z a-z]{4,40})$")) {
+        if (!keyMoney.matches("^(?!00)[0-9]{2,8}(?:\\.[0-9]{1,2})?$")) {
             new Alert(Alert.AlertType.ERROR, "Invalid Room Key Money").show();
             txtKeyMoney.requestFocus();
             return;
-        } else if (!qty.matches("^(07(0|1|2|4|5|6|7|8)|091)[0-9]{7}$")) {
+        } else if (!qty.matches("^([0-9]{1,3})$")) {
             new Alert(Alert.AlertType.ERROR, "Invalid Room Quantity").show();
             txtQty.requestFocus();
             return;
-        }*/
+        }
 
         if (btnSave.getText().equalsIgnoreCase("Save")) {
             /*Save Room*/

@@ -158,11 +158,11 @@ public class ManageUserFormController implements Initializable {
         String contact = txtContact.getText();
         String password = txtPassword.getText();
 
-        if (!name.matches("^([A-Z a-z]{4,40})$")) {
+        if (!name.matches("^([A-Z a-z 0-9]{4,40})$")) {
             new Alert(Alert.AlertType.ERROR, "Invalid User Name").show();
             txtUserName.requestFocus();
             return;
-        } else if (!address.matches("^([A-Z a-z]{4,40})$")) {
+        } else if (!address.matches("^([A-Z a-z 0-9]{4,40})$")) {
             new Alert(Alert.AlertType.ERROR, "Invalid User Address").show();
             txtAddress.requestFocus();
             return;
@@ -170,7 +170,7 @@ public class ManageUserFormController implements Initializable {
             new Alert(Alert.AlertType.ERROR, "Invalid User Contact").show();
             txtContact.requestFocus();
             return;
-        } else if (!password.matches("^([A-Z a-z 0-9]{4,40})$")) {
+        } else if (!password.matches("^([A-Z a-z 0-9 \\W]{4,40})$")) {
             new Alert(Alert.AlertType.ERROR, "Invalid User Password").show();
             txtPassword.requestFocus();
             return;

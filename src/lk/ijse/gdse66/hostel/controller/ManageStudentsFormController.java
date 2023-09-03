@@ -164,7 +164,7 @@ public class ManageStudentsFormController implements Initializable {
             new Alert(Alert.AlertType.ERROR, "Invalid Student Name").show();
             txtStudentName.requestFocus();
             return;
-        } else if (!address.matches("^([A-Z a-z]{4,40})$")) {
+        } else if (!address.matches("^([A-Z a-z 0-9]{4,40})$")) {
             new Alert(Alert.AlertType.ERROR, "Invalid Student Address").show();
             txtAddress.requestFocus();
             return;
