@@ -4,6 +4,8 @@
 <?import com.jfoenix.controls.JFXPasswordField?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
@@ -19,5 +21,10 @@
         <JFXButton buttonType="RAISED" focusTraversable="false" layoutX="158.0" layoutY="515.0" onAction="#loginOnAction" prefHeight="31.0" prefWidth="142.0" style="-fx-background-color: lightblue;" text="Log In" />
       <JFXButton buttonType="RAISED" focusTraversable="false" layoutX="327.0" layoutY="515.0" onAction="#cancelOnAction" prefHeight="31.0" prefWidth="142.0" style="-fx-background-color: lightblue;" text="Cancel" />
       <JFXButton buttonType="RAISED" focusTraversable="false" layoutX="158.0" layoutY="585.0" onAction="#createAccountOnAction" prefHeight="31.0" prefWidth="311.0" style="-fx-background-color: lightblue;" text="Create an Account" />
+      <ImageView fitHeight="31.0" fitWidth="27.0" layoutX="442.0" layoutY="434.0" onMousePressed="#showPasswordOnAction" onMouseReleased="#hidePasswordOnAction" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@assets/images/Show-Password.png" />
+         </image>
+      </ImageView>
     </children>
 </AnchorPane>

@@ -8,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.gdse66.hostel.bo.BOFactory;
@@ -55,6 +56,18 @@ public class LoginFormController {
     private void cancelOnAction(ActionEvent actionEvent) {
         txtUserName.clear();
         txtPassword.clear();
+    }
+
+    @FXML
+    private void showPasswordOnAction(MouseEvent mouseEvent) {
+        txtPassword.setPromptText(txtPassword.getText());
+        txtPassword.setText("");
+    }
+
+    @FXML
+    private void hidePasswordOnAction(MouseEvent mouseEvent) {
+        txtPassword.setText(txtPassword.getPromptText());
+        txtPassword.setPromptText("");
     }
 
     @FXML
