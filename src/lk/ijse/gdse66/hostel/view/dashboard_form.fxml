@@ -22,7 +22,7 @@
                 <Font size="23.0" />
             </font>
         </Label>
-        <Label fx:id="lblDate" focusTraversable="false" layoutX="115.0" layoutY="41.0" prefHeight="30.0" prefWidth="116.0" text="2012/12/12">
+        <Label fx:id="lblDate" focusTraversable="false" layoutX="87.0" layoutY="41.0" prefHeight="30.0" prefWidth="116.0" text="2012/12/12">
             <font>
                 <Font size="20.0" />
             </font>
@@ -33,7 +33,7 @@
             </font>
         </Label>
         <AnchorPane fx:id="root" layoutX="276.0" layoutY="143.0" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: lightgrey;" />
-        <Label focusTraversable="false" layoutX="58.0" layoutY="41.0" text="Date : ">
+        <Label focusTraversable="false" layoutX="29.0" layoutY="41.0" text="Date : ">
             <font>
                 <Font size="20.0" />
             </font>

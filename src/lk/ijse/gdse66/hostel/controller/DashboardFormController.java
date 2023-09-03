@@ -3,17 +3,21 @@ package lk.ijse.gdse66.hostel.controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
+import lk.ijse.gdse66.hostel.util.DateAndTime;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 /**
  * @author : Kavithma Thushal
  * @project : Hostel-Management-System
  * @since : 11:37 PM - 8/24/2023
  **/
-public class DashboardFormController {
+public class DashboardFormController implements Initializable {
 
     @FXML
     private AnchorPane root;
@@ -23,6 +27,11 @@ public class DashboardFormController {
     private Label lblDate;
     @FXML
     private Label lblTime;
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        DateAndTime.loadDateAndTime(lblDate, lblTime);
+    }
 
     @FXML
     private void studentsOnAction(ActionEvent actionEvent) throws IOException {

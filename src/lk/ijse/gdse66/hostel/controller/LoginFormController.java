@@ -1,5 +1,6 @@
 package lk.ijse.gdse66.hostel.controller;
 
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
@@ -62,5 +63,8 @@ public class LoginFormController {
         stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/lk/ijse/gdse66/hostel/view/create_account_form.fxml"))));
         stage.setTitle("Create Account");
         stage.show();
+
+        txtUserName.clear();
+        txtPassword.clear();
     }
 }

@@ -38,6 +38,15 @@ public class CreateAccountFormController implements Initializable {
         txtUserId.setText(nextId);
     }
 
+    private void clearTextFields() {
+        txtUserId.clear();
+        txtUserName.clear();
+        cmbGender.getSelectionModel().clearSelection();
+        txtAddress.clear();
+        txtContact.clear();
+        txtPassword.clear();
+    }
+
     public void createNewAccountOnAction(ActionEvent actionEvent) {
         String id = txtUserId.getText();
         String name = txtUserName.getText();
@@ -65,6 +74,7 @@ public class CreateAccountFormController implements Initializable {
         }
 
         boolean isSaved = userBO.saveUser(new UserDTO(id, name, gender, address, contact, password));
+        clearTextFields();
         if (isSaved) {
             new Alert(Alert.AlertType.INFORMATION, "Account Created Successfully!").show();
         } else {
