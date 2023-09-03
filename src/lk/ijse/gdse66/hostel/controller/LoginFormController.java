@@ -17,6 +17,7 @@ import javafx.util.Duration;
 import lk.ijse.gdse66.hostel.bo.BOFactory;
 import lk.ijse.gdse66.hostel.bo.custom.UserBO;
 import lk.ijse.gdse66.hostel.dto.UserDTO;
+import lk.ijse.gdse66.hostel.util.Notification;
 import org.controlsfx.control.Notifications;
 
 import java.io.IOException;
@@ -47,15 +48,7 @@ public class LoginFormController {
                 stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/lk/ijse/gdse66/hostel/view/dashboard_form.fxml"))));
                 stage.setTitle("Dashboard");
 
-                Image img = new Image("lk/ijse/gdse66/hostel/view/assets/images/tick.gif", 90, 90, false, false);
-                Notifications notificationBuilder = Notifications.create()
-                        .title("Admin login")
-                        .text("Admin login Successful!")
-                        .graphic(new ImageView(img))
-                        .hideAfter(Duration.seconds(2))
-                        .position(Pos.BOTTOM_RIGHT);
-                notificationBuilder.darkStyle();
-                notificationBuilder.show();
+                Notification.userLogin("tick.gif", "Admin login", "Admin login Successful!", 2);
 
                 validLogin = true;
                 break;
@@ -63,15 +56,7 @@ public class LoginFormController {
         }
 
         if (!validLogin) {
-            Image img = new Image("lk/ijse/gdse66/hostel/view/assets/images/error.gif", 90, 90, false, false);
-            Notifications notificationBuilder = Notifications.create()
-                    .title("Error")
-                    .text("Admin login Unsuccessful!")
-                    .graphic(new ImageView(img))
-                    .hideAfter(Duration.seconds(4))
-                    .position(Pos.BOTTOM_RIGHT);
-            notificationBuilder.darkStyle();
-            notificationBuilder.show();
+            Notification.userLogin("error.gif", "Error", "Admin login Unsuccessful!", 4);
         }
     }
 
