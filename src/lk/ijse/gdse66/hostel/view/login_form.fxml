@@ -9,49 +9,35 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="root" prefHeight="741.0" prefWidth="1317.0" xmlns="http://javafx.com/javafx/8.0.171"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse66.hostel.controller.LoginFormController">
+<AnchorPane fx:id="root" prefHeight="700.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse66.hostel.controller.LoginFormController">
     <children>
-        <ImageView fitHeight="741.0" fitWidth="1317.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="731.0" fitWidth="1300.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@assets/images/login.jpg"/>
+                <Image url="@assets/images/login2.jpg" />
             </image>
         </ImageView>
-        <AnchorPane layoutX="59.0" layoutY="169.0" opacity="0.8" prefHeight="485.0" prefWidth="396.0"
-                    style="-fx-background-color: white; -fx-background-radius: 20px;">
+        <AnchorPane layoutX="59.0" layoutY="169.0" opacity="0.9" prefHeight="485.0" prefWidth="396.0" style="-fx-background-color: white; -fx-background-radius: 20px;">
             <children>
-                <JFXTextField fx:id="txtUserName" focusTraversable="false" layoutX="40.0" layoutY="89.0"
-                              prefHeight="31.0" prefWidth="311.0" promptText="User Name"/>
-                <JFXPasswordField fx:id="txtPassword" focusTraversable="false" layoutX="43.0" layoutY="178.0"
-                                  prefHeight="31.0" prefWidth="311.0" promptText="Password"/>
-                <ImageView fitHeight="31.0" fitWidth="27.0" layoutX="324.0" layoutY="180.0"
-                           onMousePressed="#showPasswordOnAction" onMouseReleased="#hidePasswordOnAction"
-                           pickOnBounds="true" preserveRatio="true">
+                <JFXTextField fx:id="txtUserName" focusTraversable="false" layoutX="40.0" layoutY="89.0" prefHeight="31.0" prefWidth="311.0" promptText="User Name" />
+                <JFXPasswordField fx:id="txtPassword" focusTraversable="false" layoutX="43.0" layoutY="178.0" prefHeight="31.0" prefWidth="311.0" promptText="Password" />
+                <ImageView fitHeight="31.0" fitWidth="27.0" layoutX="324.0" layoutY="180.0" onMousePressed="#showPasswordOnAction" onMouseReleased="#hidePasswordOnAction" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@assets/images/Show-Password.png"/>
+                        <Image url="@assets/images/Show-Password.png" />
                     </image>
                 </ImageView>
-                <JFXButton buttonType="RAISED" focusTraversable="false" layoutX="212.0" layoutY="310.0"
-                           onAction="#cancelOnAction" prefHeight="31.0" prefWidth="142.0"
-                           style="-fx-background-color: lightblue;" text="Cancel"/>
-                <JFXButton buttonType="RAISED" focusTraversable="false" layoutX="43.0" layoutY="310.0"
-                           onAction="#loginOnAction" prefHeight="31.0" prefWidth="142.0"
-                           style="-fx-background-color: lightblue;" text="Log In"/>
-                <JFXButton buttonType="RAISED" focusTraversable="false" layoutX="43.0" layoutY="373.0"
-                           onAction="#createAccountOnAction" prefHeight="31.0" prefWidth="311.0"
-                           style="-fx-background-color: lightblue;" text="Create an Account"/>
+                <JFXButton buttonType="RAISED" focusTraversable="false" layoutX="212.0" layoutY="310.0" onAction="#cancelOnAction" prefHeight="31.0" prefWidth="142.0" style="-fx-background-color: lightblue;" text="Cancel" />
+                <JFXButton buttonType="RAISED" focusTraversable="false" layoutX="43.0" layoutY="310.0" onAction="#loginOnAction" prefHeight="31.0" prefWidth="142.0" style="-fx-background-color: lightblue;" text="Log In" />
+                <JFXButton buttonType="RAISED" focusTraversable="false" layoutX="43.0" layoutY="380.0" onAction="#createAccountOnAction" prefHeight="31.0" prefWidth="311.0" style="-fx-background-color: lightblue;" text="Create an Account" />
             </children>
         </AnchorPane>
-        <Label focusTraversable="false" layoutX="748.0" layoutY="168.0" prefHeight="41.0" prefWidth="442.0"
-               text="Hostel Management System">
+        <Label focusTraversable="false" layoutX="59.0" layoutY="60.0" prefHeight="41.0" prefWidth="442.0" text="Hostel Management System" textFill="WHITE">
             <font>
-                <Font name="Arial" size="35.0"/>
+                <Font name="Arial" size="35.0" />
             </font>
         </Label>
-        <ImageView fitHeight="105.0" fitWidth="102.0" layoutX="1201.0" layoutY="16.0" pickOnBounds="true"
-                   preserveRatio="true">
+        <ImageView fitHeight="105.0" fitWidth="102.0" layoutX="1172.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@assets/images/logo.png"/>
+                <Image url="@assets/images/logo.png" />
             </image>
         </ImageView>
     </children>
