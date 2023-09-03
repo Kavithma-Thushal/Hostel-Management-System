@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -9,7 +10,6 @@
 <AnchorPane prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse66.hostel.controller.ManageRoomsFormController">
     <children>
         <JFXTextField fx:id="txtRoomId" editable="false" focusTraversable="false" layoutX="82.0" layoutY="47.0" promptText="Room ID" />
-        <JFXTextField fx:id="txtRoomType" focusTraversable="false" layoutX="359.0" layoutY="47.0" promptText="Room Type" />
         <JFXTextField fx:id="txtKeyMoney" focusTraversable="false" layoutX="82.0" layoutY="121.0" promptText="Key Money" />
         <JFXTextField fx:id="txtQty" focusTraversable="false" layoutX="359.0" layoutY="121.0" promptText="Quantity" />
         <JFXButton fx:id="btnAddNew" buttonType="RAISED" focusTraversable="false" layoutX="632.0" layoutY="47.0" onAction="#addNewOnAction" prefHeight="31.0" prefWidth="130.0" style="-fx-background-color: lightblue;" text="+ Add New" />
@@ -24,5 +24,6 @@
                 <TableColumn editable="false" prefWidth="242.0" resizable="false" text="Quantity" />
             </columns>
         </TableView>
+      <JFXComboBox fx:id="cmbRoomType" layoutX="359.0" layoutY="47.0" prefHeight="31.0" prefWidth="169.0" promptText="Room Type" />
     </children>
 </AnchorPane>

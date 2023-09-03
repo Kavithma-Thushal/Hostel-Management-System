@@ -1,6 +1,7 @@
 package lk.ijse.gdse66.hostel.controller;
 
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -27,7 +28,7 @@ public class ManageRoomsFormController implements Initializable {
     @FXML
     private JFXTextField txtRoomId;
     @FXML
-    private JFXTextField txtRoomType;
+    private JFXComboBox cmbRoomType;
     @FXML
     private JFXTextField txtKeyMoney;
     @FXML
@@ -46,6 +47,7 @@ public class ManageRoomsFormController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        cmbRoomType.getItems().addAll("AC", "AC/Food", "Non-AC", "Non-AC/Food");
         setCellValue();
         selectTableElements();
         initUI();
@@ -65,7 +67,7 @@ public class ManageRoomsFormController implements Initializable {
 
             if (newValue != null) {
                 txtRoomId.setText(newValue.getId());
-                txtRoomType.setText(newValue.getType());
+                cmbRoomType.setValue(newValue.getType());
                 txtKeyMoney.setText(newValue.getKeyMoney());
                 txtQty.setText(newValue.getQty());
 
@@ -79,21 +81,21 @@ public class ManageRoomsFormController implements Initializable {
 
     private void enableTextFields() {
         txtRoomId.setDisable(false);
-        txtRoomType.setDisable(false);
+        cmbRoomType.setDisable(false);
         txtKeyMoney.setDisable(false);
         txtQty.setDisable(false);
     }
 
     private void disableTextFields() {
         txtRoomId.setDisable(true);
-        txtRoomType.setDisable(true);
+        cmbRoomType.setDisable(true);
         txtKeyMoney.setDisable(true);
         txtQty.setDisable(true);
     }
 
     private void clearTextFields() {
         txtRoomId.clear();
-        txtRoomType.clear();
+        cmbRoomType.getSelectionModel().clearSelection();
         txtKeyMoney.clear();
         txtQty.clear();
     }
@@ -127,7 +129,7 @@ public class ManageRoomsFormController implements Initializable {
         clearTextFields();
         txtSearch.clear();
         enableTextFields();
-        txtRoomType.requestFocus();
+        cmbRoomType.requestFocus();
         btnSave.setDisable(false);
         btnSave.setText(true ? "Save" : "Update");
         generateNextRoomId();
@@ -136,15 +138,11 @@ public class ManageRoomsFormController implements Initializable {
     @FXML
     private void saveOnAction(ActionEvent actionEvent) {
         String id = txtRoomId.getText();
-        String type = txtRoomType.getText();
+        String type = String.valueOf(cmbRoomType.getValue());
         String keyMoney = txtKeyMoney.getText();
         String qty = txtQty.getText();
 
-        /*if (!type.matches("^([A-Z a-z]{4,40})$")) {
-            new Alert(Alert.AlertType.ERROR, "Invalid Room Type").show();
-            txtRoomType.requestFocus();
-            return;
-        } else if (!keyMoney.matches("^([A-Z a-z]{4,40})$")) {
+        /*if (!keyMoney.matches("^([A-Z a-z]{4,40})$")) {
             new Alert(Alert.AlertType.ERROR, "Invalid Room Key Money").show();
             txtKeyMoney.requestFocus();
             return;
