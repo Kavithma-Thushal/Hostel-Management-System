@@ -46,6 +46,7 @@
                         <Image url="@assets/images/home.jpg" />
                     </image>
                 </ImageView>
+            <AnchorPane fx:id="random" layoutX="-2.0" layoutY="-10.0" prefHeight="630.0" prefWidth="1120.0" />
             </children>
         </AnchorPane>
         <Label focusTraversable="false" layoutX="34.0" layoutY="41.0" text="Date : ">
