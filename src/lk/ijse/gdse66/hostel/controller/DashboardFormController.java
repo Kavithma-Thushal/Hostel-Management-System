@@ -7,6 +7,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import lk.ijse.gdse66.hostel.util.DateAndTime;
+import lk.ijse.gdse66.hostel.util.Random;
 
 import java.io.IOException;
 import java.net.URL;
@@ -27,10 +28,12 @@ public class DashboardFormController implements Initializable {
     private Label lblDate;
     @FXML
     private Label lblTime;
+    private Random randomImages;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         DateAndTime.loadDateAndTime(lblDate, lblTime);
+        randomImages = new Random(root);
     }
 
     @FXML
