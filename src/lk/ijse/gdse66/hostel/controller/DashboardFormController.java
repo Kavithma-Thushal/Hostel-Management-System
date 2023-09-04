@@ -7,6 +7,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import lk.ijse.gdse66.hostel.bo.BOFactory;
+import lk.ijse.gdse66.hostel.bo.custom.StudentBO;
 import lk.ijse.gdse66.hostel.util.DateAndTime;
 import lk.ijse.gdse66.hostel.util.Random;
 
@@ -31,12 +33,17 @@ public class DashboardFormController implements Initializable {
     private Label lblDate;
     @FXML
     private Label lblTime;
+    @FXML
+    private Label lblStudentCount;
     private Random randomImages;
+    private final StudentBO studentBO = (StudentBO) BOFactory.getBOFactory().getBO(BOFactory.BOTypes.STUDENT);
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         DateAndTime.loadDateAndTime(lblDate, lblTime);
         randomImages = new Random(random);
+
+        studentCount();
     }
 
     @FXML
@@ -72,6 +79,11 @@ public class DashboardFormController implements Initializable {
         root.getChildren().clear();
         root.getChildren().add(FXMLLoader.load(getClass().getResource("/lk/ijse/gdse66/hostel/view/manage_user_form.fxml")));
         lblHeader.setText("Manage User");
+    }
+
+    private void studentCount() {
+        String count = studentBO.getStudentCount();
+        lblStudentCount.setText(count);
     }
 
     @FXML

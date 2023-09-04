@@ -7,6 +7,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
+import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -172,6 +173,23 @@ public class StudentDAOImpl implements StudentDAO {
             Query query = session.createQuery("SELECT id FROM Student ORDER BY id ASC");
             List<String> studentIds = (List<String>) query.list();
             return studentIds;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        } finally {
+            if (session != null) {
+                session.close();
+            }
+        }
+    }
+
+    @Override
+    public String count() {
+        try {
+            session = FactoryConfiguration.getInstance().getSession();
+            Query<Long> query = session.createQuery("SELECT COUNT(id) FROM Student", Long.class);
+            Long count = query.getSingleResult();
+            return String.valueOf(count);
         } catch (Exception e) {
             e.printStackTrace();
             return null;

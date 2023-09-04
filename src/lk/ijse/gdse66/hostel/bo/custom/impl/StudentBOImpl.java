@@ -58,4 +58,9 @@ public class StudentBOImpl implements StudentBO {
     public String generateNextStudentId() {
         return studentDAO.generateNextId();
     }
+
+    @Override
+    public String getStudentCount() {
+        return studentDAO.count();
+    }
 }

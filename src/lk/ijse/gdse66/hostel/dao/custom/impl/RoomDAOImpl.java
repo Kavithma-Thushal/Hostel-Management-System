@@ -177,4 +177,9 @@ public class RoomDAOImpl implements RoomDAO {
             }
         }
     }
+
+    @Override
+    public String count() {
+        return null;
+    }
 }

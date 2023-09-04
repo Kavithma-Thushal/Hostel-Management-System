@@ -160,4 +160,9 @@ public class UserDAOImpl implements UserDAO {
             }
         }
     }
+
+    @Override
+    public String count() {
+        return null;
+    }
 }

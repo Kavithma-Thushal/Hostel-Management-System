@@ -7,65 +7,86 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="800.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse66.hostel.controller.DashboardFormController">
+<AnchorPane prefHeight="800.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/8.0.171"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="lk.ijse.gdse66.hostel.controller.DashboardFormController">
     <children>
         <ImageView fitHeight="810.0" fitWidth="1422.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@assets/images/background.jpg" />
+                <Image url="@assets/images/background.jpg"/>
             </image>
         </ImageView>
-      <AnchorPane prefHeight="50.0" prefWidth="1422.0" style="-fx-background-color: black;">
-         <children>
-              <Label focusTraversable="false" layoutX="591.0" layoutY="5.0" text="Admin Dashboard" textFill="WHITE">
-                  <font>
-                      <Font size="30.0" />
-                  </font>
-              </Label>
-            <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="1383.0" layoutY="12.0" onMouseClicked="#closeOnAction" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@assets/images/close.png" />
-               </image>
-            </ImageView>
-         </children>
-      </AnchorPane>
-        <JFXButton buttonType="RAISED" focusTraversable="false" layoutX="57.0" layoutY="447.0" onAction="#reservationOnAction" prefHeight="31.0" prefWidth="160.0" style="-fx-background-color: lightblue;" text="Reservation" textAlignment="CENTER" />
-        <JFXButton buttonType="RAISED" focusTraversable="false" layoutX="57.0" layoutY="330.0" onAction="#roomsOnAction" prefHeight="31.0" prefWidth="160.0" style="-fx-background-color: lightblue;" text="Manage Rooms" textAlignment="CENTER" />
-        <JFXButton buttonType="RAISED" focusTraversable="false" layoutX="57.0" layoutY="562.0" onAction="#keyMoneyOnAction" prefHeight="31.0" prefWidth="160.0" style="-fx-background-color: lightblue;" text="Key Money" textAlignment="CENTER" />
-        <JFXButton buttonType="RAISED" focusTraversable="false" layoutX="57.0" layoutY="670.0" onAction="#userOnAction" prefHeight="31.0" prefWidth="160.0" style="-fx-background-color: lightblue;" text="Manage User" textAlignment="CENTER" />
-        <JFXButton buttonType="RAISED" focusTraversable="false" layoutX="57.0" layoutY="216.0" onAction="#studentsOnAction" prefHeight="31.0" prefWidth="160.0" style="-fx-background-color: lightblue;" text="Manage Students" />
+        <AnchorPane prefHeight="50.0" prefWidth="1422.0" style="-fx-background-color: black;">
+            <children>
+                <Label focusTraversable="false" layoutX="591.0" layoutY="5.0" text="Admin Dashboard" textFill="WHITE">
+                    <font>
+                        <Font size="30.0"/>
+                    </font>
+                </Label>
+                <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="1383.0" layoutY="12.0"
+                           onMouseClicked="#closeOnAction" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@assets/images/close.png"/>
+                    </image>
+                </ImageView>
+            </children>
+        </AnchorPane>
+        <JFXButton buttonType="RAISED" focusTraversable="false" layoutX="57.0" layoutY="447.0"
+                   onAction="#reservationOnAction" prefHeight="31.0" prefWidth="160.0"
+                   style="-fx-background-color: lightblue;" text="Reservation" textAlignment="CENTER"/>
+        <JFXButton buttonType="RAISED" focusTraversable="false" layoutX="57.0" layoutY="330.0" onAction="#roomsOnAction"
+                   prefHeight="31.0" prefWidth="160.0" style="-fx-background-color: lightblue;" text="Manage Rooms"
+                   textAlignment="CENTER"/>
+        <JFXButton buttonType="RAISED" focusTraversable="false" layoutX="57.0" layoutY="562.0"
+                   onAction="#keyMoneyOnAction" prefHeight="31.0" prefWidth="160.0"
+                   style="-fx-background-color: lightblue;" text="Key Money" textAlignment="CENTER"/>
+        <JFXButton buttonType="RAISED" focusTraversable="false" layoutX="57.0" layoutY="670.0" onAction="#userOnAction"
+                   prefHeight="31.0" prefWidth="160.0" style="-fx-background-color: lightblue;" text="Manage User"
+                   textAlignment="CENTER"/>
+        <JFXButton buttonType="RAISED" focusTraversable="false" layoutX="57.0" layoutY="216.0"
+                   onAction="#studentsOnAction" prefHeight="31.0" prefWidth="160.0"
+                   style="-fx-background-color: lightblue;" text="Manage Students"/>
         <Label fx:id="lblHeader" layoutX="276.0" layoutY="94.0" prefHeight="36.0" prefWidth="220.0" text="Welcome!">
             <font>
-                <Font size="23.0" />
+                <Font size="23.0"/>
             </font>
         </Label>
-        <Label fx:id="lblDate" focusTraversable="false" layoutX="91.0" layoutY="74.0" prefHeight="30.0" prefWidth="116.0" text="2012/12/12">
+        <Label fx:id="lblDate" focusTraversable="false" layoutX="91.0" layoutY="74.0" prefHeight="30.0"
+               prefWidth="116.0" text="2012/12/12">
             <font>
-                <Font size="20.0" />
+                <Font size="20.0"/>
             </font>
         </Label>
-        <Label fx:id="lblTime" focusTraversable="false" layoutX="1292.0" layoutY="74.0" prefHeight="30.0" prefWidth="102.0" text="12:12 PM">
+        <Label fx:id="lblTime" focusTraversable="false" layoutX="1292.0" layoutY="74.0" prefHeight="30.0"
+               prefWidth="102.0" text="12:12 PM">
             <font>
-                <Font size="20.0" />
+                <Font size="20.0"/>
             </font>
         </Label>
         <AnchorPane fx:id="root" layoutX="276.0" layoutY="152.0" prefHeight="621.0" prefWidth="1118.0">
             <children>
-                <ImageView fitHeight="630.0" fitWidth="1126.0" layoutX="-2.0" layoutY="-9.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fitHeight="630.0" fitWidth="1126.0" layoutX="-2.0" layoutY="-9.0" pickOnBounds="true"
+                           preserveRatio="true">
                     <image>
-                        <Image url="@assets/images/home.jpg" />
+                        <Image url="@assets/images/home.jpg"/>
                     </image>
                 </ImageView>
-            <AnchorPane fx:id="random" layoutX="-2.0" layoutY="-10.0" prefHeight="630.0" prefWidth="1120.0" />
+                <AnchorPane fx:id="random" layoutX="-2.0" layoutY="-10.0" prefHeight="630.0" prefWidth="1120.0"/>
             </children>
         </AnchorPane>
         <Label focusTraversable="false" layoutX="34.0" layoutY="74.0" text="Date : ">
             <font>
-                <Font size="20.0" />
+                <Font size="20.0"/>
             </font>
         </Label>
         <Label focusTraversable="false" layoutX="1233.0" layoutY="74.0" text="Time : ">
             <font>
-                <Font size="20.0" />
+                <Font size="20.0"/>
+            </font>
+        </Label>
+        <Label fx:id="lblStudentCount" focusTraversable="false" layoutX="507.0" layoutY="67.0" text="05">
+            <font>
+                <Font size="30.0"/>
             </font>
         </Label>
     </children>

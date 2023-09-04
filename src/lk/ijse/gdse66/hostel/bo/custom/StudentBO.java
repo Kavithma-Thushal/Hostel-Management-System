@@ -25,4 +25,6 @@ public interface StudentBO extends SuperBO {
     boolean existStudent(String id);
 
     String generateNextStudentId();
+
+    String getStudentCount();
 }

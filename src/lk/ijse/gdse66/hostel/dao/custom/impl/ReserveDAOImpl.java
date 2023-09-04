@@ -124,6 +124,11 @@ public class ReserveDAOImpl implements ReserveDAO {
         }
     }
 
+    @Override
+    public String count() {
+        return null;
+    }
+
     /*@Override
     public String generateNextId() {
         try {

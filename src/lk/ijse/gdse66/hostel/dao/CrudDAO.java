@@ -22,4 +22,6 @@ public interface CrudDAO<Entity> extends SuperDAO {
     boolean exist(String code);
 
     String generateNextId();
+
+    String count();
 }
