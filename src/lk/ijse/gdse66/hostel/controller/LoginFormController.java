@@ -13,6 +13,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javafx.util.Duration;
 import lk.ijse.gdse66.hostel.bo.BOFactory;
 import lk.ijse.gdse66.hostel.bo.custom.UserBO;
@@ -82,7 +83,7 @@ public class LoginFormController {
     private void createAccountOnAction(ActionEvent actionEvent) throws IOException {
         Stage stage = new Stage();
         stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/lk/ijse/gdse66/hostel/view/create_account_form.fxml"))));
-        stage.setTitle("Create Account");
+        stage.initStyle(StageStyle.UNDECORATED);
         stage.show();
 
         txtUserName.clear();

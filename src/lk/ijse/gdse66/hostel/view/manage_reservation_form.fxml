@@ -8,41 +8,25 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171"
-            xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="lk.ijse.gdse66.hostel.controller.ManageReservationFormController">
+<AnchorPane prefHeight="621.0" prefWidth="1118.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse66.hostel.controller.ManageReservationFormController">
     <children>
-        <JFXTextField fx:id="txtStudentName" editable="false" focusTraversable="false" layoutX="416.0" layoutY="135.0"
-                      promptText="Student Name"/>
-        <JFXTextField fx:id="txtContact" editable="false" focusTraversable="false" layoutX="416.0" layoutY="218.0"
-                      promptText="Contact"/>
-        <JFXTextField fx:id="txtAddress" editable="false" focusTraversable="false" layoutX="89.0" layoutY="218.0"
-                      promptText="Address"/>
-        <JFXButton fx:id="btnReserve" buttonType="RAISED" focusTraversable="false" layoutX="746.0" layoutY="494.0"
-                   onAction="#ReserveOnAction" prefHeight="31.0" prefWidth="169.0"
-                   style="-fx-background-color: lightblue;" text="Reserve"/>
-        <JFXTextField fx:id="txtDOB" editable="false" focusTraversable="false" layoutX="746.0" layoutY="218.0"
-                      promptText="Date of Birth"/>
-        <JFXTextField fx:id="txtGender" editable="false" focusTraversable="false" layoutX="746.0" layoutY="135.0"
-                      promptText="Gender"/>
-        <JFXComboBox fx:id="cmbStudentId" focusTraversable="false" layoutX="89.0" layoutY="135.0"
-                     onAction="#cmbStudentIdOnAction" prefHeight="31.0" prefWidth="169.0" promptText="Student ID"/>
-        <JFXComboBox fx:id="cmbRoomId" focusTraversable="false" layoutX="89.0" layoutY="383.0"
-                     onAction="#cmbRoomIdOnAction" prefHeight="31.0" prefWidth="169.0" promptText="Room ID"/>
-        <Separator focusTraversable="false" layoutX="89.0" layoutY="316.0" prefHeight="0.0" prefWidth="823.0"/>
-        <JFXTextField fx:id="txtRoomType" editable="false" focusTraversable="false" layoutX="416.0" layoutY="383.0"
-                      prefHeight="31.0" prefWidth="169.0" promptText="Room Type"/>
-        <JFXTextField fx:id="txtKeyMoney" editable="false" focusTraversable="false" layoutX="746.0" layoutY="383.0"
-                      promptText="Key Money"/>
-        <JFXTextField fx:id="txtQty" editable="false" focusTraversable="false" layoutX="89.0" layoutY="494.0"
-                      promptText="Quantity"/>
-        <Label fx:id="lblResId" focusTraversable="false" layoutX="89.0" layoutY="34.0" prefHeight="36.0"
-               prefWidth="104.0" text="RES001">
+        <JFXTextField fx:id="txtStudentName" editable="false" focusTraversable="false" layoutX="475.0" layoutY="135.0" promptText="Student Name" />
+        <JFXTextField fx:id="txtContact" editable="false" focusTraversable="false" layoutX="475.0" layoutY="241.0" promptText="Contact" />
+        <JFXTextField fx:id="txtAddress" editable="false" focusTraversable="false" layoutX="128.0" layoutY="241.0" promptText="Address" />
+        <JFXButton fx:id="btnReserve" buttonType="RAISED" focusTraversable="false" layoutX="800.0" layoutY="517.0" onAction="#ReserveOnAction" prefHeight="31.0" prefWidth="169.0" style="-fx-background-color: lightblue;" text="Reserve" />
+        <JFXTextField fx:id="txtDOB" editable="false" focusTraversable="false" layoutX="800.0" layoutY="241.0" promptText="Date of Birth" />
+        <JFXTextField fx:id="txtGender" editable="false" focusTraversable="false" layoutX="800.0" layoutY="135.0" promptText="Gender" />
+        <JFXComboBox fx:id="cmbStudentId" focusTraversable="false" layoutX="128.0" layoutY="135.0" onAction="#cmbStudentIdOnAction" prefHeight="31.0" prefWidth="169.0" promptText="Student ID" />
+        <JFXComboBox fx:id="cmbRoomId" focusTraversable="false" layoutX="128.0" layoutY="410.0" onAction="#cmbRoomIdOnAction" prefHeight="31.0" prefWidth="169.0" promptText="Room ID" />
+        <Separator focusTraversable="false" layoutX="98.0" layoutY="339.0" prefHeight="0.0" prefWidth="917.0" />
+        <JFXTextField fx:id="txtRoomType" editable="false" focusTraversable="false" layoutX="475.0" layoutY="410.0" prefHeight="31.0" prefWidth="169.0" promptText="Room Type" />
+        <JFXTextField fx:id="txtKeyMoney" editable="false" focusTraversable="false" layoutX="800.0" layoutY="410.0" promptText="Key Money" />
+        <JFXTextField fx:id="txtQty" editable="false" focusTraversable="false" layoutX="128.0" layoutY="502.0" promptText="Quantity" />
+        <Label fx:id="lblResId" focusTraversable="false" layoutX="47.0" layoutY="44.0" prefHeight="36.0" prefWidth="104.0" text="RES001">
             <font>
-                <Font size="25.0"/>
+                <Font size="25.0" />
             </font>
         </Label>
-        <JFXComboBox fx:id="cmbStatus" focusTraversable="false" layoutX="416.0" layoutY="494.0" prefHeight="31.0"
-                     prefWidth="169.0" promptText="Status"/>
+        <JFXComboBox fx:id="cmbStatus" focusTraversable="false" layoutX="475.0" layoutY="517.0" prefHeight="31.0" prefWidth="169.0" promptText="Status" />
     </children>
 </AnchorPane>

@@ -3,8 +3,12 @@ package lk.ijse.gdse66.hostel.controller;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import lk.ijse.gdse66.hostel.bo.BOFactory;
 import lk.ijse.gdse66.hostel.bo.custom.UserBO;
 import lk.ijse.gdse66.hostel.dto.UserDTO;
@@ -19,6 +23,8 @@ import java.util.ResourceBundle;
  **/
 public class CreateAccountFormController implements Initializable {
 
+    @FXML
+    private AnchorPane root;
     public JFXTextField txtUserId;
     public JFXTextField txtUserName;
     public JFXComboBox cmbGender;
@@ -81,5 +87,11 @@ public class CreateAccountFormController implements Initializable {
         } else {
             new Alert(Alert.AlertType.ERROR, "Please Try Again!").show();
         }
+    }
+
+    @FXML
+    private void closeOnAction(MouseEvent mouseEvent) {
+        Stage stage = (Stage) root.getScene().getWindow();
+        stage.close();
     }
 }
