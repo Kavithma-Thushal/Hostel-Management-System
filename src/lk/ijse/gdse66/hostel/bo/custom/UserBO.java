@@ -25,4 +25,6 @@ public interface UserBO extends SuperBO {
     boolean existUser(String id);
 
     String generateNextUserId();
+
+    String getUserCount();
 }

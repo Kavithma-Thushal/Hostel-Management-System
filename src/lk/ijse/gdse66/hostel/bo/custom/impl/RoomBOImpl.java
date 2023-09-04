@@ -58,4 +58,9 @@ public class RoomBOImpl implements RoomBO {
     public String generateNextRoomId() {
         return roomDAO.generateNextId();
     }
+
+    @Override
+    public String getRoomCount() {
+        return roomDAO.count();
+    }
 }

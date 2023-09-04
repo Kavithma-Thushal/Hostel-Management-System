@@ -58,4 +58,9 @@ public class UserBOImpl implements UserBO {
     public String generateNextUserId() {
         return userDAO.generateNextId();
     }
+
+    @Override
+    public String getUserCount() {
+        return userDAO.count();
+    }
 }

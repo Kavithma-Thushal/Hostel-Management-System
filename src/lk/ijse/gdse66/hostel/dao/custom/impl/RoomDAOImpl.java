@@ -180,6 +180,18 @@ public class RoomDAOImpl implements RoomDAO {
 
     @Override
     public String count() {
-        return null;
+        try {
+            session = FactoryConfiguration.getInstance().getSession();
+            Query<Long> query = session.createQuery("SELECT COUNT(id) FROM Room", Long.class);
+            Long count = query.getSingleResult();
+            return String.valueOf(count);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        } finally {
+            if (session != null) {
+                session.close();
+            }
+        }
     }
 }

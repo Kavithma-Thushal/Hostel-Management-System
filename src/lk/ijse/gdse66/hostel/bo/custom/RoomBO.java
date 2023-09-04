@@ -25,4 +25,6 @@ public interface RoomBO extends SuperBO {
     boolean existRoom(String id);
 
     String generateNextRoomId();
+
+    String getRoomCount();
 }
