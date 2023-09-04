@@ -25,6 +25,7 @@ public class AppInitializer extends Application {
         primaryStage.setTitle("Login");
         primaryStage.setResizable(false);
         primaryStage.initStyle(StageStyle.UNDECORATED);
+
         primaryStage.show();
 
         new Thread(() -> {
