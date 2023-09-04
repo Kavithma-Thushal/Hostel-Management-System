@@ -26,7 +26,6 @@ public class AppInitializer extends Application {
         primaryStage.setResizable(false);
         primaryStage.initStyle(StageStyle.UNDECORATED);
         primaryStage.show();
-
         new Thread(() -> {
             Session session = FactoryConfiguration.getInstance().getSession();
             session.close();
