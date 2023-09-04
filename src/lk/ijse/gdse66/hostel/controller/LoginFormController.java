@@ -5,31 +5,29 @@ import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Pos;
+import javafx.fxml.Initializable;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import javafx.util.Duration;
 import lk.ijse.gdse66.hostel.bo.BOFactory;
 import lk.ijse.gdse66.hostel.bo.custom.UserBO;
 import lk.ijse.gdse66.hostel.dto.UserDTO;
 import lk.ijse.gdse66.hostel.util.Notification;
-import org.controlsfx.control.Notifications;
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
+import java.util.ResourceBundle;
 
 /**
  * @author : Kavithma Thushal
  * @project : Hostel-Management-System
  * @since : 10:41 PM - 8/24/2023
  **/
-public class LoginFormController {
+public class LoginFormController implements Initializable {
 
     @FXML
     private AnchorPane root;
@@ -37,7 +35,20 @@ public class LoginFormController {
     private JFXTextField txtUserName;
     @FXML
     private JFXPasswordField txtPassword;
+    @FXML
+    private JFXTextField txtShowPassword;
+    @FXML
+    private ImageView imgShowPassword;
+    @FXML
+    private ImageView imgHidePassword;
+    private String password;
     private final UserBO userBO = (UserBO) BOFactory.getBOFactory().getBO(BOFactory.BOTypes.USER);
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        txtShowPassword.setVisible(false);
+        imgHidePassword.setVisible(false);
+    }
 
     @FXML
     private void loginOnAction(ActionEvent actionEvent) throws IOException {
@@ -69,14 +80,21 @@ public class LoginFormController {
 
     @FXML
     private void showPasswordOnAction(MouseEvent mouseEvent) {
-        txtPassword.setPromptText(txtPassword.getText());
-        txtPassword.setText("");
+        password = txtPassword.getText();
+        imgShowPassword.setVisible(false);
+        imgHidePassword.setVisible(true);
+        txtPassword.setVisible(false);
+        txtShowPassword.setVisible(true);
+        txtShowPassword.setText(password);
     }
 
     @FXML
     private void hidePasswordOnAction(MouseEvent mouseEvent) {
-        txtPassword.setText(txtPassword.getPromptText());
-        txtPassword.setPromptText("");
+        imgShowPassword.setVisible(true);
+        imgHidePassword.setVisible(false);
+        txtPassword.setVisible(true);
+        txtShowPassword.setVisible(false);
+        txtPassword.setText(password);
     }
 
     @FXML

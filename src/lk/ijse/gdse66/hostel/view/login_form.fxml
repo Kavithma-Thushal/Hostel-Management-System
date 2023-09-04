@@ -9,44 +9,67 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="root" prefHeight="800.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse66.hostel.controller.LoginFormController">
+<AnchorPane fx:id="root" prefHeight="800.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/8.0.171"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse66.hostel.controller.LoginFormController">
     <children>
         <ImageView fitHeight="810.0" fitWidth="1422.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@assets/images/login.jpg" />
+                <Image url="@assets/images/login.jpg"/>
             </image>
         </ImageView>
-        <AnchorPane layoutX="83.0" layoutY="290.0" prefHeight="427.0" prefWidth="396.0" style="-fx-background-color: white; -fx-background-radius: 20px;">
+        <AnchorPane layoutX="83.0" layoutY="290.0" prefHeight="427.0" prefWidth="396.0"
+                    style="-fx-background-color: white; -fx-background-radius: 20px;">
             <children>
-                <JFXTextField fx:id="txtUserName" focusTraversable="false" layoutX="43.0" layoutY="60.0" prefHeight="31.0" prefWidth="311.0" promptText="Username" />
-                <JFXPasswordField fx:id="txtPassword" focusTraversable="false" layoutX="43.0" layoutY="149.0" prefHeight="31.0" prefWidth="311.0" promptText="Password" />
-                <ImageView fitHeight="31.0" fitWidth="27.0" layoutX="318.0" layoutY="151.0" onMousePressed="#showPasswordOnAction" onMouseReleased="#hidePasswordOnAction" pickOnBounds="true" preserveRatio="true">
+                <JFXTextField fx:id="txtUserName" focusTraversable="false" layoutX="43.0" layoutY="60.0"
+                              prefHeight="31.0" prefWidth="311.0" promptText="Username"/>
+                <JFXPasswordField fx:id="txtPassword" focusTraversable="false" layoutX="43.0" layoutY="149.0"
+                                  prefHeight="31.0" prefWidth="311.0" promptText="Password"/>
+                <JFXButton buttonType="RAISED" focusTraversable="false" layoutX="212.0" layoutY="256.0"
+                           onAction="#cancelOnAction" prefHeight="31.0" prefWidth="142.0"
+                           style="-fx-background-color: lightblue;" text="Cancel"/>
+                <JFXButton buttonType="RAISED" focusTraversable="false" layoutX="43.0" layoutY="256.0"
+                           onAction="#loginOnAction" prefHeight="31.0" prefWidth="142.0"
+                           style="-fx-background-color: lightblue;" text="Log In"/>
+                <JFXButton buttonType="RAISED" focusTraversable="false" layoutX="43.0" layoutY="332.0"
+                           onAction="#createAccountOnAction" prefHeight="31.0" prefWidth="311.0"
+                           style="-fx-background-color: lightblue;" text="Create an Account"/>
+                <JFXTextField fx:id="txtShowPassword" focusTraversable="false" layoutX="43.0" layoutY="149.0"
+                              prefHeight="31.0" prefWidth="311.0"/>
+                <ImageView fx:id="imgHidePassword" fitHeight="31.0" fitWidth="27.0" layoutX="327.0" layoutY="151.0"
+                           onMouseClicked="#hidePasswordOnAction" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@assets/images/Show-Password.png" />
+                        <Image url="@assets/images/Hide-Password.png"/>
                     </image>
                 </ImageView>
-                <JFXButton buttonType="RAISED" focusTraversable="false" layoutX="212.0" layoutY="256.0" onAction="#cancelOnAction" prefHeight="31.0" prefWidth="142.0" style="-fx-background-color: lightblue;" text="Cancel" />
-                <JFXButton buttonType="RAISED" focusTraversable="false" layoutX="43.0" layoutY="256.0" onAction="#loginOnAction" prefHeight="31.0" prefWidth="142.0" style="-fx-background-color: lightblue;" text="Log In" />
-                <JFXButton buttonType="RAISED" focusTraversable="false" layoutX="43.0" layoutY="332.0" onAction="#createAccountOnAction" prefHeight="31.0" prefWidth="311.0" style="-fx-background-color: lightblue;" text="Create an Account" />
+                <ImageView fx:id="imgShowPassword" fitHeight="31.0" fitWidth="27.0" layoutX="327.0" layoutY="151.0"
+                           onMouseClicked="#showPasswordOnAction" onMousePressed="#showPasswordOnAction"
+                           onMouseReleased="#hidePasswordOnAction" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@assets/images/Show-Password.png"/>
+                    </image>
+                </ImageView>
             </children>
         </AnchorPane>
-      <AnchorPane prefHeight="50.0" prefWidth="1422.0" style="-fx-background-color: black;">
-         <children>
-              <Label focusTraversable="false" layoutX="522.0" layoutY="5.0" prefHeight="41.0" prefWidth="379.0" text="Hostel Management System" textFill="WHITE">
-                  <font>
-                      <Font name="Arial" size="30.0" />
-                  </font>
-              </Label>
-            <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="1384.0" layoutY="11.0" onMouseClicked="#closeOnAction" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@assets/images/close.png" />
-               </image>
-            </ImageView>
-         </children>
-      </AnchorPane>
-        <ImageView fitHeight="105.0" fitWidth="102.0" layoutX="1309.0" layoutY="61.0" pickOnBounds="true" preserveRatio="true">
+        <AnchorPane prefHeight="50.0" prefWidth="1422.0" style="-fx-background-color: black;">
+            <children>
+                <Label focusTraversable="false" layoutX="522.0" layoutY="5.0" prefHeight="41.0" prefWidth="379.0"
+                       text="Hostel Management System" textFill="WHITE">
+                    <font>
+                        <Font name="Arial" size="30.0"/>
+                    </font>
+                </Label>
+                <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="1384.0" layoutY="11.0"
+                           onMouseClicked="#closeOnAction" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@assets/images/close.png"/>
+                    </image>
+                </ImageView>
+            </children>
+        </AnchorPane>
+        <ImageView fitHeight="105.0" fitWidth="102.0" layoutX="1309.0" layoutY="61.0" pickOnBounds="true"
+                   preserveRatio="true">
             <image>
-                <Image url="@assets/images/logo.png" />
+                <Image url="@assets/images/logo.png"/>
             </image>
         </ImageView>
     </children>
