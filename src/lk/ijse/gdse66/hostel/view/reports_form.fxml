@@ -1,12 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="621.0" prefWidth="1118.0" style="-fx-background-color: lightgrey;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse66.hostel.controller.ReportsFormController">
+<AnchorPane prefHeight="621.0" prefWidth="1118.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse66.hostel.controller.ReportsFormController">
     <children>
-        <AnchorPane layoutX="798.0" layoutY="211.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: orange; -fx-background-radius: 20px;">
+      <ImageView fitHeight="621.0" fitWidth="1159.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@assets/images/reports.jpg" />
+         </image>
+      </ImageView>
+        <AnchorPane layoutX="798.0" layoutY="186.0" opacity="0.8" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: yellow; -fx-background-radius: 20px;">
             <children>
                 <Label fx:id="lblUserCount" focusTraversable="false" layoutX="81.0" layoutY="73.0" text="1">
                     <font>
@@ -15,7 +22,7 @@
                 </Label>
             </children>
         </AnchorPane>
-        <AnchorPane layoutX="468.0" layoutY="211.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: orange; -fx-background-radius: 20px;">
+        <AnchorPane layoutX="468.0" layoutY="186.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: yellow; -fx-background-radius: 20px;">
             <children>
                 <Label fx:id="lblRoomCount" focusTraversable="false" layoutX="88.0" layoutY="79.0" text="1">
                     <font>
@@ -24,7 +31,7 @@
                 </Label>
             </children>
         </AnchorPane>
-        <AnchorPane layoutX="125.0" layoutY="211.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: orange; -fx-background-radius: 20px;">
+        <AnchorPane layoutX="126.0" layoutY="186.0" opacity="0.8" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: yellow; -fx-background-radius: 20px;">
             <children>
                 <Label fx:id="lblStudentCount" focusTraversable="false" layoutX="85.0" layoutY="76.0" text="1">
                     <font>
@@ -33,17 +40,17 @@
                 </Label>
             </children>
         </AnchorPane>
-        <Label layoutX="107.0" layoutY="417.0" text="Total Customers">
+        <Label layoutX="108.0" layoutY="399.0" text="Total Customers" textFill="WHITE">
             <font>
                 <Font name="Arial Bold" size="30.0" />
             </font>
         </Label>
-        <Label layoutX="477.0" layoutY="417.0" text="Total Rooms">
+        <Label layoutX="477.0" layoutY="399.0" text="Total Rooms" textFill="WHITE">
             <font>
                 <Font name="Arial Bold" size="30.0" />
             </font>
         </Label>
-        <Label layoutX="816.0" layoutY="417.0" text="Total Users">
+        <Label layoutX="816.0" layoutY="399.0" text="Total Users" textFill="WHITE">
             <font>
                 <Font name="Arial Bold" size="30.0" />
             </font>
