@@ -22,7 +22,7 @@
                 </Label>
             </children>
         </AnchorPane>
-        <AnchorPane layoutX="468.0" layoutY="186.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: yellow; -fx-background-radius: 20px;">
+        <AnchorPane layoutX="468.0" layoutY="186.0" opacity="0.8" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: yellow; -fx-background-radius: 20px;">
             <children>
                 <Label fx:id="lblRoomCount" focusTraversable="false" layoutX="88.0" layoutY="79.0" text="1">
                     <font>
