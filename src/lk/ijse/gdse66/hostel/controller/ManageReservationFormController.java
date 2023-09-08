@@ -3,6 +3,7 @@ package lk.ijse.gdse66.hostel.controller;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
+import jakarta.mail.MessagingException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -15,6 +16,7 @@ import lk.ijse.gdse66.hostel.bo.custom.ReserveBO;
 import lk.ijse.gdse66.hostel.dto.ReservationDTO;
 import lk.ijse.gdse66.hostel.dto.RoomDTO;
 import lk.ijse.gdse66.hostel.dto.StudentDTO;
+import lk.ijse.gdse66.hostel.util.EmailSend;
 
 import java.net.URL;
 import java.time.LocalDate;
@@ -177,7 +179,7 @@ public class ManageReservationFormController implements Initializable {
     }
 
     @FXML
-    private void ReserveOnAction(ActionEvent actionEvent) {
+    private void ReserveOnAction(ActionEvent actionEvent) throws MessagingException {
         String reservationId = lblResId.getText();
         String studentId = cmbStudentId.getValue();
         String roomId = cmbRoomId.getValue();
@@ -191,6 +193,7 @@ public class ManageReservationFormController implements Initializable {
             initUI();
             if (isPlacedReservation) {
                 new Alert(Alert.AlertType.INFORMATION, "Room Booked Successfully!").show();
+                EmailSend.mail("Room Booked Successfully...!");
             } else {
                 new Alert(Alert.AlertType.ERROR, "Please Fill All TextFields!").show();
             }

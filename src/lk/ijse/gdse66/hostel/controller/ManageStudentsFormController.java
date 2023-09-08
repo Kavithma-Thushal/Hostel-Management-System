@@ -182,8 +182,8 @@ public class ManageStudentsFormController implements Initializable {
             tblStudent.getItems().add(new StudentTM(id, name, gender, address, contact, dob));
             initUI();
             if (isSaved) {
-                EmailSend.mail("Student has been Added...!");
                 new Alert(Alert.AlertType.INFORMATION, "Student Saved Successfully!").show();
+                EmailSend.mail("Student has been Added...!");
             } else {
                 new Alert(Alert.AlertType.ERROR, "Please Try Again!").show();
             }
