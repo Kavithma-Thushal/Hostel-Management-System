@@ -20,5 +20,6 @@
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="library" name="jakarta_jar_files" level="project" />
   </component>
 </module>

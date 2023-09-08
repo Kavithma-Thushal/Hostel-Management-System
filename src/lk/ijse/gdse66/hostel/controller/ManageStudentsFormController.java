@@ -4,6 +4,7 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXTextField;
+import jakarta.mail.MessagingException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -13,6 +14,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import lk.ijse.gdse66.hostel.bo.BOFactory;
 import lk.ijse.gdse66.hostel.bo.custom.StudentBO;
 import lk.ijse.gdse66.hostel.dto.StudentDTO;
+import lk.ijse.gdse66.hostel.util.EmailSend;
 import lk.ijse.gdse66.hostel.view.tm.StudentTM;
 
 import java.net.URL;
@@ -152,7 +154,7 @@ public class ManageStudentsFormController implements Initializable {
     }
 
     @FXML
-    private void saveOnAction(ActionEvent actionEvent) {
+    private void saveOnAction(ActionEvent actionEvent) throws MessagingException {
         String id = txtStudentId.getText();
         String name = txtStudentName.getText();
         String gender = String.valueOf(cmbGender.getValue());
@@ -180,6 +182,7 @@ public class ManageStudentsFormController implements Initializable {
             tblStudent.getItems().add(new StudentTM(id, name, gender, address, contact, dob));
             initUI();
             if (isSaved) {
+                EmailSend.mail("Student has been Added...!");
                 new Alert(Alert.AlertType.INFORMATION, "Student Saved Successfully!").show();
             } else {
                 new Alert(Alert.AlertType.ERROR, "Please Try Again!").show();

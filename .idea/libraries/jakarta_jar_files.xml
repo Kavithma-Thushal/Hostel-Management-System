@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="jakarta_jar_files">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/src/lk/ijse/gdse66/hostel/lib/jakarta_jar_files" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+    <jarDirectory url="file://$PROJECT_DIR$/src/lk/ijse/gdse66/hostel/lib/jakarta_jar_files" recursive="false" />
+  </library>
+</component>
