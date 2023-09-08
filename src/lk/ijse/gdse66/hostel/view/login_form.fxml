@@ -56,5 +56,15 @@
                 <Image url="@assets/images/logo.png" />
             </image>
         </ImageView>
+      <Label layoutX="7.0" layoutY="773.0" text="Version 1.0.0">
+         <font>
+            <Font name="Times New Roman Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="907.0" layoutY="773.0" text="© 2023 All Right Reserved Designed By Kavithma Thushal">
+         <font>
+            <Font name="Times New Roman Bold" size="20.0" />
+         </font>
+      </Label>
     </children>
 </AnchorPane>
