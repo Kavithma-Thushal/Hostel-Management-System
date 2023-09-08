@@ -64,6 +64,63 @@ public class ManageReservationFormController implements Initializable {
         generateNextReservationId();
         loadStudentIds();
         loadRoomIds();
+        initUI();
+    }
+
+    private void initUI() {
+        clearTextFields();
+        disableTextFields();
+        //btnReserve.setDisable(true);
+    }
+
+    private void clearTextFields() {
+        //cmbStudentId.getSelectionModel().clearSelection();
+        txtStudentName.clear();
+        txtGender.clear();
+        txtAddress.clear();
+        txtContact.clear();
+        txtDOB.clear();
+
+        //cmbRoomId.getSelectionModel().clearSelection();
+        txtRoomType.clear();
+        txtKeyMoney.clear();
+        txtQty.clear();
+        cmbStatus.getSelectionModel().clearSelection();
+        txtRoomQty.clear();
+    }
+
+    private void disableTextFields() {
+        //cmbStudentId.setDisable(true);
+        txtStudentName.setDisable(true);
+        txtGender.setDisable(true);
+        txtAddress.setDisable(true);
+        txtContact.setDisable(true);
+        txtDOB.setDisable(true);
+
+        //cmbRoomId.setDisable(true);
+        txtRoomType.setDisable(true);
+        txtKeyMoney.setDisable(true);
+        txtQty.setDisable(true);
+        cmbStatus.setDisable(true);
+        txtRoomQty.setDisable(true);
+    }
+
+    private void enableStudentTextFields() {
+        cmbStudentId.setDisable(false);
+        txtStudentName.setDisable(false);
+        txtGender.setDisable(false);
+        txtAddress.setDisable(false);
+        txtContact.setDisable(false);
+        txtDOB.setDisable(false);
+    }
+
+    private void enableRoomTextFields() {
+        cmbRoomId.setDisable(false);
+        txtRoomType.setDisable(false);
+        txtKeyMoney.setDisable(false);
+        txtQty.setDisable(false);
+        cmbStatus.setDisable(false);
+        txtRoomQty.setDisable(false);
     }
 
     private void generateNextReservationId() {
@@ -102,6 +159,8 @@ public class ManageReservationFormController implements Initializable {
         txtAddress.setText(studentDTO.getAddress());
         txtContact.setText(studentDTO.getContact());
         txtDOB.setText(studentDTO.getDob());
+
+        enableStudentTextFields();
     }
 
     @FXML
@@ -113,6 +172,8 @@ public class ManageReservationFormController implements Initializable {
         txtRoomType.setText(roomDTO.getType());
         txtKeyMoney.setText(roomDTO.getKeyMoney());
         txtQty.setText(roomDTO.getQty());
+
+        enableRoomTextFields();
     }
 
     @FXML
@@ -124,11 +185,15 @@ public class ManageReservationFormController implements Initializable {
         String status = String.valueOf(cmbStatus.getValue());
         String roomQty = txtRoomQty.getText();
 
-        boolean isPlacedReservation = reserveBO.placeReservation(new ReservationDTO(reservationId, studentId, roomId, date, status, roomQty));
-        if (isPlacedReservation) {
-            new Alert(Alert.AlertType.INFORMATION, "Room Booked Successfully!").show();
-        } else {
-            new Alert(Alert.AlertType.ERROR, "Please Try Again!").show();
+        if (cmbStudentId.getValue() != null && cmbRoomId.getValue() != null && cmbStatus.getValue() != null && txtRoomQty != null) {
+            boolean isPlacedReservation = reserveBO.placeReservation(new ReservationDTO(reservationId, studentId, roomId, date, status, roomQty));
+            generateNextReservationId();
+            initUI();
+            if (isPlacedReservation) {
+                new Alert(Alert.AlertType.INFORMATION, "Room Booked Successfully!").show();
+            } else {
+                new Alert(Alert.AlertType.ERROR, "Please Fill All TextFields!").show();
+            }
         }
     }
 }
