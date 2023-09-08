@@ -13,6 +13,7 @@ import lk.ijse.gdse66.hostel.entity.Room;
 import lk.ijse.gdse66.hostel.entity.Student;
 import lk.ijse.gdse66.hostel.util.FactoryConfiguration;
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,7 +38,7 @@ public class ReserveBOImpl implements ReserveBO {
         ArrayList<Reservation> reservationArrayList = reserveDAO.loadAll();
         ArrayList<ReservationDTO> reservationDTOArrayList = new ArrayList<>();
         for (Reservation reservation : reservationArrayList) {
-            reservationDTOArrayList.add(new ReservationDTO(reservation.getReserveId(), reservation.getStudentId().getId(), reservation.getRoomId().getId(), reservation.getDate(), reservation.getStatus()));
+            reservationDTOArrayList.add(new ReservationDTO(reservation.getReserveId(), reservation.getStudentId().getId(), reservation.getRoomId().getId(), reservation.getDate(), reservation.getStatus(), reservation.getRoomQty()));
         }
         return reservationDTOArrayList;
     }
@@ -51,7 +52,7 @@ public class ReserveBOImpl implements ReserveBO {
     public ArrayList<ReservationDTO> searchReservation(String id) {
         Reservation reservation = reserveDAO.search(id);
         ArrayList<ReservationDTO> reservationDTOArrayList = new ArrayList<>();
-        reservationDTOArrayList.add(new ReservationDTO(reservation.getReserveId(), reservation.getStudentId().getId(), reservation.getRoomId().getId(), reservation.getDate(), reservation.getStatus()));
+        reservationDTOArrayList.add(new ReservationDTO(reservation.getReserveId(), reservation.getStudentId().getId(), reservation.getRoomId().getId(), reservation.getDate(), reservation.getStatus(), reservation.getRoomQty()));
         return reservationDTOArrayList;
     }
 
@@ -80,9 +81,19 @@ public class ReserveBOImpl implements ReserveBO {
     @Override
     public boolean placeReservation(ReservationDTO reservationDTO) {
         Session session = FactoryConfiguration.getInstance().getSession();
-        Student studentId = session.get(Student.class, reservationDTO.getStudentId());
-        Room roomId = session.get(Room.class, reservationDTO.getRoomId());
+        Transaction transaction = session.beginTransaction();
 
-        return reserveDAO.save(new Reservation(reservationDTO.getReserveId(), studentId, roomId, reservationDTO.getDate(), reservationDTO.getStatus()));
+        Student studentId = session.get(Student.class, reservationDTO.getStudentId());
+        Room room = session.get(Room.class, reservationDTO.getRoomId());
+
+        boolean isSaved = reserveDAO.save(new Reservation(reservationDTO.getReserveId(), studentId, room, reservationDTO.getDate(), reservationDTO.getStatus(), reservationDTO.getRoomQty()));
+        if (isSaved) {
+            room.setQty(room.getQty() - Integer.parseInt(reservationDTO.getRoomQty()));
+            session.update(room);
+            transaction.commit();
+            return true;
+        }
+        transaction.rollback();
+        return false;
     }
 }

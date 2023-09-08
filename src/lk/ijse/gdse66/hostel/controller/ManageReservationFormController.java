@@ -53,6 +53,8 @@ public class ManageReservationFormController implements Initializable {
     @FXML
     private JFXComboBox cmbStatus;
     @FXML
+    private JFXTextField txtRoomQty;
+    @FXML
     private JFXButton btnReserve;
     private final ReserveBO reserveBO = (ReserveBO) BOFactory.getBOFactory().getBO(BOFactory.BOTypes.RESERVE);
 
@@ -120,8 +122,9 @@ public class ManageReservationFormController implements Initializable {
         String roomId = cmbRoomId.getValue();
         String date = String.valueOf(LocalDate.now());
         String status = String.valueOf(cmbStatus.getValue());
+        String roomQty = txtRoomQty.getText();
 
-        boolean isPlacedReservation = reserveBO.placeReservation(new ReservationDTO(reservationId, studentId, roomId, date, status));
+        boolean isPlacedReservation = reserveBO.placeReservation(new ReservationDTO(reservationId, studentId, roomId, date, status, roomQty));
         if (isPlacedReservation) {
             new Alert(Alert.AlertType.INFORMATION, "Room Booked Successfully!").show();
         } else {

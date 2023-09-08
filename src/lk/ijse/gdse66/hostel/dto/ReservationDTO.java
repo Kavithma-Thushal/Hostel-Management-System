@@ -4,8 +4,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDate;
-
 /**
  * @author : Kavithma Thushal
  * @project : Hostel-Management-System
@@ -20,4 +18,5 @@ public class ReservationDTO {
     private String roomId;
     private String date;
     private String status;
+    private String roomQty;
 }

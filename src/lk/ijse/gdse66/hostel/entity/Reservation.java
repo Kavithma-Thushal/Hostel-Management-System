@@ -33,4 +33,5 @@ public class Reservation {
 
     private String date;
     private String status;
+    private String roomQty;
 }
