@@ -13,13 +13,17 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import lk.ijse.gdse66.hostel.bo.BOFactory;
 import lk.ijse.gdse66.hostel.bo.custom.ReserveBO;
+import lk.ijse.gdse66.hostel.dto.CustomDTO;
 import lk.ijse.gdse66.hostel.dto.ReservationDTO;
 import lk.ijse.gdse66.hostel.dto.RoomDTO;
 import lk.ijse.gdse66.hostel.dto.StudentDTO;
 import lk.ijse.gdse66.hostel.util.EmailSend;
+import lk.ijse.gdse66.hostel.view.tm.CustomTM;
+import lk.ijse.gdse66.hostel.view.tm.ReservationTM;
 
 import java.net.URL;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -64,6 +68,7 @@ public class ManageReservationFormController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         cmbStatus.getItems().addAll("Paid", "Non-Paid");
         generateNextReservationId();
+        //loadAllReservations();
         loadStudentIds();
         loadRoomIds();
         initUI();
@@ -130,6 +135,13 @@ public class ManageReservationFormController implements Initializable {
         lblResId.setText(nextId);
     }
 
+    private void loadAllReservations() {
+        ArrayList<CustomDTO> customDTOArrayList = reserveBO.getAllReservations();
+        for (CustomDTO c : customDTOArrayList) {
+            System.out.println("ABC : " + new CustomTM(c.getResId(), c.getDate(), c.getStatus(), c.getRoomQty(), c.getName(), c.getType(), c.getKeyMoney(), c.getQty()));
+        }
+    }
+
     private void loadStudentIds() {
         ObservableList<String> observableList = FXCollections.observableArrayList();
         List<String> studentIds = reserveBO.loadStudentIds();
@@ -140,7 +152,8 @@ public class ManageReservationFormController implements Initializable {
         cmbStudentId.setItems(observableList);
     }
 
-    private void loadRoomIds() {
+    private void
+    loadRoomIds() {
         ObservableList<String> observableList = FXCollections.observableArrayList();
         List<String> roomIds = reserveBO.loadRoomIds();
 

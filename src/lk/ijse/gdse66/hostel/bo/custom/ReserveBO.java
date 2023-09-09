@@ -1,6 +1,7 @@
 package lk.ijse.gdse66.hostel.bo.custom;
 
 import lk.ijse.gdse66.hostel.bo.SuperBO;
+import lk.ijse.gdse66.hostel.dto.CustomDTO;
 import lk.ijse.gdse66.hostel.dto.ReservationDTO;
 import lk.ijse.gdse66.hostel.dto.RoomDTO;
 import lk.ijse.gdse66.hostel.dto.StudentDTO;
@@ -18,6 +19,8 @@ public interface ReserveBO extends SuperBO {
     String generateNextReservationId();
 
     ArrayList<ReservationDTO> loadAllReservations();
+
+    ArrayList<CustomDTO> getAllReservations();
 
     boolean existReservation(String id);
 

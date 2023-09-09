@@ -45,8 +45,8 @@ public class ManageKeymoneyFormController implements Initializable {
 
     private void loadAllReservations() {
         ArrayList<ReservationDTO> reservationDTOArrayList = reserveBO.loadAllReservations();
-        for (ReservationDTO reservationDTO : reservationDTOArrayList) {
-            tblReservation.getItems().add(new ReservationTM(reservationDTO.getReserveId(), reservationDTO.getStudentId(), reservationDTO.getRoomId(), reservationDTO.getDate(), reservationDTO.getStatus()));
+        for (ReservationDTO r : reservationDTOArrayList) {
+            tblReservation.getItems().add(new ReservationTM(r.getReserveId(), r.getStudentId(), r.getRoomId(), r.getDate(), r.getStatus()));
         }
     }
 
