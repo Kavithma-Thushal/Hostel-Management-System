@@ -20,4 +20,5 @@ public class ReservationTM {
     private String roomId;
     private String date;
     private String status;
+    private String roomQty;
 }

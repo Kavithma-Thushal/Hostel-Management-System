@@ -41,12 +41,13 @@ public class ManageKeymoneyFormController implements Initializable {
         tblReservation.getColumns().get(2).setCellValueFactory(new PropertyValueFactory<>("roomId"));
         tblReservation.getColumns().get(3).setCellValueFactory(new PropertyValueFactory<>("date"));
         tblReservation.getColumns().get(4).setCellValueFactory(new PropertyValueFactory<>("status"));
+        tblReservation.getColumns().get(5).setCellValueFactory(new PropertyValueFactory<>("roomQty"));
     }
 
     private void loadAllReservations() {
         ArrayList<ReservationDTO> reservationDTOArrayList = reserveBO.loadAllReservations();
         for (ReservationDTO r : reservationDTOArrayList) {
-            tblReservation.getItems().add(new ReservationTM(r.getReserveId(), r.getStudentId(), r.getRoomId(), r.getDate(), r.getStatus()));
+            tblReservation.getItems().add(new ReservationTM(r.getReserveId(), r.getStudentId(), r.getRoomId(), r.getDate(), r.getStatus(),r.getRoomQty()));
         }
     }
 
@@ -61,7 +62,7 @@ public class ManageKeymoneyFormController implements Initializable {
             ArrayList<ReservationDTO> reservationDTOArrayList = reserveBO.searchReservation(txtSearch.getText());
             if (reservationDTOArrayList != null) {
                 for (ReservationDTO reservationDTO : reservationDTOArrayList) {
-                    tblReservation.getItems().add(new ReservationTM(reservationDTO.getReserveId(), reservationDTO.getStudentId(), reservationDTO.getRoomId(), reservationDTO.getDate(), reservationDTO.getStatus()));
+                    tblReservation.getItems().add(new ReservationTM(reservationDTO.getReserveId(), reservationDTO.getStudentId(), reservationDTO.getRoomId(), reservationDTO.getDate(), reservationDTO.getStatus(),reservationDTO.getRoomQty()));
                 }
             } else {
                 new Alert(Alert.AlertType.ERROR, "Please Try Again!").show();

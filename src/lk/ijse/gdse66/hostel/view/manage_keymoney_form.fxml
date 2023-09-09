@@ -10,11 +10,12 @@
         <JFXTextField fx:id="txtSearch" focusTraversable="false" layoutX="906.0" layoutY="40.0" onAction="#searchOnAction" promptText="Serach Here" />
         <TableView fx:id="tblReservation" focusTraversable="false" layoutX="43.0" layoutY="119.0" prefHeight="468.0" prefWidth="1032.0">
             <columns>
-                <TableColumn editable="false" prefWidth="206.0" resizable="false" text="Reserve ID" />
-                <TableColumn editable="false" prefWidth="206.0" resizable="false" text="Student ID" />
-                <TableColumn editable="false" prefWidth="206.0" resizable="false" text="Room ID" />
-                <TableColumn editable="false" prefWidth="206.0" resizable="false" text="Date" />
-                <TableColumn editable="false" prefWidth="206.0" resizable="false" text="Status" />
+                <TableColumn editable="false" prefWidth="172.0" resizable="false" text="Reserve ID" />
+                <TableColumn editable="false" prefWidth="172.0" resizable="false" text="Student ID" />
+                <TableColumn editable="false" prefWidth="172.0" resizable="false" text="Room ID" />
+                <TableColumn editable="false" prefWidth="172.0" resizable="false" text="Date" />
+                <TableColumn editable="false" prefWidth="172.0" resizable="false" text="Status" />
+            <TableColumn editable="false" prefWidth="170.0" resizable="false" text="Room Quantity" />
             </columns>
         </TableView>
     </children>
