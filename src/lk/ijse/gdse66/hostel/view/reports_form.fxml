@@ -40,7 +40,7 @@
                 </Label>
             </children>
         </AnchorPane>
-        <Label layoutX="108.0" layoutY="399.0" text="Total Customers" textFill="WHITE">
+        <Label layoutX="122.0" layoutY="399.0" text="Total Students" textFill="WHITE">
             <font>
                 <Font name="Arial Bold" size="30.0" />
             </font>
