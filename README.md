@@ -1,18 +1,18 @@
 # ✌️Hostel-Management-System
-Hostel-Management-System using java 8, javafx &amp; hibernate in Layered-Architecture (ORM Coursework)
+Hostel-Management-System using Hibernate in Layered-Architecture (ORM Coursework)
 
 Technology :-<br/>
-✅Java 8, JavaFx, Hibernate, CSS<br/>
+✅Java 8, JavaFx<br/>
 ✅OOP Concepts<br/>
-✅Hibernate<br/>
+✅Hibernate Framework<br/>
+✅Regex, HQL<br/>
+✅Singleton, Facade, Strategy Design Patterns<br/>
 ✅Layered Architecture<br/>
-✅Singleton Design Pattern<br/>
-✅Regex<br/>
 
 Functions :-<br/>
 ✅Admin can log into the System<br/>
-✅Admin can Manage Students, Rooms and Book a room for students<br/>
-✅Admin can change his/her username, passwork and personal details also
+✅Admin can Manage Students, Rooms and Books room for students<br/>
+✅Admin can change his/her username, password and personal details also
 
 ### How to use
 * Clone this repo https://github.com/Thushal2001/Hostel-Management-System.git
@@ -26,7 +26,7 @@ Functions :-<br/>
 ⭐© 2023 All Right Reserved Designed By Kavithma Thushal<br/>
 This project is licensed under the [MIT](LICENSE) license.
 
-⭐If you hava any bugs or issues ,If you want to explain code pleace contact me on :<br/> 
+⭐If you hava any bugs or issues ,If you want to explain code please contact me on :<br/> 
 [kavithmathushal9007@gmail.com](https://www.kavithmathushal9007@gmail.com)
 
 <p align="left">
@@ -38,3 +38,4 @@ This project is licensed under the [MIT](LICENSE) license.
 <a href="https://gitlab.com/kavithmathushal9007" target="_blank"><img align="center" src="https://github.com/Thushal2001/Thushal2001/blob/main/GitHub%20Images/new/gitlab.png" alt="kavithma thushal" width="38" /></a>
 </p><br/>
 
+![Screenshot 2023-07-02 215542](https://github.com/Thushal2001/Bashicomputershop-1st_Sem_Final/assets/125787087/9ee161a9-95ea-4375-a851-f6fbd8e30e55)
