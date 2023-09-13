@@ -41,3 +41,12 @@ This project is licensed under the [MIT](LICENSE) license.
 <a href="https://www.sololearn.com/profile/27533547" target="blank"><img align="center" src="https://github.com/Thushal2001/Thushal2001/blob/main/GitHub%20Images/new/sololearn.webp" alt="kavithma thushal" width="40" /></a>
 <a href="https://gitlab.com/kavithmathushal9007" target="_blank"><img align="center" src="https://github.com/Thushal2001/Thushal2001/blob/main/GitHub%20Images/new/gitlab.png" alt="kavithma thushal" width="38" /></a>
 </p><br/>
+
+![1](https://github.com/Thushal2001/Hostel-Management-System/assets/125787087/fec7856f-0aaa-4830-87be-eefa28ba0c26)
+![2](https://github.com/Thushal2001/Hostel-Management-System/assets/125787087/cc455209-fcec-47c0-bf7b-c8029122a84c)
+![3](https://github.com/Thushal2001/Hostel-Management-System/assets/125787087/c31413b2-dd14-4a32-9223-2f82d8f10825)
+![4](https://github.com/Thushal2001/Hostel-Management-System/assets/125787087/da4dacb2-e4dd-4116-9fe8-0432b042a986)
+![5](https://github.com/Thushal2001/Hostel-Management-System/assets/125787087/02fda4c2-1939-4681-b5ac-14950048e9e1)
+![6](https://github.com/Thushal2001/Hostel-Management-System/assets/125787087/7599696c-d392-4bf8-9519-2f779493f7be)
+![7](https://github.com/Thushal2001/Hostel-Management-System/assets/125787087/65832d18-37df-47d5-bb9b-d52e0668116f)
+![8](https://github.com/Thushal2001/Hostel-Management-System/assets/125787087/cf4453da-0f6c-4dfc-a15a-4c3aba702d47)
